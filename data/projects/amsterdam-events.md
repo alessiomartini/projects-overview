@@ -1,0 +1,15 @@
+---
+title: "Amsterdam Events"
+status: in-corso
+summary: "Raccoglie gli eventi di Amsterdam (jazz, classica, concerti, musei gratis, manifestazioni, club…) da vari siti in un unico sito filtrabile."
+tags: [web, amsterdam, scraping]
+repo: alessiomartini/amsterdam-events
+started: 2026-08-31
+---
+
+Gli eventi vengono aggiornati automaticamente con uno scraping periodico.
+
+- [x] Aggregazione da più fonti e sito statico filtrabile
+- [x] Aggiornamento automatico degli eventi
+- [ ] Sistemare `npm run build` su Windows
+- [ ] Decidere sul feedback centralizzato tra i siti

@@ -8,8 +8,3 @@ started: 2026-08-31
 ---
 
 Gli eventi vengono aggiornati automaticamente con uno scraping periodico.
-
-- [x] Aggregazione da più fonti e sito statico filtrabile
-- [x] Aggiornamento automatico degli eventi
-- [ ] Sistemare `npm run build` su Windows
-- [ ] Decidere sul feedback centralizzato tra i siti

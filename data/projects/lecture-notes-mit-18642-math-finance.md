@@ -8,13 +8,3 @@ started: 2026-09-28
 ---
 
 Appunti in LaTeX, scritti con Claude mentre leggo il PDF; le mie `\note{}` diventano richieste o box di risposta.
-
-## Pilota (capitolo 4)
-- [x] Pilota sul capitolo 4: box RECALL, esercizi lunghi in appendice
-- [ ] Rivedere il pilota ed estenderlo agli altri capitoli (Try first, Key concepts, Labs, note inline)
-
-## HTML di studio
-- [ ] Coprire i casi mancanti: itemize dentro `answer`, tabelle, `\texorpdfstring`
-
-## Idee
-- [ ] Più figure come nelle slide (TikZ/pgfplots)

@@ -8,10 +8,3 @@ started: 2026-09-10
 ---
 
 In fase di test su workers.dev.
-
-- [x] Pipeline dei dati, mappa MapLibre con filtri, pagine dei rifugi, it/en
-- [ ] Dataset completo (oggi c'è un campione di test)
-- [ ] Dominio di produzione
-- [ ] Funzione "chi c'è stato"
-- [ ] Widget per note/feedback
-- [ ] Dati della pagina di attribuzione

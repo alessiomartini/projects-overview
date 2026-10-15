@@ -1,6 +1,6 @@
 ---
 title: "Archivio – Programmazione alle superiori"
-status: in-corso
+status: finito
 kind: school
 summary: "Appunti dei corsi di programmazione delle superiori."
 tags: [archivio]

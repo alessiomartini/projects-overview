@@ -1,6 +1,6 @@
 ---
 title: "BSc – Laboratorio di Fisica I"
-status: in-corso
+status: finito
 kind: school
 summary: "Esperimenti, dati e relazioni del Laboratorio di Fisica I (Milano-Bicocca, 2020/21)."
 tags: [fisica, università]

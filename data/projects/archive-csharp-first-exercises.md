@@ -1,6 +1,6 @@
 ---
 title: "Archivio – Primi esercizi in C#"
-status: in-corso
+status: finito
 kind: school
 summary: "I primi esercizi di programmazione in C#."
 tags: [archivio]

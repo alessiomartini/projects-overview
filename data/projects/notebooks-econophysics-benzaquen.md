@@ -1,6 +1,6 @@
 ---
 title: "Notebook di econofisica (Benzaquen)"
-status: finito
+status: in-corso
 kind: self-study
 summary: "Soluzioni degli esercizi di Modelling Financial Markets: an Introduction to Econophysics."
 tags: [studio, finanza, fisica]

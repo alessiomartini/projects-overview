@@ -1,6 +1,6 @@
 ---
 title: "Appunti – Data-Driven Dynamical Systems (Brunton)"
-status: finito
+status: in-corso
 kind: self-study
 summary: "Appunti LaTeX della playlist di Steve Brunton sui sistemi dinamici con machine learning."
 tags: [appunti, fisica, latex]

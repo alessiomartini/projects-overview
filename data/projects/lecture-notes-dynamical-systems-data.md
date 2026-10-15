@@ -7,8 +7,3 @@ repo: alessiomartini/lecture-notes-dynamical-systems-data
 started: 2026-10-06
 finished: 2026-10-07
 ---
-
-- [x] Trascrizioni dei 24 video
-- [x] Tutti gli 8 capitoli scritti e controllati
-- [ ] Leggere le mie annotazioni `\note{}`
-- [ ] (Idea) Figure dalle demo Python e appendice video → capitolo

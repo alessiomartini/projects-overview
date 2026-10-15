@@ -8,8 +8,3 @@ started: 2026-08-27
 ---
 
 Il repo resta per le cose che Anki non copre.
-
-## Limiti noti
-- [ ] Sync bidirezionale (oggi solo cloud → telefono)
-- [ ] Proxy Worker davanti all'API D1
-- [ ] Audio della pronuncia

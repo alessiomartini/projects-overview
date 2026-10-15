@@ -1,6 +1,7 @@
 ---
 title: "Projects Overview"
 status: in-corso
+kind: web
 summary: "Questo sito: una panoramica di tutti i miei progetti, con avanzamento automatico dai repo."
 tags: [web, astro]
 repo: alessiomartini/projects-overview

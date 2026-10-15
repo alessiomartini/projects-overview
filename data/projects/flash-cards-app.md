@@ -1,6 +1,7 @@
 ---
 title: "EngVocab – flash cards"
-status: in-pausa
+status: finito
+kind: android
 summary: "App di flash card per il vocabolario inglese. In pausa: per l'uso quotidiano il vocabolario è stato esportato su Anki."
 tags: [app, android, lingue]
 repo: alessiomartini/flash-cards-app

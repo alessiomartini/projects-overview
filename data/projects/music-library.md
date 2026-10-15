@@ -1,6 +1,7 @@
 ---
 title: "Music Library"
 status: in-corso
+kind: web
 summary: "Libreria personale di canzoni: metadati, spartiti normalizzati (melodia, testo, armonia) e link ad accordi."
 tags: [web, musica]
 repo: alessiomartini/music-library

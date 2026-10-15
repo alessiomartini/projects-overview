@@ -18,10 +18,16 @@
   --s-in-pausa: #c77700;
   --s-finito: #2b8a3e;
   --s-abbandonato: #737b85;
+
+  --k-web: #1971c2;
+  --k-ricerca: #e03131;
+  --k-self-study: #2f9e44;
+  --k-android: #e8590c;
+  --k-school: #7048e8;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --bg: #0f1216;
     --surface: #171b21;
     --surface-2: #1f242c;
@@ -39,7 +45,62 @@
     --s-in-pausa: #f0a940;
     --s-finito: #69db7c;
     --s-abbandonato: #98a1ad;
+
+    --k-web: #4dabf7;
+    --k-ricerca: #ff8787;
+    --k-self-study: #69db7c;
+    --k-android: #ffa94d;
+    --k-school: #b197fc;
   }
+}
+
+:root[data-theme='dark'] {
+  --bg: #0f1216;
+  --surface: #171b21;
+  --surface-2: #1f242c;
+  --border: #2b313a;
+  --text: #e6e9ee;
+  --muted: #98a1ad;
+  --accent: #7d97ff;
+  --accent-soft: #222c4a;
+  --danger: #ff8787;
+  --ok: #69db7c;
+  --shadow: none;
+
+  --s-in-corso: #7d97ff;
+  --s-idea: #b78cf2;
+  --s-in-pausa: #f0a940;
+  --s-finito: #69db7c;
+  --s-abbandonato: #98a1ad;
+  --k-web: #4dabf7;
+  --k-ricerca: #ff8787;
+  --k-self-study: #69db7c;
+  --k-android: #ffa94d;
+  --k-school: #b197fc;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+/* Colori per tipo di progetto */
+[data-kind='web'] { --k: var(--k-web); }
+[data-kind='ricerca'] { --k: var(--k-ricerca); }
+[data-kind='self-study'] { --k: var(--k-self-study); }
+[data-kind='android'] { --k: var(--k-android); }
+[data-kind='school'] { --k: var(--k-school); }
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  cursor: pointer;
+  padding: 2px 9px;
+  font-size: 0.95rem;
 }
 
 * {

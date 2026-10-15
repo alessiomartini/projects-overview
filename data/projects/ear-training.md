@@ -1,6 +1,7 @@
 ---
 title: "Harmonic Ear Training"
-status: in-pausa
+status: finito
+kind: web
 summary: "Sito statico per allenare l'orecchio all'armonia: accordi assoluti, gradi ricalcolati in base alla tonalità."
 tags: [web, musica]
 repo: alessiomartini/ear-training

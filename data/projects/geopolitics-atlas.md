@@ -1,6 +1,7 @@
 ---
 title: "Geopolitics Atlas"
 status: in-corso
+kind: web
 summary: "Schede sui conflitti in corso: contesto storico, fatti verificati e narrazioni contrastanti, con fonti."
 tags: [web, geopolitica]
 repo: alessiomartini/geopolitics-atlas

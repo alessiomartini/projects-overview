@@ -1,6 +1,7 @@
 ---
 title: "The Real-Time Earth"
 status: in-pausa
+kind: web
 summary: "Catalogo modulare di flussi di dati globali in tempo reale, mostrati senza modifiche."
 tags: [web, dati]
 repo: alessiomartini/realtime-earth

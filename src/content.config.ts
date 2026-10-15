@@ -1,13 +1,15 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
-import { STATUSES } from './lib/projects';
+import { KINDS, SECTIONS, STATUSES } from './lib/projects';
 
 const projects = defineCollection({
   loader: glob({ pattern: '*.md', base: './data/projects' }),
   schema: z.object({
     title: z.string(),
     status: z.enum(STATUSES),
+    kind: z.enum(KINDS).optional(),
+    section: z.enum(SECTIONS).optional(),
     summary: z.string().optional(),
     tags: z.array(z.string()).default([]),
     repo: z

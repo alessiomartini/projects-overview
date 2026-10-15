@@ -1,0 +1,50 @@
+---
+interface Props {
+  progress: { done: number; total: number; pct: number } | null;
+  size?: number;
+}
+const { progress, size = 48 } = Astro.props;
+const r = 20;
+const c = 2 * Math.PI * r;
+---
+
+{
+  progress && (
+    <div class="ring" style={`width:${size}px;height:${size}px`} title={`${progress.done} di ${progress.total} completati`} role="progressbar" aria-valuenow={progress.pct} aria-valuemin="0" aria-valuemax="100">
+      <svg viewBox="0 0 48 48" width={size} height={size} aria-hidden="true">
+        <circle class="track" cx="24" cy="24" r={r} />
+        <circle class="fill" cx="24" cy="24" r={r} stroke-dasharray={c} stroke-dashoffset={c * (1 - progress.pct / 100)} transform="rotate(-90 24 24)" />
+      </svg>
+      <span class="pct">{progress.pct}%</span>
+    </div>
+  )
+}
+
+<style>
+  .ring {
+    position: relative;
+    flex: none;
+    display: inline-grid;
+    place-items: center;
+  }
+  svg {
+    position: absolute;
+    inset: 0;
+  }
+  circle {
+    fill: none;
+    stroke-width: 5;
+  }
+  .track {
+    stroke: var(--surface-2);
+  }
+  .fill {
+    stroke: var(--k, var(--accent));
+    stroke-linecap: round;
+  }
+  .pct {
+    font-size: 0.72rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+</style>

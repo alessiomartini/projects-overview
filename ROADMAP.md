@@ -16,4 +16,4 @@
 - [ ] Decidere a mano quali progetti sono finiti
 
 ## Log
-- 2026-10-15: prima versione del sito; home rifatta (tipi a colori, anello di progresso, liste per progetto, 3 sezioni, toggle tema)
+- 2026-10-15: prima versione del sito; home rifatta (tipi a colori, anello di progresso, liste per progetto, 3 sezioni, toggle tema); liste da fare mostrate per intero

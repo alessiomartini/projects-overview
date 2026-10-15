@@ -10,7 +10,6 @@ interface Props {
   project: ProjectView;
 }
 const { project: p } = Astro.props;
-const MAX = 3;
 ---
 
 <article class="card project-card" data-kind={p.kind}>
@@ -31,8 +30,7 @@ const MAX = 3;
       <div class="list small">
         <span class="lbl">In corso</span>
         <ul>
-          {p.doing.slice(0, MAX).map((t) => <li set:html={inlineMarkdown(t)} />)}
-          {p.doing.length > MAX && <li class="muted">+{p.doing.length - MAX} altre</li>}
+          {p.doing.map((t) => <li set:html={inlineMarkdown(t)} />)}
         </ul>
       </div>
     )
@@ -42,8 +40,7 @@ const MAX = 3;
       <div class="list small">
         <span class="lbl">Da fare</span>
         <ul>
-          {p.todo.slice(0, MAX).map((t) => <li set:html={inlineMarkdown(t)} />)}
-          {p.todo.length > MAX && <li class="muted">+{p.todo.length - MAX} altre</li>}
+          {p.todo.map((t) => <li set:html={inlineMarkdown(t)} />)}
         </ul>
       </div>
     )
@@ -97,8 +94,6 @@ const MAX = 3;
     padding-left: 18px;
   }
   li {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow-wrap: anywhere;
   }
 </style>

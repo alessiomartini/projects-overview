@@ -1,6 +1,7 @@
 ---
 title: "Markets from First Principles"
 status: in-corso
+kind: web
 summary: "Sito che insegna finanza ed economia a chi ragiona da fisico teorico: 8 percorsi, 51 pagine, un concetto per pagina."
 tags: [web, finanza, astro]
 repo: alessiomartini/markets-first-principles

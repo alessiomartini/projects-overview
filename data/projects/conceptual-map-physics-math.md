@@ -1,6 +1,7 @@
 ---
 title: "Big Picture – mappa concettuale di fisica e matematica"
 status: in-corso
+kind: web
 summary: "Atlante personale di fisica, matematica e degli esperimenti alla loro base (sito + mazzo Anki)."
 tags: [web, fisica, anki]
 repo: alessiomartini/conceptual-map-physics-math

@@ -11,6 +11,27 @@ export const STATUS_LABEL: Record<Status, string> = {
   abbandonato: 'Abbandonato',
 };
 
+export const KINDS = ['web', 'ricerca', 'self-study', 'android', 'school'] as const;
+export type Kind = (typeof KINDS)[number];
+
+export const KIND_LABEL: Record<Kind, string> = {
+  web: 'Sito web',
+  ricerca: 'Ricerca',
+  'self-study': 'Self-study',
+  android: 'App Android',
+  school: 'School',
+};
+
+/** Sezioni della home */
+export const SECTIONS = ['attivi', 'niente', 'archiviati'] as const;
+export type Section = (typeof SECTIONS)[number];
+
+export const SECTION_LABEL: Record<Section, string> = {
+  attivi: 'In corso / da fare',
+  niente: 'Niente da fare',
+  archiviati: 'Archiviati / chiusi',
+};
+
 /** Dati di un repo raccolti da scripts/fetch-repos.mjs */
 export interface RepoData {
   ok: boolean;
@@ -28,6 +49,7 @@ export interface ProjectInput {
   slug: string;
   title: string;
   status: Status;
+  kind?: Kind;
   summary?: string;
   tags: string[];
   repo?: string;
@@ -46,6 +68,11 @@ export interface ProjectView extends ProjectInput {
   roadmapSource: 'repo' | 'body' | 'none';
   progress: { done: number; total: number; pct: number } | null;
   nextTodos: string[];
+  /** voci aperte nelle fasi intitolate "In corso" */
+  doing: string[];
+  /** altre voci aperte */
+  todo: string[];
+  section: Section;
   repoData?: RepoData;
   /** true se il repo è privato e i dettagli (testi dei todo, log, commit) vanno nascosti nel sito pubblico */
   detailsHidden: boolean;
@@ -75,7 +102,9 @@ export function buildProjectView(
   }
 
   const progress =
-    roadmap.total > 0
+    input.status === 'idea'
+      ? { done: 0, total: roadmap.total, pct: 0 }
+      : roadmap.total > 0
       ? { done: roadmap.done, total: roadmap.total, pct: Math.round((roadmap.done / roadmap.total) * 100) }
       : null;
 
@@ -93,8 +122,27 @@ export function buildProjectView(
 
   const detailsHidden = roadmapSource === 'repo' && !!repoData?.private && !input.showDetails;
 
+  const doing: string[] = [];
+  const todo: string[] = [];
+  if (!detailsHidden) {
+    for (const phase of roadmap.phases) {
+      const target = /in corso|doing|wip/i.test(phase.title) ? doing : todo;
+      for (const item of phase.items) if (!item.done && item.depth === 0) target.push(item.text);
+    }
+  }
+  const openCount = roadmap.total - roadmap.done;
+  const section: Section =
+    input.status === 'finito' || input.status === 'abbandonato'
+      ? 'archiviati'
+      : input.status === 'idea' || openCount > 0
+        ? 'attivi'
+        : 'niente';
+
   return {
     ...input,
+    doing,
+    todo,
+    section,
     roadmap,
     roadmapSource,
     progress,

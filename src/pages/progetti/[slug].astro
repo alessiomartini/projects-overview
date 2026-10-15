@@ -2,7 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import StatusBadge from '../../components/StatusBadge.astro';
-import ProgressBar from '../../components/ProgressBar.astro';
+import ProgressRing from '../../components/ProgressRing.astro';
 import Badges from '../../components/Badges.astro';
 import RoadmapView from '../../components/RoadmapView.astro';
 import LogTimeline from '../../components/LogTimeline.astro';
@@ -39,7 +39,6 @@ const showRepoRoadmap = project.roadmapSource === 'repo';
       {project.rank > 0 && <span class="badge" title="Priorità tra i progetti attivi">priorità #{project.rank}</span>}
       <Badges badges={project.badges} />
     </div>
-    {project.summary && <p class="lead muted">{project.summary}</p>}
     <div class="row small links">
       {project.tags.map((t) => <span class="tag">{t}</span>)}
       {r?.url && <a href={r.url}>Repo ↗</a>}
@@ -49,7 +48,7 @@ const showRepoRoadmap = project.roadmapSource === 'repo';
       <span class="spacer"></span>
       <a class="edit-only" href={editUrl}>Modifica file ↗</a>
     </div>
-    {project.progress && <div class="head-progress"><ProgressBar progress={project.progress} /></div>}
+    {project.progress && <div class="head-progress"><span data-kind={project.kind}><ProgressRing progress={project.progress} size={64} /></span></div>}
   </header>
 
   <div class="layout">

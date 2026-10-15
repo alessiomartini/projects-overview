@@ -1,39 +1,53 @@
 ---
 import type { ProjectView } from '../lib/projects';
+import { KIND_LABEL } from '../lib/projects';
 import { url } from '../lib/paths';
 import { inlineMarkdown, relativeDate } from '../lib/format';
-import StatusBadge from './StatusBadge.astro';
-import ProgressBar from './ProgressBar.astro';
+import ProgressRing from './ProgressRing.astro';
 import Badges from './Badges.astro';
 
 interface Props {
   project: ProjectView;
 }
 const { project: p } = Astro.props;
-const search = [p.title, p.summary, ...p.tags].join(' ').toLowerCase();
+const MAX = 3;
 ---
 
-<article class="card project-card" data-tags={p.tags.join(',')} data-search={search}>
+<article class="card project-card" data-kind={p.kind}>
   <div class="top">
-    {p.rank > 0 && <span class="rank" title="Priorità">#{p.rank}</span>}
-    <h3><a href={url(`progetti/${p.slug}/`)}>{p.title}</a></h3>
-    <StatusBadge status={p.status} />
+    <ProgressRing progress={p.progress} />
+    <div class="title">
+      <h3><a href={url(`progetti/${p.slug}/`)}>{p.title}</a></h3>
+      <div class="row small meta">
+        {p.kind && <span class="kind">{KIND_LABEL[p.kind]}</span>}
+        {p.status === 'idea' && <span class="badge idea">idea</span>}
+        <Badges badges={p.badges} openNotes={p.openNotes} />
+        {p.lastActivity && <span class="muted" title={p.lastActivity}>{relativeDate(p.lastActivity)}</span>}
+      </div>
+    </div>
   </div>
-  {p.summary && <p class="summary muted">{p.summary}</p>}
-  <ProgressBar progress={p.progress} />
   {
-    p.nextTodos.length > 0 && (
-      <p class="next small">
-        <span class="muted">Prossimo:</span> <Fragment set:html={inlineMarkdown(p.nextTodos[0])} />
-      </p>
+    p.doing.length > 0 && (
+      <div class="list small">
+        <span class="lbl">In corso</span>
+        <ul>
+          {p.doing.slice(0, MAX).map((t) => <li set:html={inlineMarkdown(t)} />)}
+          {p.doing.length > MAX && <li class="muted">+{p.doing.length - MAX} altre</li>}
+        </ul>
+      </div>
     )
   }
-  <div class="meta row small">
-    {p.tags.map((t) => <span class="tag">{t}</span>)}
-    <Badges badges={p.badges} openNotes={p.openNotes} />
-    <span class="spacer"></span>
-    {p.lastActivity && <span class="muted" title={p.lastActivity}>{relativeDate(p.lastActivity)}</span>}
-  </div>
+  {
+    p.todo.length > 0 && (
+      <div class="list small">
+        <span class="lbl">Da fare</span>
+        <ul>
+          {p.todo.slice(0, MAX).map((t) => <li set:html={inlineMarkdown(t)} />)}
+          {p.todo.length > MAX && <li class="muted">+{p.todo.length - MAX} altre</li>}
+        </ul>
+      </div>
+    )
+  }
 </article>
 
 <style>
@@ -41,37 +55,50 @@ const search = [p.title, p.summary, ...p.tags].join(' ').toLowerCase();
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border-left: 4px solid var(--k, var(--border));
   }
   .top {
     display: flex;
-    align-items: baseline;
-    gap: 8px;
+    align-items: center;
+    gap: 12px;
   }
-  .top h3 {
-    margin: 0;
+  .title {
+    min-width: 0;
     flex: 1;
+  }
+  .title h3 {
+    margin: 0 0 2px;
     font-size: 1.05rem;
   }
-  .top h3 a {
+  .title h3 a {
     color: var(--text);
   }
-  .rank {
-    font-size: 0.75rem;
+  .meta {
+    gap: 6px;
+  }
+  .kind {
+    color: var(--k);
+    font-weight: 600;
+  }
+  .idea {
+    background: var(--s-idea);
+    color: #fff;
+    border-color: transparent;
+  }
+  .lbl {
+    font-size: 0.7rem;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     color: var(--muted);
-    font-variant-numeric: tabular-nums;
   }
-  .summary,
-  .next {
-    margin: 0;
+  ul {
+    margin: 2px 0 0;
+    padding-left: 18px;
   }
-  .next {
+  li {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-  .meta {
-    margin-top: auto;
-    gap: 6px;
   }
 </style>

@@ -1,6 +1,7 @@
 ---
 title: "Mountain Huts Map"
 status: in-corso
+kind: web
 summary: "Mappa di rifugi e bivacchi, partendo dalle Alpi italiane e dalla zona di Bergen."
 tags: [web, mappa, montagna]
 repo: alessiomartini/mountain-huts-map

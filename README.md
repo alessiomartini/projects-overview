@@ -40,6 +40,7 @@ data/
 ---
 title: "Nome progetto"
 status: in-corso          # idea | in-corso | in-pausa | finito | abbandonato
+kind: web                 # web | ricerca | self-study | android | school (colore della card)
 summary: "Una riga di descrizione"
 tags: [web, hardware]
 repo: alessiomartini/nome-repo   # facoltativo: collega il repo per l'avanzamento automatico

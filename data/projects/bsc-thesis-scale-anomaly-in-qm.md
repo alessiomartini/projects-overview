@@ -1,6 +1,6 @@
 ---
 title: "Tesi triennale – Anomalie in meccanica quantistica"
-status: finito
+status: in-corso
 kind: ricerca
 summary: "Tesi triennale (Milano-Bicocca), relatore Noppadol Mekareeya."
 tags: [fisica, università, tesi]

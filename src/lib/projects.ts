@@ -50,6 +50,8 @@ export interface ProjectInput {
   title: string;
   status: Status;
   kind?: Kind;
+  /** forza la sezione della home (scelta manuale) */
+  section?: Section;
   summary?: string;
   tags: string[];
   repo?: string;
@@ -131,12 +133,12 @@ export function buildProjectView(
     }
   }
   const openCount = roadmap.total - roadmap.done;
-  const section: Section =
-    input.status === 'finito' || input.status === 'abbandonato'
+  const section: Section = input.section ??
+    (input.status === 'finito' || input.status === 'abbandonato'
       ? 'archiviati'
       : input.status === 'idea' || openCount > 0
         ? 'attivi'
-        : 'niente';
+        : 'niente');
 
   return {
     ...input,

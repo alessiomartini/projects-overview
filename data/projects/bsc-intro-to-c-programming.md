@@ -1,6 +1,6 @@
 ---
 title: "BSc – Informatica (C)"
-status: finito
+status: in-corso
 kind: school
 summary: "Appunti del corso di Informatica a Milano-Bicocca."
 tags: [università, c]

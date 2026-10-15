@@ -1,6 +1,6 @@
 ---
 title: "Archivio – Progetti PIC18 in assembly"
-status: finito
+status: in-corso
 kind: school
 summary: "Progetti MPLAB X per microcontrollori PIC18."
 tags: [archivio, hardware]

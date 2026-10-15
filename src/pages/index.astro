@@ -1,0 +1,222 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ReorderBoard from '../islands/ReorderBoard';
+import { getProjects, generatedAt } from '../lib/data';
+import { groupByStatus, STATUS_LABEL, type Status } from '../lib/projects';
+import { inlineMarkdown, relativeDate } from '../lib/format';
+import { url } from '../lib/paths';
+
+const projects = await getProjects();
+const groups = groupByStatus(projects);
+const tags = [...new Set(projects.flatMap((p) => p.tags))].sort((a, b) => a.localeCompare(b, 'it'));
+const active = projects.filter((p) => p.rank > 0);
+const sections: { status: Status; collapsed: boolean }[] = [
+  { status: 'in-corso', collapsed: false },
+  { status: 'idea', collapsed: false },
+  { status: 'in-pausa', collapsed: false },
+  { status: 'finito', collapsed: true },
+  { status: 'abbandonato', collapsed: true },
+];
+const focus = groups['in-corso'][0];
+---
+
+<Base active="home">
+  <div class="head">
+    <div>
+      <h1>I miei progetti</h1>
+      <p class="muted small stats">
+        {sections.map(({ status }) => <span class="status" data-status={status}>{groups[status].length} {STATUS_LABEL[status].toLowerCase()}</span>)}
+      </p>
+    </div>
+    <div class="edit-only">
+      <ReorderBoard client:idle items={active.map((p) => ({ slug: p.slug, title: p.title, status: p.status }))} statusLabels={STATUS_LABEL} />
+    </div>
+  </div>
+
+  {
+    focus && (
+      <a class="focus card" href={url(`progetti/${focus.slug}/`)}>
+        <span class="muted small">Su cosa lavorare adesso</span>
+        <strong>{focus.title}</strong>
+        {focus.nextTodos[0] && <span class="small">→ <Fragment set:html={inlineMarkdown(focus.nextTodos[0])} /></span>}
+      </a>
+    )
+  }
+
+  <div class="filters row">
+    <input type="search" id="q" placeholder="Cerca…" aria-label="Cerca progetti" />
+    <div class="row tag-filter" role="group" aria-label="Filtra per tag">
+      {tags.map((t) => <button type="button" class="chip" data-tag={t} aria-pressed="false">{t}</button>)}
+    </div>
+  </div>
+
+  {
+    sections.map(({ status, collapsed }) =>
+      groups[status].length === 0 ? null : collapsed ? (
+        <details class="group" data-group>
+          <summary>
+            <h2>
+              {STATUS_LABEL[status]} <span class="count">{groups[status].length}</span>
+            </h2>
+          </summary>
+          <div class="grid">
+            {groups[status].map((p) => <ProjectCard project={p} />)}
+          </div>
+        </details>
+      ) : (
+        <section class="group" data-group>
+          <h2>
+            {STATUS_LABEL[status]} <span class="count">{groups[status].length}</span>
+          </h2>
+          <div class="grid">
+            {groups[status].map((p) => <ProjectCard project={p} />)}
+          </div>
+        </section>
+      ),
+    )
+  }
+
+  {projects.length === 0 && <p class="muted">Nessun progetto ancora: aggiungi un file in <code>data/projects/</code> o trasforma un'idea dall'Inbox.</p>}
+  <p id="no-results" class="muted" hidden>Nessun progetto corrisponde ai filtri.</p>
+
+  {generatedAt && <p class="muted small updated">Dati dai repo aggiornati {relativeDate(generatedAt)} ({new Date(generatedAt).toLocaleString('it-IT', { timeZone: 'Europe/Rome' })}).</p>}
+</Base>
+
+<script>
+  const q = document.querySelector<HTMLInputElement>('#q')!;
+  const chips = [...document.querySelectorAll<HTMLButtonElement>('.chip')];
+  const cards = [...document.querySelectorAll<HTMLElement>('.project-card')];
+  const groups = [...document.querySelectorAll<HTMLElement>('[data-group]')];
+  const empty = document.querySelector<HTMLElement>('#no-results')!;
+  const selected = new Set<string>();
+
+  function apply() {
+    const text = q.value.trim().toLowerCase();
+    const filtering = text !== '' || selected.size > 0;
+    let shown = 0;
+    for (const card of cards) {
+      const tags = (card.dataset.tags ?? '').split(',');
+      const ok = (!text || card.dataset.search!.includes(text)) && [...selected].every((t) => tags.includes(t));
+      card.hidden = !ok;
+      if (ok) shown++;
+    }
+    for (const g of groups) {
+      g.hidden = ![...g.querySelectorAll<HTMLElement>('.project-card')].some((c) => !c.hidden);
+      if (filtering && g instanceof HTMLDetailsElement && !g.hidden) g.open = true;
+    }
+    empty.hidden = shown > 0 || cards.length === 0;
+  }
+
+  q.addEventListener('input', apply);
+  for (const chip of chips) {
+    chip.addEventListener('click', () => {
+      const tag = chip.dataset.tag!;
+      if (selected.has(tag)) selected.delete(tag);
+      else selected.add(tag);
+      chip.setAttribute('aria-pressed', String(selected.has(tag)));
+      apply();
+    });
+  }
+</script>
+
+<style>
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .head > div:last-child {
+    flex: 0 1 520px;
+  }
+  .head > .edit-only {
+    text-align: right;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .stats {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+  .focus {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 18px 0 0;
+    border-left: 4px solid var(--s-in-corso);
+    color: var(--text);
+  }
+  .focus:hover {
+    text-decoration: none;
+    border-color: var(--accent);
+  }
+  .filters {
+    margin: 20px 0 8px;
+  }
+  .filters input {
+    max-width: 260px;
+  }
+  .tag-filter {
+    gap: 6px;
+  }
+  .chip {
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 999px;
+  }
+  .chip[aria-pressed='true'] {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .group {
+    margin-top: 26px;
+  }
+  .group h2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .count {
+    font-size: 0.8rem;
+    color: var(--muted);
+    background: var(--surface-2);
+    border-radius: 999px;
+    padding: 1px 8px;
+  }
+  details > summary {
+    cursor: pointer;
+    list-style: none;
+    margin-bottom: 0.5em;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  details > summary h2::before {
+    content: '▸';
+    color: var(--muted);
+    transition: transform 0.15s;
+  }
+  details[open] > summary h2::before {
+    transform: rotate(90deg);
+  }
+  [hidden] {
+    display: none !important;
+  }
+  .updated {
+    margin-top: 40px;
+  }
+  @media (max-width: 600px) {
+    .filters input {
+      max-width: none;
+    }
+    .head > .edit-only {
+      text-align: left;
+    }
+  }
+</style>

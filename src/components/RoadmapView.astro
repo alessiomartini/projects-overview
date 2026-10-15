@@ -1,0 +1,88 @@
+---
+import type { Roadmap } from '../lib/roadmap';
+import ProgressBar from './ProgressBar.astro';
+import { inlineMarkdown } from '../lib/format';
+
+interface Props {
+  roadmap: Roadmap;
+  hideText?: boolean;
+}
+const { roadmap, hideText = false } = Astro.props;
+---
+
+<div class="roadmap">
+  {
+    roadmap.phases.map((phase) => (
+      <section class="phase">
+        <div class="phase-head">
+          <h3>{phase.title || 'Da fare'}</h3>
+          <ProgressBar progress={{ done: phase.done, total: phase.total, pct: Math.round((phase.done / phase.total) * 100) }} />
+        </div>
+        {!hideText && (
+          <ul>
+            {phase.items.map((item) => (
+              <li class:list={{ done: item.done }} style={`margin-left:${item.depth * 1.2}em`}>
+                <span class="box" aria-hidden="true">{item.done ? '✓' : ''}</span>
+                <span set:html={inlineMarkdown(item.text)} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+    ))
+  }
+</div>
+
+<style>
+  .roadmap {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .phase-head {
+    display: grid;
+    grid-template-columns: 1fr minmax(160px, 45%);
+    align-items: center;
+    gap: 12px;
+  }
+  .phase-head h3 {
+    margin: 0;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+  }
+  li {
+    display: flex;
+    gap: 8px;
+    padding: 3px 0;
+  }
+  .box {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    border: 1.5px solid var(--border);
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+  }
+  li.done .box {
+    background: var(--ok);
+    border-color: var(--ok);
+  }
+  li.done > span:last-child {
+    color: var(--muted);
+    text-decoration: line-through;
+  }
+  @media (max-width: 600px) {
+    .phase-head {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+  }
+</style>

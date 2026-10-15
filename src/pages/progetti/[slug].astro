@@ -1,0 +1,261 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import StatusBadge from '../../components/StatusBadge.astro';
+import ProgressBar from '../../components/ProgressBar.astro';
+import Badges from '../../components/Badges.astro';
+import RoadmapView from '../../components/RoadmapView.astro';
+import LogTimeline from '../../components/LogTimeline.astro';
+import ProjectNotes from '../../islands/ProjectNotes';
+import StatusEditor from '../../islands/StatusEditor';
+import LiveRoadmap from '../../islands/LiveRoadmap';
+import { getNotes, getProjects } from '../../lib/data';
+import { STATUS_LABEL } from '../../lib/projects';
+import { formatDate, relativeDate } from '../../lib/format';
+import { url } from '../../lib/paths';
+import { DATA_BRANCH, DATA_REPO } from '../../config';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('projects');
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const project = (await getProjects()).find((p) => p.slug === entry.id)!;
+const notes = (await getNotes()).filter((n) => n.project === project.slug);
+const r = project.repoData;
+const editUrl = `https://github.com/${DATA_REPO}/edit/${DATA_BRANCH}/data/projects/${entry.id}.md`;
+const showRepoRoadmap = project.roadmapSource === 'repo';
+---
+
+<Base title={project.title}>
+  <p class="small"><a href={url()}>← Tutti i progetti</a></p>
+
+  <header class="project-head">
+    <div class="row">
+      <h1>{project.title}</h1>
+      <StatusBadge status={project.status} />
+      {project.rank > 0 && <span class="badge" title="Priorità tra i progetti attivi">priorità #{project.rank}</span>}
+      <Badges badges={project.badges} />
+    </div>
+    {project.summary && <p class="lead muted">{project.summary}</p>}
+    <div class="row small links">
+      {project.tags.map((t) => <span class="tag">{t}</span>)}
+      {r?.url && <a href={r.url}>Repo ↗</a>}
+      {project.link && <a href={project.link}>Sito / demo ↗</a>}
+      {project.started && <span class="muted">Iniziato {formatDate(project.started)}</span>}
+      {project.finished && <span class="muted">· Finito {formatDate(project.finished)}</span>}
+      <span class="spacer"></span>
+      <a class="edit-only" href={editUrl}>Modifica file ↗</a>
+    </div>
+    {project.progress && <div class="head-progress"><ProgressBar progress={project.progress} /></div>}
+  </header>
+
+  <div class="layout">
+    <div class="main-col">
+      {
+        showRepoRoadmap && (
+          <section class="card">
+            <h2>Roadmap</h2>
+            {project.detailsHidden ? (
+              <>
+                <RoadmapView roadmap={project.roadmap} hideText />
+                <div style="margin-top:14px">
+                  <LiveRoadmap client:visible repo={project.repo!} />
+                </div>
+              </>
+            ) : (
+              <RoadmapView roadmap={project.roadmap} />
+            )}
+            <p class="muted small source">
+              Letta da <code>ROADMAP.md</code> in <a href={r?.url}>{project.repo}</a>, aggiornata automaticamente.
+            </p>
+          </section>
+        )
+      }
+
+      {
+        entry.body?.trim() && (
+          <section class="card prose">
+            <h2>{showRepoRoadmap ? 'Descrizione' : 'Dettagli'}</h2>
+            <Content />
+          </section>
+        )
+      }
+
+      {
+        project.repo && r && !r.ok && (
+          <section class="card">
+            <p class="muted small">
+              Non sono riuscito a leggere il repo <code>{project.repo}</code> ({r.error}). Se è privato, controlla che il secret
+              <code>REPOS_TOKEN</code> abbia accesso.
+            </p>
+          </section>
+        )
+      }
+      {
+        project.repo && r?.ok && !r.roadmap && (
+          <section class="card">
+            <p class="muted small">
+              Il repo non ha ancora un <code>ROADMAP.md</code>: aggiungilo (vedi <code>templates/</code>) per avere avanzamento e diario
+              automatici.
+            </p>
+          </section>
+        )
+      }
+
+      {
+        showRepoRoadmap && project.roadmap.log.length > 0 && !project.detailsHidden && (
+          <section class="card">
+            <h2>Diario</h2>
+            <LogTimeline log={project.roadmap.log} />
+          </section>
+        )
+      }
+    </div>
+
+    <aside class="side-col">
+      <section class="card edit-only">
+        <h2>Stato</h2>
+        <StatusEditor client:idle slug={project.slug} status={project.status} statusLabels={STATUS_LABEL} />
+      </section>
+
+      <section class="card">
+        <h2>Note</h2>
+        <ProjectNotes
+          client:load
+          slug={project.slug}
+          initial={notes.map((n) => ({
+            path: n.path,
+            date: n.date.toISOString(),
+            type: n.type,
+            resolved: n.resolved,
+            text: n.text,
+          }))}
+        />
+      </section>
+
+      {
+        r?.ok && (
+          <section class="card">
+            <h2>Attività</h2>
+            <dl class="activity small">
+              {r.lastCommit && (
+                <>
+                  <dt>Ultimo commit</dt>
+                  <dd>
+                    {project.detailsHidden ? (
+                      relativeDate(r.lastCommit.date)
+                    ) : (
+                      <a href={r.lastCommit.url} title={r.lastCommit.message}>
+                        {relativeDate(r.lastCommit.date)} — {r.lastCommit.message}
+                      </a>
+                    )}
+                  </dd>
+                </>
+              )}
+              <dt>Commit</dt>
+              <dd>
+                {r.commits7} negli ultimi 7 giorni · {r.commits30} in 30 giorni
+              </dd>
+              {r.latestRelease && (
+                <>
+                  <dt>Ultima release</dt>
+                  <dd>
+                    <a href={r.latestRelease.url}>{r.latestRelease.tag}</a> ({formatDate(r.latestRelease.date)})
+                  </dd>
+                </>
+              )}
+            </dl>
+          </section>
+        )
+      }
+    </aside>
+  </div>
+</Base>
+
+<style>
+  .project-head {
+    margin-bottom: 20px;
+  }
+  .project-head h1 {
+    margin: 0;
+  }
+  .project-head > .row:first-child {
+    gap: 12px;
+  }
+  .lead {
+    font-size: 1.05rem;
+    margin: 6px 0 10px;
+  }
+  .links {
+    gap: 10px;
+  }
+  .head-progress {
+    margin-top: 14px;
+    max-width: 520px;
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 16px;
+    align-items: start;
+  }
+  .main-col,
+  .side-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .source {
+    margin: 14px 0 0;
+  }
+  .activity {
+    margin: 0;
+  }
+  .activity dt {
+    color: var(--muted);
+    margin-top: 8px;
+  }
+  .activity dt:first-child {
+    margin-top: 0;
+  }
+  .activity dd {
+    margin: 0;
+  }
+  :global(.note-list) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  :global(.note-list li) {
+    padding: 10px 0;
+    border-top: 1px solid var(--border);
+  }
+  :global(.note-list li:first-child) {
+    border-top: 0;
+    padding-top: 0;
+  }
+  :global(.note-list li p) {
+    margin: 4px 0 0;
+    white-space: pre-wrap;
+  }
+  :global(.note-list li.resolved p) {
+    color: var(--muted);
+    text-decoration: line-through;
+  }
+  :global(.note-modifica) {
+    background: color-mix(in srgb, var(--s-in-pausa) 16%, transparent);
+    color: var(--s-in-pausa);
+  }
+  :global(.note-idea) {
+    background: color-mix(in srgb, var(--s-idea) 16%, transparent);
+    color: var(--s-idea);
+  }
+  @media (max-width: 860px) {
+    .layout {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

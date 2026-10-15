@@ -1,0 +1,26 @@
+{
+  "name": "projects-overview",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/fetch-repos.mjs && astro dev",
+    "fetch": "node scripts/fetch-repos.mjs",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@astrojs/preact": "^6.0.6",
+    "astro": "^7.3.8",
+    "preact": "^10.29.8",
+    "sortablejs": "^1.15.7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@types/sortablejs": "^1.15.9",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.4"
+  }
+}

@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import TokenSettings from '../islands/TokenSettings';
+import { DATA_REPO } from '../config';
+---
+
+<Base title="Impostazioni" active="impostazioni">
+  <h1>Impostazioni</h1>
+
+  <section class="card">
+    <h2>Modalità modifica</h2>
+    <p class="muted">
+      Il sito è pubblico in sola lettura. Per scrivere idee, note, cambiare stato o priorità serve un token GitHub che possa scrivere
+      nel repo <code>{DATA_REPO}</code>. Il token resta salvato <strong>solo su questo dispositivo</strong>.
+    </p>
+    <TokenSettings client:load />
+  </section>
+
+  <section class="card">
+    <h2>Come creare il token</h2>
+    <ol>
+      <li>
+        Apri <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → Fine-grained tokens → Generate new token</a>.
+      </li>
+      <li>Repository access: <em>Only select repositories</em> → <code>{DATA_REPO}</code>.</li>
+      <li>Permissions → Repository permissions → <strong>Contents: Read and write</strong>.</li>
+      <li>
+        (Facoltativo) aggiungi in sola lettura anche i repo privati dei progetti: così in modalità modifica vedi anche i dettagli delle loro
+        roadmap.
+      </li>
+      <li>Genera, copia il token e incollalo qui sopra. Ripeti su ogni dispositivo (es. telefono).</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>Sul telefono</h2>
+    <p class="muted">
+      Apri il sito dal browser e usa “Aggiungi a schermata Home”: si apre direttamente sull'Inbox per catturare idee al volo.
+    </p>
+  </section>
+</Base>
+
+<style>
+  section {
+    margin-top: 16px;
+  }
+  ol {
+    padding-left: 1.3em;
+  }
+  li {
+    margin: 4px 0;
+  }
+</style>

@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import InboxList from '../islands/InboxList';
+import { getIdeas } from '../lib/data';
+import { url } from '../lib/paths';
+
+const ideas = await getIdeas();
+---
+
+<Base title="Inbox" active="inbox">
+  <h1>Inbox</h1>
+  <p class="muted">Idee buttate giù al volo. Quando una ti convince, trasformala in progetto.</p>
+  <p class="view-only card small">
+    Per scrivere idee da qui attiva la <a href={url('impostazioni/')}>modalità modifica</a>.
+  </p>
+  <InboxList client:load initial={ideas.map((i) => ({ path: i.path, date: i.date.toISOString(), text: i.text }))} />
+</Base>
+
+<style>
+  .view-only {
+    margin-bottom: 18px;
+  }
+  :global(.ideas) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  :global(.idea-text) {
+    white-space: pre-wrap;
+    margin: 0 0 10px;
+  }
+</style>

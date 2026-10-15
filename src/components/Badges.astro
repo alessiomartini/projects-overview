@@ -1,0 +1,13 @@
+---
+import type { Badge } from '../lib/projects';
+
+interface Props {
+  badges: Badge[];
+  openNotes?: number;
+}
+const { badges, openNotes = 0 } = Astro.props;
+---
+
+{badges.includes('fermo') && <span class="badge warn" title="Nessun commit da più di un mese">fermo</span>}
+{badges.includes('completo') && <span class="badge good" title="Roadmap completata: segnalo come finito?">roadmap completa</span>}
+{openNotes > 0 && <span class="badge" title="Note aperte">✎ {openNotes}</span>}

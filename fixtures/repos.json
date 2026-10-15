@@ -1,0 +1,16 @@
+{
+  "alessiomartini/projects-overview": {
+    "ok": true,
+    "private": false,
+    "url": "https://github.com/alessiomartini/projects-overview",
+    "roadmap": "# Roadmap\n\n## Base\n- [x] Sito statico con Astro e GitHub Pages\n- [x] Progetti come file Markdown in `data/projects/`\n- [x] Avanzamento automatico dal `ROADMAP.md` dei repo collegati\n- [x] Inbox per le idee e note sui progetti, salvate via API GitHub\n- [x] Riordino delle priorità con drag & drop\n\n## Prossimi passi\n- [ ] Sostituire i progetti d'esempio con quelli veri\n- [ ] Collegare i repo dei progetti e aggiungere a ognuno `ROADMAP.md` + istruzioni per Claude\n- [ ] Vista calendario dell'attività\n\n## Log\n- 2026-10-15: prima versione del sito\n",
+    "lastCommit": {
+      "date": "2026-10-15T12:00:00Z",
+      "message": "Prima versione del sito",
+      "url": "https://github.com/alessiomartini/projects-overview/commits/main"
+    },
+    "commits7": 1,
+    "commits30": 1,
+    "latestRelease": null
+  }
+}

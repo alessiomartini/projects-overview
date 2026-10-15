@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+import QuickIdea from '../islands/QuickIdea';
+import { url } from '../lib/paths';
+
+interface Props {
+  title?: string;
+  active?: 'home' | 'inbox' | 'impostazioni';
+}
+
+const { title, active } = Astro.props;
+const fullTitle = title ? `${title} · Progetti` : 'Progetti';
+const links = [
+  { key: 'home', href: url(), label: 'Progetti' },
+  { key: 'inbox', href: url('inbox/'), label: 'Inbox' },
+  { key: 'impostazioni', href: url('impostazioni/'), label: '⚙︎' },
+] as const;
+---
+
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content="Panoramica dei miei progetti: idee, in corso e finiti." />
+    <link rel="icon" href={url('icon.svg')} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={url('icon-192.png')} />
+    <link rel="manifest" href={url('manifest.webmanifest')} />
+    <meta name="theme-color" content="#3b5bdb" />
+    <script is:inline>
+      try {
+        if (localStorage.getItem('projects-overview:token')) document.documentElement.classList.add('edit-mode');
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href={url()}>
+          <img src={url('icon.svg')} alt="" width="22" height="22" />
+          Progetti
+        </a>
+        <span class="edit-pill" title="Puoi modificare dal sito">modifica attiva</span>
+        <nav class="nav">
+          {
+            links.map((l) => (
+              <a href={l.href} aria-current={active === l.key ? 'page' : undefined} aria-label={l.key === 'impostazioni' ? 'Impostazioni' : undefined}>
+                {l.label}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <slot />
+    </main>
+    {active !== 'inbox' && <QuickIdea client:idle />}
+  </body>
+</html>

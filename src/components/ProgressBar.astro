@@ -1,0 +1,19 @@
+---
+interface Props {
+  progress: { done: number; total: number; pct: number } | null;
+}
+const { progress } = Astro.props;
+---
+
+{
+  progress && (
+    <div class="progress" title={`${progress.done} di ${progress.total} completati`}>
+      <div class="bar" role="progressbar" aria-valuenow={progress.pct} aria-valuemin="0" aria-valuemax="100">
+        <div class="fill" style={`width:${progress.pct}%`} />
+      </div>
+      <span class="label">
+        {progress.pct}% · {progress.done}/{progress.total}
+      </span>
+    </div>
+  )
+}

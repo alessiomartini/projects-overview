@@ -1,0 +1,22 @@
+# (Facoltativo) Copia in .github/workflows/notify-tracker.yml nel repo di un progetto:
+# a ogni push che modifica ROADMAP.md il tracker si ricostruisce subito, invece di aspettare il giro ogni 3 ore.
+#
+# Richiede nel repo del progetto un secret TRACKER_TOKEN: fine-grained token con accesso
+# a alessiomartini/projects-overview e permesso "Contents: Read and write".
+name: Aggiorna tracker progetti
+
+on:
+  push:
+    branches: [main]
+    paths: [ROADMAP.md]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -fsS -X POST \
+            -H "Authorization: Bearer ${{ secrets.TRACKER_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/alessiomartini/projects-overview/dispatches \
+            -d '{"event_type":"project-updated","client_payload":{"repo":"${{ github.repository }}"}}'

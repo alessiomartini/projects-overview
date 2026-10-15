@@ -1,0 +1,77 @@
+---
+import type { ProjectView } from '../lib/projects';
+import { url } from '../lib/paths';
+import { inlineMarkdown, relativeDate } from '../lib/format';
+import StatusBadge from './StatusBadge.astro';
+import ProgressBar from './ProgressBar.astro';
+import Badges from './Badges.astro';
+
+interface Props {
+  project: ProjectView;
+}
+const { project: p } = Astro.props;
+const search = [p.title, p.summary, ...p.tags].join(' ').toLowerCase();
+---
+
+<article class="card project-card" data-tags={p.tags.join(',')} data-search={search}>
+  <div class="top">
+    {p.rank > 0 && <span class="rank" title="Priorità">#{p.rank}</span>}
+    <h3><a href={url(`progetti/${p.slug}/`)}>{p.title}</a></h3>
+    <StatusBadge status={p.status} />
+  </div>
+  {p.summary && <p class="summary muted">{p.summary}</p>}
+  <ProgressBar progress={p.progress} />
+  {
+    p.nextTodos.length > 0 && (
+      <p class="next small">
+        <span class="muted">Prossimo:</span> <Fragment set:html={inlineMarkdown(p.nextTodos[0])} />
+      </p>
+    )
+  }
+  <div class="meta row small">
+    {p.tags.map((t) => <span class="tag">{t}</span>)}
+    <Badges badges={p.badges} openNotes={p.openNotes} />
+    <span class="spacer"></span>
+    {p.lastActivity && <span class="muted" title={p.lastActivity}>{relativeDate(p.lastActivity)}</span>}
+  </div>
+</article>
+
+<style>
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .top {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .top h3 {
+    margin: 0;
+    flex: 1;
+    font-size: 1.05rem;
+  }
+  .top h3 a {
+    color: var(--text);
+  }
+  .rank {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .summary,
+  .next {
+    margin: 0;
+  }
+  .next {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .meta {
+    margin-top: auto;
+    gap: 6px;
+  }
+</style>

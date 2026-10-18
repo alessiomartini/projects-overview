@@ -8,7 +8,7 @@ Sessioni Claude Code nel cloud che portano avanti i progetti da sole, leggendo p
 | Sprint pre-reset | `50 12-23 * * 6` (sabato, ogni ora; reset settimanale domenica 00:00) | [`worker-prompt.md`](worker-prompt.md) |
 | Report settimanale | `40 23 * * 6` (connettore Gmail) | [`report-prompt.md`](report-prompt.md) |
 
-Ognuna crea una sessione nuova a ogni esecuzione. Modello consigliato per il worker: Sonnet (consuma molto meno di Opus).
+Ognuna crea una sessione nuova a ogni esecuzione. La sessione (Opus) pianifica i task e li fa eseguire a subagenti Sonnet, che consumano molto meno.
 
 Log delle esecuzioni: `data/automation/log.md`. Domande dell'assistente: `data/inbox/` (iniziano con 🤖).
 Per fermare tutto: disattiva le attività pianificate su claude.ai/code.

@@ -48,6 +48,7 @@ export function parseRoadmap(markdown: string): Roadmap {
 
   let inFence = false;
   let logLevel = 0; // livello del titolo "Log" attivo, 0 = fuori dal log
+  let ideasLevel = 0; // idem per "Idee": i sottotitoli restano idee
   let datedEntry: LogEntry | null = null;
 
   for (const line of markdown.split(/\r?\n/)) {
@@ -72,6 +73,8 @@ export function parseRoadmap(markdown: string): Roadmap {
       }
       datedEntry = null;
       logLevel = 0;
+      if (ideasLevel && level > ideasLevel) continue;
+      ideasLevel = 0;
       if (LOG_TITLE.test(title)) {
         logLevel = level;
         continue;
@@ -79,6 +82,7 @@ export function parseRoadmap(markdown: string): Roadmap {
       if (level === 1) continue; // titolo del documento
       if (IDEAS_TITLE.test(title)) {
         current = ideas;
+        ideasLevel = level;
         continue;
       }
       current = { title, items: [], done: 0, total: 0 };

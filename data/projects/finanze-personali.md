@@ -6,10 +6,10 @@ summary: "Tenere traccia delle mie finanze: quanto ho, quanto e per cosa spendo,
 tags: [finanza, dati, personale]
 ---
 
-Idea (2026-10-18). Privato e in locale, come il DIARIO: sono dati bancari.
+Idea (2026-10-18). Privato e in locale, come il DIARIO: sono dati bancari. Il codice andrà in un repo **privato**; i dati restano solo in locale.
 
 ## Primi passi
-- [ ] Esportare gli estratti conto (Revolut, Unicredit, Banco BPM) in `E:\Alessio\Dati-personali\banche\`
+- [ ] Esportare gli estratti conto dei conti in una cartella locale (fuori da Git)
 - [ ] Unire i movimenti in un solo formato (data, importo, conto, descrizione) e dividerli per categoria
 - [ ] Patrimonio nel tempo: saldo di ogni conto + investimenti, mese per mese
 - [ ] Investimenti: cosa, quanto, quando, valore attuale (solo tracciamento)

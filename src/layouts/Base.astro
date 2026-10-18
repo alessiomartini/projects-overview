@@ -5,13 +5,14 @@ import { url } from '../lib/paths';
 
 interface Props {
   title?: string;
-  active?: 'home' | 'inbox' | 'impostazioni';
+  active?: 'home' | 'calendario' | 'inbox' | 'impostazioni';
 }
 
 const { title, active } = Astro.props;
 const fullTitle = title ? `${title} · Progetti` : 'Progetti';
 const links = [
   { key: 'home', href: url(), label: 'Progetti' },
+  { key: 'calendario', href: url('calendario/'), label: 'Calendario' },
   { key: 'inbox', href: url('inbox/'), label: 'Inbox' },
   { key: 'impostazioni', href: url('impostazioni/'), label: '⚙︎' },
 ] as const;

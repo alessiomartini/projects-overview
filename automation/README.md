@@ -10,5 +10,7 @@ Sessioni Claude Code nel cloud che portano avanti i progetti da sole, leggendo p
 
 Ognuna crea una sessione nuova a ogni esecuzione. La sessione (Opus) pianifica i task e li fa eseguire a subagenti Sonnet, che consumano molto meno.
 
+Le sessioni non possono cancellare branch: per non accumulare branch `auto/*` già uniti, attiva *Settings → General → Automatically delete head branches* nei repo dei progetti `in-corso`.
+
 Log delle esecuzioni: `data/automation/log.md`. Domande dell'assistente: `data/inbox/` (iniziano con 🤖).
 Per fermare tutto: disattiva le attività pianificate su claude.ai/code.

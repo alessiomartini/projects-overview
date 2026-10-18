@@ -29,7 +29,7 @@ For each candidate: add_repo it (access "push"), clone depth 1. Skip it if a rem
 - Update ROADMAP.md per the CLAUDE.md protocol in the same commit (tick, new todos, `## Decisioni e cose provate`, top `## Log` line `- AAAA-MM-GG: 🤖 ...`).
 
 ## 5. Integrate
-- Open a PR. If tests/build pass (or none exist and the change is self-contained), no personal data is involved and nothing significant is deleted/rewritten: squash-merge it yourself and delete the branch. Otherwise leave a draft PR explaining why.
+- Open a PR. If tests/build pass (or none exist and the change is self-contained), no personal data is involved and nothing significant is deleted/rewritten: squash-merge it yourself. Don't try to delete the branch afterwards: the proxy blocks branch deletion, GitHub removes it on merge where "Automatically delete head branches" is enabled, and a leftover `auto/*` branch is harmless (the lock only counts pushes from the last 3 hours). Otherwise leave a draft PR explaining why.
 
 ## 6. Record (after each task, so a cut-off run still leaves a trace)
 In projects-overview append to `data/automation/log.md` (header `# Log assistente automatico` if new): `- <start ISO> | <durata min> | <project> | <task> | <merged|draft|failed|skipped> | <PR url>`. Questions for Alessio go in `data/inbox/<UTC timestamp like 2026-10-18T12-00-00-000Z>.md` with frontmatter `date: "<ISO>"`, body starting with `🤖`. Commit directly to projects-overview main (`git pull --rebase` first, retry on conflict), message `🤖 log assistente`.

@@ -31,6 +31,23 @@ const { roadmap, hideText = false } = Astro.props;
       </section>
     ))
   }
+  {
+    !hideText && roadmap.ideas.length > 0 && (
+      <section class="phase">
+        <div class="phase-head">
+          <h3>Idee</h3>
+        </div>
+        <ul>
+          {roadmap.ideas.map((item) => (
+            <li class:list={{ done: item.done }} style={`margin-left:${item.depth * 1.2}em`}>
+              <span class="box" aria-hidden="true">{item.done ? '✓' : ''}</span>
+              <span set:html={inlineMarkdown(item.text)} />
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
 </div>
 
 <style>

@@ -46,6 +46,18 @@ export default function LiveRoadmap({ repo }: Props) {
           </ul>
         </section>
       ))}
+      {roadmap.ideas.length > 0 && (
+        <section>
+          <h3>Idee</h3>
+          <ul>
+            {roadmap.ideas.map((item, i) => (
+              <li key={i} style={{ marginLeft: `${item.depth * 1.2}em`, color: item.done ? 'var(--muted)' : undefined }}>
+                {item.done ? '☑' : '☐'} {item.text}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
       {roadmap.log.length > 0 && (
         <>
           <h3>Diario</h3>

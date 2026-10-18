@@ -18,6 +18,8 @@ export interface LogEntry {
 
 export interface Roadmap {
   phases: Phase[];
+  /** Voci della sezione "## Idee": mostrate a parte, non contano nell'avanzamento. */
+  ideas: RoadmapItem[];
   log: LogEntry[];
   done: number;
   total: number;
@@ -26,6 +28,7 @@ export interface Roadmap {
 const HEADING = /^(#{1,6})\s+(.*?)\s*#*\s*$/;
 const CHECKBOX = /^(\s*)[-*+]\s+\[([ xX])\]\s+(.*)$/;
 const LOG_TITLE = /^(log|diario|changelog|registro|progressi)\b/i;
+const IDEAS_TITLE = /^(idee|ideas)\b/i;
 const DATE = /(\d{4}-\d{2}-\d{2})/;
 const LOG_BULLET = /^\s*[-*+]\s+(?:\*\*|__)?(\d{4}-\d{2}-\d{2})(?:\*\*|__)?\s*[:\-–—]?\s*(.*)$/;
 const PLAIN_BULLET = /^\s*[-*+]\s+(.*)$/;
@@ -34,10 +37,12 @@ const PLAIN_BULLET = /^\s*[-*+]\s+(.*)$/;
  * Legge un ROADMAP.md (o il corpo di un progetto) e ne estrae:
  * - le fasi (una per titolo) con le checklist `- [ ]` / `- [x]`
  * - il diario, dalla sezione "## Log" (righe `- AAAA-MM-GG: testo` o sottotitoli con data)
+ * - le idee, dalla sezione "## Idee" (fuori dalla percentuale)
  */
 export function parseRoadmap(markdown: string): Roadmap {
   const phases: Phase[] = [];
   const log: LogEntry[] = [];
+  const ideas: Phase = { title: 'Idee', items: [], done: 0, total: 0 };
   let current: Phase = { title: '', items: [], done: 0, total: 0 };
   phases.push(current);
 
@@ -72,6 +77,10 @@ export function parseRoadmap(markdown: string): Roadmap {
         continue;
       }
       if (level === 1) continue; // titolo del documento
+      if (IDEAS_TITLE.test(title)) {
+        current = ideas;
+        continue;
+      }
       current = { title, items: [], done: 0, total: 0 };
       phases.push(current);
       continue;
@@ -104,6 +113,7 @@ export function parseRoadmap(markdown: string): Roadmap {
   log.sort((a, b) => b.date.localeCompare(a.date));
   return {
     phases: withItems,
+    ideas: ideas.items,
     log,
     done: withItems.reduce((n, p) => n + p.done, 0),
     total: withItems.reduce((n, p) => n + p.total, 0),

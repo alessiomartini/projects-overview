@@ -67,8 +67,13 @@ porta all'editor di GitHub; lo stato si cambia anche dal riquadro *Stato*.
 ## Collegare il repo di un progetto
 
 1. Aggiungi `repo: proprietario/nome` nel file del progetto.
-2. Copia [`templates/ROADMAP.md`](templates/ROADMAP.md) nella root di quel repo e compilalo:
-   ogni `## titolo` è una fase, le checkbox danno la percentuale, `## Log` è il diario (`- AAAA-MM-GG: testo`).
+2. Copia [`templates/ROADMAP.md`](templates/ROADMAP.md) nella root di quel repo e compilalo. È l'**unico** file
+   per todo, idee, decisioni e diario del progetto (niente `FUTURE-ARCHITECTURE.md` o `IDEE.md` separati):
+   - `## <fase>`: le checkbox danno la percentuale;
+   - `## Idee`: checkbox mostrate a parte, non contano nella percentuale;
+   - `## Decisioni e cose provate`: prosa (scartato/rimandato, provato e annullato, limiti noti), ignorata dal conteggio;
+   - `## Log`: il diario (`- AAAA-MM-GG: testo`).
+   Le idee per progetti nuovi diventano un file in `data/projects/` con `status: idea`; quelle sciolte vanno nell'Inbox.
 3. Perché **Claude Code** lo tenga aggiornato mentre lavori, incolla
    [`templates/CLAUDE.md.snippet`](templates/CLAUDE.md.snippet) nel `CLAUDE.md` del repo.
    Facoltativo: copia anche [`templates/.claude/skills/update-roadmap/`](templates/.claude/skills/update-roadmap/SKILL.md)

@@ -60,4 +60,26 @@ describe('parseRoadmap', () => {
     const r = parseRoadmap('## A\n- [x] a1\n- [ ] a2\n## B\n- [ ] b1\n- [ ] b2');
     expect(openItems(r, 2)).toEqual(['a2', 'b1']);
   });
+
+  it('mette le Idee a parte, fuori dalla percentuale; le sezioni in prosa non contano', () => {
+    const r = parseRoadmap(`## Fase 1
+- [x] fatto
+- [ ] da fare
+
+## Idee
+- [ ] idea uno
+- [ ] idea due
+
+## Decisioni e cose provate
+Provato X, tornato indietro.
+
+## Log
+- 2026-10-18: protocollo unico
+`);
+    expect(r.phases.map((p) => p.title)).toEqual(['Fase 1']);
+    expect(r.total).toBe(2);
+    expect(r.ideas.map((i) => i.text)).toEqual(['idea uno', 'idea due']);
+    expect(openItems(r)).toEqual(['da fare']);
+    expect(r.log).toHaveLength(1);
+  });
 });

@@ -1,13 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getProjects } from '../lib/data';
-import { buildGrid, collectEntries } from '../lib/calendar';
+import { buildGrid, collectEntries, entryCount } from '../lib/calendar';
 import { url } from '../lib/paths';
 
 const projects = await getProjects();
 const byDay = collectEntries(projects);
 const grid = buildGrid(byDay, new Date());
-const total = grid.flat().reduce((n, c) => n + (c.inRange ? c.count : 0), 0);
 const activeDays = grid.flat().filter((c) => c.inRange && c.count > 0).length;
 const MONTHS = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
 const monthLabels = grid.map((week, i) => {
@@ -16,18 +15,41 @@ const monthLabels = grid.map((week, i) => {
   return m !== prev ? MONTHS[m] : '';
 });
 const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
-const shown: Record<string, { project: string; href: string; text: string | null }[]> = {};
+const shown: Record<string, { project: string; slug: string; href: string; text: string | null; type: string; count: number }[]> = {};
+let totalLog = 0;
+let totalCommits = 0;
 for (const cell of grid.flat()) {
-  if (cell.inRange && cell.count > 0) shown[cell.date] = byDay[cell.date].map((e) => ({ project: e.project, href: url(`progetti/${e.slug}/`), text: e.text }));
+  if (cell.inRange && cell.count > 0) {
+    shown[cell.date] = byDay[cell.date].map((e) => ({ project: e.project, slug: e.slug, href: url(`progetti/${e.slug}/`), text: e.text, type: e.type ?? 'log', count: entryCount(e) }));
+    for (const e of byDay[cell.date]) (e.type === 'commit' ? (totalCommits += entryCount(e)) : (totalLog += entryCount(e)));
+  }
 }
+const projectOptions = [...new Map(Object.values(shown).flat().map((e) => [e.slug, e.project])).entries()].sort((a, b) => a[1].localeCompare(b[1], 'it'));
 const labels: Record<string, string> = Object.fromEntries(Object.keys(shown).map((d) => [d, fmt(d)]));
 ---
 
 <Base title="Calendario" active="calendario">
   <h1>Calendario dell'attività</h1>
   <p class="muted small">
-    {total} voci di diario in {activeDays} giorni negli ultimi 12 mesi, dai <code>## Log</code> dei ROADMAP.md dei progetti.
+    <span id="summary">{totalLog} voci di diario e {totalCommits} commit in {activeDays} giorni</span> negli ultimi 12 mesi
+    (voci dai <code>## Log</code> dei ROADMAP.md; commit dai repo collegati). Dei repo privati o personali si contano solo i commit, senza messaggi.
   </p>
+
+  <div class="filters" role="group" aria-label="Filtri">
+    <label>Progetto
+      <select id="f-project">
+        <option value="">Tutti</option>
+        {projectOptions.map(([slug, title]) => <option value={slug}>{title}</option>)}
+      </select>
+    </label>
+    <label>Tipo
+      <select id="f-type">
+        <option value="">Diario + commit</option>
+        <option value="log">Solo diario</option>
+        <option value="commit">Solo commit</option>
+      </select>
+    </label>
+  </div>
 
   <div class="card scroller">
     <div class="cal" style={`--weeks:${grid.length}`}>
@@ -41,7 +63,7 @@ const labels: Record<string, string> = Object.fromEntries(Object.keys(shown).map
             <div class="week">
               {week.map((c) =>
                 c.inRange ? (
-                  <button type="button" class="cell" data-level={c.level} data-date={c.date} title={`${c.date}: ${c.count} ${c.count === 1 ? 'voce' : 'voci'}`} aria-label={`${c.date}: ${c.count} voci`} />
+                  <button type="button" class="cell" data-level={c.level} data-kind={(byDay[c.date] ?? []).every((e) => e.type === 'commit') ? 'commit' : 'log'} data-date={c.date} title={`${c.date}: ${c.count}`} aria-label={`${c.date}: ${c.count} attività`} />
                 ) : (
                   <span class="cell future" />
                 ),
@@ -51,11 +73,12 @@ const labels: Record<string, string> = Object.fromEntries(Object.keys(shown).map
         }
       </div>
     </div>
-    <div class="scale small muted">meno <i class="cell" data-level="0"></i><i class="cell" data-level="1"></i><i class="cell" data-level="2"></i><i class="cell" data-level="3"></i><i class="cell" data-level="4"></i> più</div>
+    <div class="scale small muted">meno <i class="cell" data-level="0"></i><i class="cell" data-level="1"></i><i class="cell" data-level="2"></i><i class="cell" data-level="3"></i><i class="cell" data-level="4"></i> più
+      · <i class="cell" data-level="3" data-kind="log"></i> diario <i class="cell" data-level="3" data-kind="commit"></i> solo commit</div>
   </div>
 
   <section class="card detail" id="detail" aria-live="polite">
-    <p class="muted small" id="detail-empty">Tocca un giorno per vedere le voci.</p>
+    <p class="muted small" id="detail-empty">Tocca un giorno per vedere le voci e i commit.</p>
     <div id="detail-body"></div>
   </section>
 
@@ -66,20 +89,46 @@ const labels: Record<string, string> = Object.fromEntries(Object.keys(shown).map
     const empty = document.getElementById('detail-empty')!;
     let selected: HTMLElement | null = null;
     const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const fProject = document.getElementById('f-project') as HTMLSelectElement;
+    const fType = document.getElementById('f-type') as HTMLSelectElement;
+    const levelFor = (n: number) => (n <= 0 ? 0 : n === 1 ? 1 : n === 2 ? 2 : n <= 4 ? 3 : 4);
+    const filtered = (date: string) =>
+      (data.shown[date] || []).filter((e: any) => (!fProject.value || e.slug === fProject.value) && (!fType.value || e.type === fType.value));
+    const sum = (es: any[]) => es.reduce((n: number, e: any) => n + e.count, 0);
     function show(btn: HTMLElement) {
       const date = btn.dataset.date!;
       selected?.classList.remove('sel');
       selected = btn;
       btn.classList.add('sel');
-      const entries = data.shown[date] || [];
+      const entries = filtered(date);
       const title = data.labels[date] || new Date(date + 'T00:00:00Z').toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+      const item = (e: any) => {
+        const tag = e.type === 'commit' ? '<span class="tag commit">commit</span>' : '<span class="tag log">diario</span>';
+        const txt = e.text === null ? (e.type === 'commit' ? `<span class="muted">${e.count} ${e.count === 1 ? 'commit' : 'commit'} (dettagli privati)</span>` : '<span class="muted">(dettagli privati)</span>') : esc(e.text);
+        return `<li>${tag} <a href="${esc(e.href)}"><strong>${esc(e.project)}</strong></a>: ${txt}</li>`;
+      };
       empty.hidden = true;
-      body.innerHTML =
-        `<h2>${esc(title)}</h2>` +
-        (entries.length
-          ? '<ul>' + entries.map((e: any) => `<li><a href="${esc(e.href)}"><strong>${esc(e.project)}</strong></a>: ${e.text === null ? '<span class="muted">(dettagli privati)</span>' : esc(e.text)}</li>`).join('') + '</ul>'
-          : '<p class="muted small">Nessuna voce.</p>');
+      body.innerHTML = `<h2>${esc(title)}</h2>` + (entries.length ? '<ul>' + entries.map(item).join('') + '</ul>' : '<p class="muted small">Nessuna voce.</p>');
     }
+    function applyFilters() {
+      let days = 0;
+      let log = 0;
+      let commits = 0;
+      document.querySelectorAll<HTMLElement>('button.cell').forEach((b) => {
+        const es = filtered(b.dataset.date!);
+        const n = sum(es);
+        b.dataset.level = String(levelFor(n));
+        b.dataset.kind = es.length && es.every((e: any) => e.type === 'commit') ? 'commit' : 'log';
+        b.title = `${b.dataset.date}: ${n}`;
+        if (n) days++;
+        log += sum(es.filter((e: any) => e.type === 'log'));
+        commits += sum(es.filter((e: any) => e.type === 'commit'));
+      });
+      document.getElementById('summary')!.textContent = `${log} voci di diario e ${commits} commit in ${days} giorni`;
+      if (selected) show(selected);
+    }
+    fProject.addEventListener('change', applyFilters);
+    fType.addEventListener('change', applyFilters);
     document.querySelectorAll<HTMLElement>('button.cell').forEach((b) => {
       b.addEventListener('click', () => show(b));
       b.addEventListener('mouseenter', () => show(b));
@@ -146,6 +195,38 @@ const labels: Record<string, string> = Object.fromEntries(Object.keys(shown).map
   .cell[data-level='2'] { background: color-mix(in srgb, var(--accent) 55%, var(--surface-2)); }
   .cell[data-level='3'] { background: color-mix(in srgb, var(--accent) 78%, var(--surface-2)); }
   .cell[data-level='4'] { background: var(--accent); }
+  /* giorni con soli commit: tinta verde, per distinguerli dalle voci di diario */
+  .cell[data-kind='commit'][data-level='1'] { background: color-mix(in srgb, #2da44e 30%, var(--surface-2)); }
+  .cell[data-kind='commit'][data-level='2'] { background: color-mix(in srgb, #2da44e 55%, var(--surface-2)); }
+  .cell[data-kind='commit'][data-level='3'] { background: color-mix(in srgb, #2da44e 78%, var(--surface-2)); }
+  .cell[data-kind='commit'][data-level='4'] { background: #2da44e; }
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .filters label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.8rem;
+    color: var(--muted);
+    min-width: 0;
+  }
+  .filters select {
+    max-width: 100%;
+    font: inherit;
+    padding: 4px 6px;
+  }
+  .tag {
+    font-size: 0.7rem;
+    border-radius: 4px;
+    padding: 0 5px;
+    border: 1px solid var(--border, currentColor);
+  }
+  .tag.commit { color: #2da44e; }
+  .tag.log { color: var(--accent); }
   button.cell {
     cursor: pointer;
   }

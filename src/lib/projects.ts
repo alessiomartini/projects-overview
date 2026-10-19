@@ -42,6 +42,8 @@ export interface RepoData {
   lastCommit?: { date: string; message: string; url: string } | null;
   commits7?: number;
   commits30?: number;
+  /** commit per giorno (UTC, ultimo anno); `msgs` solo per i repo pubblici */
+  commitDays?: Record<string, { n: number; msgs?: string[] }>;
   latestRelease?: { tag: string; date: string; url: string } | null;
 }
 

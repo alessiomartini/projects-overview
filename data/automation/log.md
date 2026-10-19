@@ -9,3 +9,6 @@
 - 2026-10-19T03:53:00Z | 4 | geopolitics-atlas | Fonti mancanti in sources.js (43) + check come errore | merged | https://github.com/alessiomartini/geopolitics-atlas/pull/17
 - 2026-10-19T03:53:00Z | 4 | projects-overview | Calendario: commit di tutti i repo + filtri progetto/tipo | merged | https://github.com/alessiomartini/projects-overview/pull/19
 - 2026-10-19T03:53:00Z | 5 | music-library | Emoji degli strumenti nelle cover YouTube (433/1860, dedotte dal canale) | merged | https://github.com/alessiomartini/music-library/pull/44
+- 2026-10-19T22:53:23Z | 2 | conceptual-map-physics-math | .apkg pubblicato come GitHub Release `latest-deck` a ogni push | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/7
+- 2026-10-19T22:53:23Z | 3 | alessiomartini-github-io | Projects: indice rapido a chip per raggiungere i progetti | merged | https://github.com/alessiomartini/alessiomartini.github.io/pull/17
+- 2026-10-19T22:53:23Z | 4 | geopolitics-atlas | Indicatore "ultima verifica" per ogni conflitto | merged | https://github.com/alessiomartini/geopolitics-atlas/pull/19

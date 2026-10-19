@@ -3,7 +3,7 @@ title: "Morning Brief"
 status: idea
 kind: automation
 summary: "Ogni mattina un breve riassunto della giornata: cose da fare, email ricevute, eventi in calendario, meteo con consigli su cosa indossare, piante da innaffiare, quando fare la spesa."
-tags: [automazione, calendario, email, meteo]
+tags: [claude-skill, automazione, calendario, email, meteo]
 ---
 
 ## Idea
@@ -20,7 +20,9 @@ Un brief mattutino (notifica sul telefono o pagina) con:
   e lista della spesa ([Pantry](grocery-list.md)).
 - Altro da aggiungere col tempo.
 
-## Note
+## Decisione
 
-- Esiste già la skill `morning` di Claude (brief come artifact, anche ricorrente nei giorni
-  feriali): punto di partenza da provare prima di costruire qualcosa da zero.
+- **Da implementare con la skill `morning` di Claude** (brief come artifact, ricorrente nei
+  giorni feriali), non con un'app/sito da zero. Lavoro: configurare la skill con le fonti
+  (email, calendario, meteo con consigli su cosa indossare, piante, spesa) e attivarla come
+  task ricorrente.

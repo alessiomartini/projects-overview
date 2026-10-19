@@ -7,3 +7,4 @@
 - 2026-10-18T22:53:09Z | 1 | conceptual-map-physics-math | Vista "solo fili" sulla mappa | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/3
 - 2026-10-18T22:53:09Z | 2 | markets-first-principles | Glossario: 10 nuovi termini (conteggio ROADMAP corretto a 180/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/5
 - 2026-10-19T03:53:00Z | 4 | geopolitics-atlas | Fonti mancanti in sources.js (43) + check come errore | merged | https://github.com/alessiomartini/geopolitics-atlas/pull/17
+- 2026-10-19T03:53:00Z | 4 | projects-overview | Calendario: commit di tutti i repo + filtri progetto/tipo | merged | https://github.com/alessiomartini/projects-overview/pull/19

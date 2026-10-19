@@ -30,6 +30,26 @@ async function gh(path, accept = 'application/vnd.github+json') {
   return accept.endsWith('raw') ? res.text() : res.json();
 }
 
+/** Commit dell'ultimo anno sul branch di default, aggregati per giorno (UTC).
+ *  Per i repo privati si salvano solo i conteggi: mai messaggi, file o autori. */
+async function fetchCommitDays(repo, branch, isPrivate) {
+  const since = new Date(Date.now() - 370 * DAY).toISOString();
+  const days = {};
+  for (let page = 1; page <= 10; page++) {
+    const batch = await gh(`/repos/${repo}/commits?sha=${branch}&since=${since}&per_page=100&page=${page}`);
+    if (!batch?.length) break;
+    for (const c of batch) {
+      const date = (c.commit.committer?.date ?? c.commit.author?.date ?? '').slice(0, 10);
+      if (!date) continue;
+      const d = (days[date] ??= { n: 0 });
+      d.n++;
+      if (!isPrivate) (d.msgs ??= []).push(c.commit.message.split('\n')[0].slice(0, 120));
+    }
+    if (batch.length < 100) break;
+  }
+  return days;
+}
+
 async function fetchRepo(repo) {
   const info = await gh(`/repos/${repo}`);
   if (!info) throw new Error('repo non trovato (o token senza accesso)');
@@ -43,6 +63,11 @@ async function fetchRepo(repo) {
     gh(`/repos/${repo}/releases/latest`),
   ]);
 
+  // Un errore sui commit per giorno non deve far fallire il repo: il calendario resta senza commit.
+  const commitDays = await fetchCommitDays(repo, branch, info.private).catch((e) => {
+    console.warn(`! ${repo}: commit per giorno non disponibili (${e.message})`);
+    return {};
+  });
   const recentCommits = recent ?? [];
   const last = latest?.[0];
   const since7 = Date.now() - 7 * DAY;
@@ -56,6 +81,7 @@ async function fetchRepo(repo) {
       : null,
     commits7: recentCommits.filter((c) => Date.parse(c.commit.committer?.date ?? c.commit.author?.date) >= since7).length,
     commits30: recentCommits.length,
+    commitDays,
     latestRelease: release ? { tag: release.tag_name, date: release.published_at, url: release.html_url } : null,
   };
 }

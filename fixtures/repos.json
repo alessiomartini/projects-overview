@@ -11,6 +11,15 @@
     },
     "commits7": 1,
     "commits30": 1,
-    "latestRelease": null
+    "latestRelease": null,
+    "commitDays": {
+      "2026-10-15": {
+        "n": 2,
+        "msgs": [
+          "Prima versione del sito",
+          "Aggiunge il calendario"
+        ]
+      }
+    }
   }
 }

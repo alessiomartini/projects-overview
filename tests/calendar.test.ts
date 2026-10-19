@@ -18,3 +18,38 @@ describe('calendar', () => {
     expect(g[52][2].inRange).toBe(true);
   });
 });
+
+import { collectEntries, commitsHidden, dayCount } from '../src/lib/calendar';
+
+const proj = (over: any) => ({
+  title: 'P', slug: 'p', tags: [], detailsHidden: false, roadmap: { log: [{ date: '2026-10-15', text: 'voce' }] },
+  repoData: { ok: true, private: false, commitDays: { '2026-10-15': { n: 2, msgs: ['a', 'b'] }, '2026-10-16': { n: 1, msgs: ['c'] } } },
+  ...over,
+}) as any;
+
+describe('calendar: commit', () => {
+  it('repo pubblico: un elemento per commit, con messaggio; sommati alle voci di log', () => {
+    const by = collectEntries([proj({})]);
+    expect(dayCount(by['2026-10-15'])).toBe(3);
+    expect(by['2026-10-15'].filter((e) => e.type === 'commit').map((e) => e.text)).toEqual(['a', 'b']);
+    expect(dayCount(by['2026-10-16'])).toBe(1);
+  });
+  it('privacy: repo privato o taggato personale -> solo conteggi, mai messaggi', () => {
+    for (const over of [
+      { repoData: { ok: true, private: true, commitDays: { '2026-10-15': { n: 3, msgs: ['segreto'] } } } },
+      { tags: ['personale'] },
+      { repoData: { ok: true, commitDays: { '2026-10-15': { n: 3, msgs: ['segreto'] } } } }, // privacy sconosciuta
+    ]) {
+      const p = proj(over);
+      expect(commitsHidden(p)).toBe(true);
+      const commits = collectEntries([p])['2026-10-15'].filter((e) => e.type === 'commit');
+      expect(commits).toHaveLength(1);
+      expect(commits[0]).toMatchObject({ text: null, count: expect.any(Number) });
+      expect(JSON.stringify(commits)).not.toContain('segreto');
+    }
+  });
+  it('repo non raggiungibile: nessun commit, nessun errore', () => {
+    const by = collectEntries([proj({ repoData: { ok: false, error: 'x' } })]);
+    expect(dayCount(by['2026-10-15'])).toBe(1);
+  });
+});

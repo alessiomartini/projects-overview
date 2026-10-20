@@ -18,3 +18,4 @@
 - 2026-10-20T22:52:00Z | 1 | lecture-notes-mit-18642-math-finance | PDF compilato nel cloud e pubblicato in una GitHub Release (richiesta inbox) | skipped | bloccato: pubblicare il PDF in una release di un repo pubblico richiede conferma
 - 2026-10-20T22:53:24Z | 1 | realtime-earth | Binance: errore esplicito per i visitatori geo-bloccati | merged | https://github.com/alessiomartini/realtime-earth/pull/9
 - 2026-10-20T22:53:25Z | 3 | geopolitics-atlas | Vista timeline per conflitto (estratta dalle frasi datate del contesto storico) | merged | https://github.com/alessiomartini/geopolitics-atlas/pull/20
+- 2026-10-20T22:53:48Z | 6 | mountain-huts-map | Pagina di attribuzione guidata da un registro unico + test anti-deriva | merged | https://github.com/alessiomartini/mountain-huts-map/pull/6

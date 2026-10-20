@@ -14,3 +14,4 @@
 - 2026-10-19T22:53:23Z | 4 | geopolitics-atlas | Indicatore "ultima verifica" per ogni conflitto | merged | https://github.com/alessiomartini/geopolitics-atlas/pull/19
 - 2026-10-20T03:53:00Z | 2 | conceptual-map-physics-math | Nuovo filo concettuale "Linearity and superposition" | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/8
 - 2026-10-20T03:53:00Z | 2 | markets-first-principles | Pagina "Derivatives: what the word actually means" scritta (24/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/9
+- 2026-10-20T03:53:00Z | 3 | music-library | Suggerimento di tonalità dalla distribuzione vocale misurata | merged | https://github.com/alessiomartini/music-library/pull/46

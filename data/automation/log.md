@@ -17,3 +17,4 @@
 - 2026-10-20T03:53:00Z | 3 | music-library | Suggerimento di tonalità dalla distribuzione vocale misurata | merged | https://github.com/alessiomartini/music-library/pull/46
 - 2026-10-20T22:52:00Z | 1 | lecture-notes-mit-18642-math-finance | PDF compilato nel cloud e pubblicato in una GitHub Release (richiesta inbox) | skipped | bloccato: pubblicare il PDF in una release di un repo pubblico richiede conferma
 - 2026-10-20T22:53:24Z | 1 | realtime-earth | Binance: errore esplicito per i visitatori geo-bloccati | merged | https://github.com/alessiomartini/realtime-earth/pull/9
+- 2026-10-20T22:53:25Z | 3 | geopolitics-atlas | Vista timeline per conflitto (estratta dalle frasi datate del contesto storico) | merged | https://github.com/alessiomartini/geopolitics-atlas/pull/20

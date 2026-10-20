@@ -15,3 +15,4 @@
 - 2026-10-20T03:53:00Z | 2 | conceptual-map-physics-math | Nuovo filo concettuale "Linearity and superposition" | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/8
 - 2026-10-20T03:53:00Z | 2 | markets-first-principles | Pagina "Derivatives: what the word actually means" scritta (24/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/9
 - 2026-10-20T03:53:00Z | 3 | music-library | Suggerimento di tonalità dalla distribuzione vocale misurata | merged | https://github.com/alessiomartini/music-library/pull/46
+- 2026-10-20T22:52:00Z | 1 | lecture-notes-mit-18642-math-finance | PDF compilato nel cloud e pubblicato in una GitHub Release (richiesta inbox) | skipped | bloccato: pubblicare il PDF in una release di un repo pubblico richiede conferma

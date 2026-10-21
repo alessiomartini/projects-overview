@@ -19,3 +19,5 @@
 - 2026-10-20T22:53:24Z | 1 | realtime-earth | Binance: errore esplicito per i visitatori geo-bloccati | merged | https://github.com/alessiomartini/realtime-earth/pull/9
 - 2026-10-20T22:53:25Z | 3 | geopolitics-atlas | Vista timeline per conflitto (estratta dalle frasi datate del contesto storico) | merged | https://github.com/alessiomartini/geopolitics-atlas/pull/20
 - 2026-10-20T22:53:48Z | 6 | mountain-huts-map | Pagina di attribuzione guidata da un registro unico + test anti-deriva | merged | https://github.com/alessiomartini/mountain-huts-map/pull/6
+- 2026-10-21T03:53:00Z | 1 | conceptual-map-physics-math | Nuovo filo concettuale "Variational principles" | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/9
+- 2026-10-21T03:53:00Z | 2 | markets-first-principles | Pagina "Options" scritta (25/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/10

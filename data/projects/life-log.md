@@ -1,9 +1,11 @@
 ---
 title: "Life Log"
-status: idea
+status: in-corso
 kind: data
 summary: "Unificare i log personali locali (diario, salute, snapshot, self-quantification, finanze, export Google/Meta/...) in un'unica pagina privata a schede, collegati per data così che ognuno possa usare i dati degli altri."
 tags: [dati, personale, locale]
+repo: alessiomartini/life-log
+started: 2026-10-21
 ---
 
 ## Idea

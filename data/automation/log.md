@@ -21,3 +21,5 @@
 - 2026-10-20T22:53:48Z | 6 | mountain-huts-map | Pagina di attribuzione guidata da un registro unico + test anti-deriva | merged | https://github.com/alessiomartini/mountain-huts-map/pull/6
 - 2026-10-21T03:53:00Z | 1 | conceptual-map-physics-math | Nuovo filo concettuale "Variational principles" | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/9
 - 2026-10-21T03:53:00Z | 2 | markets-first-principles | Pagina "Options" scritta (25/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/10
+- 2026-10-21T22:51:53Z | 3 | markets-first-principles | Pagina "Swaps and the rest" scritta (26/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/11
+- 2026-10-21T22:51:53Z | 5 | conceptual-map-physics-math | 24 link a paper originali verificati (arXiv/Crossref) | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/10

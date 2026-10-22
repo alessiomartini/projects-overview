@@ -26,14 +26,12 @@ Progetti coinvolti:
 - [Finanze personali](finanze-personali.md) (idea)
 - Il [Morning Brief](morning-brief.md) come punto di inserimento quotidiano.
 
-## Proposta (da decidere)
+## Architettura (decisa il 2026-10-23)
 
-- **Chiave comune = la data.** Ogni progetto tiene il suo formato; il collegamento è
-  `data -> eventi di quel giorno da tutte le fonti`. Esempio: il giorno del mal di gola, la scheda
-  Salute mostra la voce del diario e il sonno di quella notte.
-- **Primo passo pigro: un "hub", non una fusione.** Una pagina/`build.py` che legge le cartelle
-  dei progetti esistenti (tutti hanno già `build.py` + dati locali) e genera schede + una vista
-  "Giorno"/timeline. Nessuna migrazione, reversibile. Fondere i repo solo se l'hub non basta.
-- Gli export restano intoccati in `Dati-personali` (fuori da git): l'hub li legge estraendoli in
-  una cartella temporanea e salva solo indici filtrati (senza credenziali), mai i file originali.
+- **Log unico**: `life.db` (SQLite), una riga per osservazione (data, fonte, tipo, valore, testo...),
+  ricreato da zero da `ingest.py` a partire da tutte le fonti.
+- **Le fonti restano la verità**: export originali intoccati in `Dati-personali` (fuori da git),
+  file scritti a mano (diario, salute) nei loro repo privati, con storico e backup.
+- **Servizi che leggono solo dal log**: per ora la timeline per giorno; poi pagina della salute,
+  diario, analisi della Self-Quantification, finanze.
 - Tutto resta locale e privato: niente Pages, niente API esterne per i testi intimi.

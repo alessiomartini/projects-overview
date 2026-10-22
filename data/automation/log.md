@@ -26,3 +26,4 @@
 - 2026-10-22T03:51:49Z | 3 | amsterdam-events | `npm run build` su Windows: percorsi con fileURLToPath | merged | https://github.com/alessiomartini/amsterdam-events/pull/4
 - 2026-10-22T03:51:49Z | 2 | markets-first-principles | Pagina "Hedging vs speculation vs arbitrage" scritta (27/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/12
 - 2026-10-22T03:51:49Z | 8 | conceptual-map-physics-math | 21 link a paper originali verificati (arXiv/Crossref), secondo lotto | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/11
+- 2026-10-22T22:53:00Z | 2 | realtime-earth | README: tabella delle fonti (lane, cadenza, licenza, stato) | merged | https://github.com/alessiomartini/realtime-earth/pull/10

@@ -23,3 +23,4 @@
 - 2026-10-21T03:53:00Z | 2 | markets-first-principles | Pagina "Options" scritta (25/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/10
 - 2026-10-21T22:51:53Z | 3 | markets-first-principles | Pagina "Swaps and the rest" scritta (26/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/11
 - 2026-10-21T22:51:53Z | 5 | conceptual-map-physics-math | 24 link a paper originali verificati (arXiv/Crossref) | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/10
+- 2026-10-22T03:51:49Z | 3 | amsterdam-events | `npm run build` su Windows: percorsi con fileURLToPath | merged | https://github.com/alessiomartini/amsterdam-events/pull/4

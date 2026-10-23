@@ -31,3 +31,5 @@
 - 2026-10-22T22:53:00Z | 2 | markets-first-principles | Pagina "No-arbitrage and replication" scritta (28/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/13
 - 2026-10-23T03:52:00Z | 2 | conceptual-map-physics-math | Nuovo filo concettuale "Geometry and curvature" (GR ↔ gauge ↔ fase di Berry), 3 DOI verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/13
 - 2026-10-23T03:52:00Z | 2 | markets-first-principles | Pagina "Bachelier and Black-Scholes" scritta (29/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/14
+- 2026-10-23T22:53:05Z | 2 | markets-first-principles | Pagina "The volatility surface" scritta (30/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/15
+- 2026-10-23T22:53:05Z | 2 | conceptual-map-physics-math | Nuovo filo concettuale "Fluctuations and response", 7 DOI verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/14

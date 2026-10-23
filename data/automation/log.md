@@ -33,3 +33,4 @@
 - 2026-10-23T03:52:00Z | 2 | markets-first-principles | Pagina "Bachelier and Black-Scholes" scritta (29/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/14
 - 2026-10-23T22:53:05Z | 2 | markets-first-principles | Pagina "The volatility surface" scritta (30/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/15
 - 2026-10-23T22:53:05Z | 2 | conceptual-map-physics-math | Nuovo filo concettuale "Fluctuations and response", 7 DOI verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/14
+- 2026-10-23T22:58:30Z | 2 | markets-first-principles | Glossario: 16 voci per il percorso Pricing and risk (196/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/16

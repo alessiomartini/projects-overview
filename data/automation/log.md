@@ -29,3 +29,5 @@
 - 2026-10-22T22:53:00Z | 2 | realtime-earth | README: tabella delle fonti (lane, cadenza, licenza, stato) | merged | https://github.com/alessiomartini/realtime-earth/pull/10
 - 2026-10-22T22:53:00Z | 2 | conceptual-map-physics-math | 25 link a paper originali verificati (arXiv/Crossref), terzo lotto | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/12
 - 2026-10-22T22:53:00Z | 2 | markets-first-principles | Pagina "No-arbitrage and replication" scritta (28/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/13
+- 2026-10-23T03:52:00Z | 2 | conceptual-map-physics-math | Nuovo filo concettuale "Geometry and curvature" (GR ↔ gauge ↔ fase di Berry), 3 DOI verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/13
+- 2026-10-23T03:52:00Z | 2 | markets-first-principles | Pagina "Bachelier and Black-Scholes" scritta (29/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/14

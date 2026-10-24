@@ -35,3 +35,4 @@
 - 2026-10-23T22:53:05Z | 2 | conceptual-map-physics-math | Nuovo filo concettuale "Fluctuations and response", 7 DOI verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/14
 - 2026-10-23T22:58:30Z | 2 | markets-first-principles | Glossario: 16 voci per il percorso Pricing and risk (196/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/16
 - 2026-10-24T03:52:16Z | 2 | markets-first-principles | Pagina "Portfolio construction" scritta (31/51) + 4 voci di glossario (200/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/17
+- 2026-10-24T03:52:16Z | 8 | conceptual-map-physics-math | 20 link a paper originali verificati (Crossref/DataCite), quarto lotto | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/15

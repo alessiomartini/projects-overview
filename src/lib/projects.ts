@@ -11,7 +11,7 @@ export const STATUS_LABEL: Record<Status, string> = {
   abbandonato: 'Abbandonato',
 };
 
-export const KINDS = ['web', 'ricerca', 'self-study', 'android', 'school', 'automazione', 'dati'] as const;
+export const KINDS = ['web', 'ricerca', 'self-study', 'android', 'school', 'automazione', 'dati', 'strumento'] as const;
 export type Kind = (typeof KINDS)[number];
 
 export const KIND_LABEL: Record<Kind, string> = {
@@ -22,6 +22,7 @@ export const KIND_LABEL: Record<Kind, string> = {
   school: 'School',
   automazione: 'Automazione',
   dati: 'Dati personali',
+  strumento: 'Strumento / CLI',
 };
 
 /** Sezioni della home */

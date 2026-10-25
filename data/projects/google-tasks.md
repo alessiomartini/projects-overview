@@ -1,7 +1,7 @@
 ---
 title: "Google Tasks CLI"
 status: in-corso
-kind: web
+kind: strumento
 summary: "CLI minimale per gestire le mie Google Tasks da Claude (OAuth Desktop)."
 tags: [cli, python, produttività]
 repo: alessiomartini/google-tasks

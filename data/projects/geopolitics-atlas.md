@@ -7,3 +7,5 @@ tags: [web, geopolitica]
 repo: alessiomartini/geopolitics-atlas
 started: 2026-08-10
 ---
+
+Fa parte di [Capire il mondo](capire-il-mondo.md).

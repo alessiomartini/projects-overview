@@ -23,7 +23,7 @@ Progetti coinvolti:
 - **Log generale** = gli export dei miei dati in `E:\Alessio\Dati-personali` (Google Takeout:
   Gmail, Keep, Drive, YouTube, Nest...; Meta: Facebook, Messenger, Instagram; Spotify; banche;
   LinkedIn). Diventa la scheda/timeline "tutto", da cui pescano anche le altre schede.
-- [Finanze personali](finanze-personali.md) (idea)
+- Finanze personali (unito qui il 2026-10-25: è la fase "Finanze" della roadmap, un servizio su `life.db`)
 - Il [Morning Brief](morning-brief.md) come punto di inserimento quotidiano.
 
 ## Architettura (decisa il 2026-10-23)

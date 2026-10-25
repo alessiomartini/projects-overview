@@ -6,6 +6,8 @@ summary: "Mappa del mondo per capire le economie dei paesi: passando il mouse su
 tags: [web, mappa, economia, dati]
 ---
 
+Fa parte di [Capire il mondo](capire-il-mondo.md).
+
 ## Idea
 
 - **Mappa**: al passaggio del mouse una finestra con la composizione di

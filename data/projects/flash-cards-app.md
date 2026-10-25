@@ -8,4 +8,4 @@ repo: alessiomartini/flash-cards-app
 started: 2026-08-27
 ---
 
-Il repo resta per le cose che Anki non copre.
+Il repo resta per le cose che Anki non copre. Fa parte di [Anki decks](anki-decks.md).

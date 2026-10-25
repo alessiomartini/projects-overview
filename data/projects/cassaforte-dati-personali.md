@@ -1,27 +1,29 @@
 ---
-title: "Cassaforte dati personali"
-status: idea
+title: "Cassaforte dati personali (KeePassXC)"
+status: in-corso
 kind: dati
-summary: "Un posto unico e cifrato per i dati personali (BSN, indirizzo, IBAN, documenti, codici) al posto delle note di Google Keep."
-tags: [dati-personali, sicurezza, locale]
+summary: "Dati personali (BSN, indirizzo, IBAN, documenti, codici) e password in un database KeePassXC cifrato, al posto delle note di Google Keep."
+tags: [dati-personali, sicurezza, password-manager]
+started: 2026-10-25
 ---
 
-## Idea
+## Da fare
 
-Una pagina HTML locale con tutti i miei dati personali sempre a portata di mano: BSN, codice
-fiscale, indirizzi, IBAN, numeri di documenti, tessere, codici e magari password. Meglio se
-cifrata. Così smetto di tenerli in Google Keep, che non è cifrato.
+- [x] Scegliere lo strumento: KeePassXC invece di una pagina HTML fatta in casa
+- [x] Installare l'app sul telefono (KeePassDX su Android)
+- [ ] Installare KeePassXC sul PC (https://keepassxc.org)
+- [ ] Creare il database `.kdbx` con una passphrase lunga (5-6 parole casuali) e annotarla su carta
+- [ ] Gruppi: Identità (BSN, codice fiscale, passaporto/carta d'identità, DigiD/SPID), Indirizzi, Banche (IBAN), Assicurazioni (VGZbewuzt), Abbonamenti, Password
+- [ ] Spostare tutto da Google Keep, poi cancellare quelle note da Keep (e svuotare il cestino)
+- [ ] Sincronizzare il file tra PC e telefono (Dropbox, oppure Syncthing per non metterlo nel cloud)
+- [ ] Backup: una copia del `.kdbx` su chiavetta o disco esterno
 
-## Note iniziali
+## Note
 
-- **Prima di scrivere codice, valutare un password manager**, che fa già tutto questo: cifratura
-  seria, note sicure e campi personalizzati, app sul telefono, autofill. Per esempio **KeePassXC**
-  (file `.kdbx` locale, open source, gratis, si apre anche dal telefono con KeePassDX o Strongbox)
-  oppure **Bitwarden** (cloud, piano gratuito). Fare la crittografia "in casa" è il punto debole
-  tipico.
-- Se vale comunque la pena farla: un solo file HTML offline, dati cifrati con WebCrypto
-  (AES-GCM, chiave da una passphrase via PBKDF2 o Argon2), nessun server, nessun dato in chiaro
-  su disco.
-- I dati veri **non vanno mai in git** né nel cloud in chiaro. Il loro posto è
-  `E:\Alessio\Dati-personali`, come gli altri export personali.
-- Migrazione: copiare da Google Keep e poi cancellare le note da lì.
+- Il file `.kdbx` è cifrato, quindi può stare anche su Dropbox. La passphrase invece non deve
+  mai finire online.
+- Niente dati veri in git o in questo repo.
+
+## Log
+
+- 2026-10-25: idea iniziale (una pagina HTML locale cifrata) trasformata nell'uso di KeePassXC. App scaricata sul telefono.

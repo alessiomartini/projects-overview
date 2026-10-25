@@ -26,6 +26,7 @@
   --k-school: #7048e8;
   --k-automazione: #0c8599;
   --k-dati: #c2255c;
+  --k-strumento: #946800;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,6 +56,7 @@
     --k-school: #b197fc;
   --k-automazione: #3bc9db;
   --k-dati: #f783ac;
+  --k-strumento: #ffd43b;
   }
 }
 
@@ -83,6 +85,7 @@
   --k-school: #b197fc;
   --k-automazione: #3bc9db;
   --k-dati: #f783ac;
+  --k-strumento: #ffd43b;
 }
 
 :root[data-theme='light'] {
@@ -100,6 +103,7 @@
 [data-kind='school'] { --k: var(--k-school); }
 [data-kind='automazione'] { --k: var(--k-automazione); }
 [data-kind='dati'] { --k: var(--k-dati); }
+[data-kind='strumento'] { --k: var(--k-strumento); }
 
 .theme-toggle {
   background: none;

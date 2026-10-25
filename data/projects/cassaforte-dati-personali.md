@@ -16,7 +16,7 @@ started: 2026-10-25
 - [ ] Gruppi: Identità (BSN, codice fiscale, passaporto/carta d'identità, DigiD/SPID), Indirizzi, Banche (IBAN), Assicurazioni (VGZbewuzt), Abbonamenti, Password
 - [ ] Spostare tutto da Google Keep, poi cancellare quelle note da Keep (e svuotare il cestino)
 - [x] Copia in Dropbox: `E:\Alessio\Dropbox\KeePass\personale.kdbx` (file principale da aprire su PC e telefono)
-- [ ] Aprire il file di Dropbox da KeePassDX sul telefono (tramite l'app Dropbox)
+- [x] Aprire il file di Dropbox da KeePassXC (PC) e KeePassDX (telefono, tramite l'app Dropbox)
 - [ ] Backup: una copia del `.kdbx` su chiavetta o disco esterno
 
 ## Note

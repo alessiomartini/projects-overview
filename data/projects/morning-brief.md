@@ -1,7 +1,7 @@
 ---
 title: "Morning Brief"
 status: idea
-kind: automation
+kind: automazione
 summary: "Ogni mattina un breve riassunto della giornata: cose da fare, email ricevute, eventi in calendario, meteo con consigli su cosa indossare, piante da innaffiare, quando fare la spesa."
 tags: [claude-skill, automazione, calendario, email, meteo]
 ---

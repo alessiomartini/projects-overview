@@ -30,6 +30,11 @@ describe('buildProjectView', () => {
     expect(v.badges).toContain('completo');
   });
 
+  it('le idee vanno nella sezione idee, anche con todo aperti', () => {
+    const v = buildProjectView({ ...base, status: 'idea', body: '- [ ] a' }, undefined, 0, now, 30);
+    expect(v.section).toBe('idee');
+  });
+
   it('nessuna checklist → nessun progresso', () => {
     const v = buildProjectView({ ...base, body: 'solo testo' }, undefined, 0, now, 30);
     expect(v.progress).toBeNull();

@@ -1,7 +1,7 @@
 ---
 title: "Google Photos cleanup"
 status: idea
-kind: automation
+kind: automazione
 summary: "Usare Claude per organizzare e pulire l'account Google Photos: duplicati, foto sfocate e screenshot da eliminare, album, archivio."
 tags: [claude, automazione, foto, google]
 ---

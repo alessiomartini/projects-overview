@@ -11,7 +11,7 @@ export const STATUS_LABEL: Record<Status, string> = {
   abbandonato: 'Abbandonato',
 };
 
-export const KINDS = ['web', 'ricerca', 'self-study', 'android', 'school'] as const;
+export const KINDS = ['web', 'ricerca', 'self-study', 'android', 'school', 'automazione', 'dati'] as const;
 export type Kind = (typeof KINDS)[number];
 
 export const KIND_LABEL: Record<Kind, string> = {
@@ -20,14 +20,17 @@ export const KIND_LABEL: Record<Kind, string> = {
   'self-study': 'Self-study',
   android: 'App Android',
   school: 'School',
+  automazione: 'Automazione',
+  dati: 'Dati personali',
 };
 
 /** Sezioni della home */
-export const SECTIONS = ['attivi', 'niente', 'archiviati'] as const;
+export const SECTIONS = ['attivi', 'idee', 'niente', 'archiviati'] as const;
 export type Section = (typeof SECTIONS)[number];
 
 export const SECTION_LABEL: Record<Section, string> = {
   attivi: 'In corso / da fare',
+  idee: 'Idee (non ancora iniziati)',
   niente: 'Niente da fare',
   archiviati: 'Archiviati / chiusi',
 };
@@ -138,8 +141,10 @@ export function buildProjectView(
   const section: Section = input.section ??
     (input.status === 'finito' || input.status === 'abbandonato'
       ? 'archiviati'
-      : input.status === 'idea' || openCount > 0
-        ? 'attivi'
+      : input.status === 'idea'
+        ? 'idee'
+        : openCount > 0
+          ? 'attivi'
         : 'niente');
 
   return {

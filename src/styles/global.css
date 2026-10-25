@@ -24,6 +24,8 @@
   --k-self-study: #2f9e44;
   --k-android: #e8590c;
   --k-school: #7048e8;
+  --k-automazione: #0c8599;
+  --k-dati: #c2255c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -51,6 +53,8 @@
     --k-self-study: #69db7c;
     --k-android: #ffa94d;
     --k-school: #b197fc;
+  --k-automazione: #3bc9db;
+  --k-dati: #f783ac;
   }
 }
 
@@ -77,6 +81,8 @@
   --k-self-study: #69db7c;
   --k-android: #ffa94d;
   --k-school: #b197fc;
+  --k-automazione: #3bc9db;
+  --k-dati: #f783ac;
 }
 
 :root[data-theme='light'] {
@@ -92,6 +98,8 @@
 [data-kind='self-study'] { --k: var(--k-self-study); }
 [data-kind='android'] { --k: var(--k-android); }
 [data-kind='school'] { --k: var(--k-school); }
+[data-kind='automazione'] { --k: var(--k-automazione); }
+[data-kind='dati'] { --k: var(--k-dati); }
 
 .theme-toggle {
   background: none;

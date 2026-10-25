@@ -1,7 +1,7 @@
 ---
 title: "Self-Quantification"
 status: idea
-kind: data
+kind: dati
 summary: "Tracking longitudinale n-of-1: capire quali metodi di studio e allenamento funzionano su di me (sonno, caffeina, orario, temperatura, luogo) e costruire un dataset personale a lungo termine."
 tags: [dati, n-of-1, studio, allenamento, personale]
 ---

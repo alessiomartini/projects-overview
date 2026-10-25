@@ -1,7 +1,7 @@
 ---
 title: "Film salvati"
 status: idea
-kind: website
+kind: web
 summary: "Sito su misura con i film dei post salvati su Instagram: rating, premi, attori, trailer e dove vederli (Netflix, Prime Video, RaiPlay...)."
 tags: [sito, film, instagram, dati-personali]
 ---

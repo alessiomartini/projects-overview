@@ -70,3 +70,4 @@
 - 2026-10-31T22:58:00Z | 2 | markets-first-principles | Pagina "Funding" scritta (44/51) + 6 voci di glossario (265/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/31
 - 2026-10-31T22:57:00Z | 4 | ear-training | formatHarte: tutte le combinazioni di tensioni (344k combinazioni testate, parser bb7) | merged | https://github.com/alessiomartini/ear-training/pull/5
 - 2026-10-31T23:00:00Z | 2 | ear-training | js/youtube.js (IFrame API con fallback a link) + js/songs.js per songs.html, corpus ancora vuoto | merged | https://github.com/alessiomartini/ear-training/pull/6
+- 2026-10-31T22:59:00Z | 5 | realtime-earth | Audit delle licenze delle fonti nel README (4 ok, 1 con riserva, 1 non utilizzabile, il resto ancora da chiarire) | merged | https://github.com/alessiomartini/realtime-earth/pull/15

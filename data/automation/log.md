@@ -71,3 +71,6 @@
 - 2026-10-31T22:57:00Z | 4 | ear-training | formatHarte: tutte le combinazioni di tensioni (344k combinazioni testate, parser bb7) | merged | https://github.com/alessiomartini/ear-training/pull/5
 - 2026-10-31T23:00:00Z | 2 | ear-training | js/youtube.js (IFrame API con fallback a link) + js/songs.js per songs.html, corpus ancora vuoto | merged | https://github.com/alessiomartini/ear-training/pull/6
 - 2026-10-31T22:59:00Z | 5 | realtime-earth | Audit delle licenze delle fonti nel README (4 ok, 1 con riserva, 1 non utilizzabile, il resto ancora da chiarire) | merged | https://github.com/alessiomartini/realtime-earth/pull/15
+- 2026-10-31T22:59:00Z | 2 | markets-first-principles | Pagina "Wrappers" scritta (45/51) + 6 voci di glossario (271/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/32
+- 2026-10-31T23:01:00Z | 2 | markets-first-principles | Pagina "Regulation" scritta (46/51) + 5 voci di glossario (276/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/33
+- 2026-10-31T23:03:00Z | 2 | markets-first-principles | Pagina "Crypto plumbing" scritta (47/51, percorso Plumbing completo) + 7 voci di glossario (283/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/34

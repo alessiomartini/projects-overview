@@ -88,3 +88,4 @@
 - 2026-10-31T23:12:00Z | 1 | conceptual-map-physics-math | Nuovo filo concettuale "Irreversibility and the arrow of time" (sezione definitions sulle sei frecce), 10 DOI verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/26
 - 2026-10-31T23:11:00Z | 4 | markets-first-principles | Script per 3 figure simulate (kelly-curve, in-vs-out-of-sample, delta-hedge-pnl), 6/51 | merged | https://github.com/alessiomartini/markets-first-principles/pull/39
 - 2026-10-31T23:14:00Z | 1 | conceptual-map-physics-math | Nuovo filo concettuale "Discreteness and the continuum", 9 DOI verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/27
+- 2026-10-31T23:14:00Z | 3 | markets-first-principles | Script per 4 figure con dati FRED di dominio pubblico (curve-inversions, policy-vs-curve, m2-vs-cpi, phillips-by-decade), 10/51 | merged | https://github.com/alessiomartini/markets-first-principles/pull/40

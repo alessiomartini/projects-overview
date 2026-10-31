@@ -61,3 +61,4 @@
 - 2026-10-31T22:53:00Z | 0 | conceptual-map-physics-math | Filo "Linearity and superposition" (già presente su main, tracker locale non aggiornato) | skipped | -
 - 2026-10-31T22:53:00Z | 2 | realtime-earth | Lane B: già implementata, aggiunti 11 test di flusso proxy/cron con KV finto, Lane B spuntata | merged | https://github.com/alessiomartini/realtime-earth/pull/11
 - 2026-10-31T22:53:00Z | 2 | conceptual-map-physics-math | Nuovo filo concettuale "Topology and topological invariants", 11 DOI verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/24
+- 2026-10-31T22:53:00Z | 7 | markets-first-principles | Pagina "Clearing and settlement" scritta (42/51) + 5 voci di glossario (257/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/29

@@ -53,3 +53,4 @@
 - 2026-10-31T12:03:00Z | 2 | markets-first-principles | Pagina "The yield curve" scritta (37/51) + 3 voci di glossario (233/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/24
 - 2026-10-31T12:03:00Z | 2 | conceptual-map-physics-math | 20 link a paper originali verificati sugli esperimenti, ottavo lotto | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/21
 - 2026-10-31T12:04:00Z | 2 | markets-first-principles | Pagina "Labour, output, prices" scritta (38/51) + 4 voci di glossario (237/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/25
+- 2026-10-31T12:05:00Z | 2 | markets-first-principles | Pagina "Exchange rates" scritta (39/51) + 6 voci di glossario (243/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/26

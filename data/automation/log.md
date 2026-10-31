@@ -66,3 +66,5 @@
 - 2026-10-31T22:56:00Z | 1 | conceptual-map-physics-math | Nuovo filo concettuale "The harmonic oscillator everywhere", 4 DOI verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/25
 - 2026-10-31T22:57:00Z | 1 | realtime-earth | Nuovo modulo NOAA SWPC raggi X GOES (classe di brillamento) con 4 test | merged | https://github.com/alessiomartini/realtime-earth/pull/13
 - 2026-10-31T22:57:00Z | 1 | realtime-earth | Nuovo modulo NOAA SWPC vento solare (RTSW) con 4 test | merged | https://github.com/alessiomartini/realtime-earth/pull/14
+- 2026-10-31T22:56:00Z | 2 | markets-first-principles | Pagina "Margin and leverage" scritta (43/51) + 2 voci di glossario (259/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/30
+- 2026-10-31T22:58:00Z | 2 | markets-first-principles | Pagina "Funding" scritta (44/51) + 6 voci di glossario (265/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/31

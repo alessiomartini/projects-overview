@@ -68,3 +68,4 @@
 - 2026-10-31T22:57:00Z | 1 | realtime-earth | Nuovo modulo NOAA SWPC vento solare (RTSW) con 4 test | merged | https://github.com/alessiomartini/realtime-earth/pull/14
 - 2026-10-31T22:56:00Z | 2 | markets-first-principles | Pagina "Margin and leverage" scritta (43/51) + 2 voci di glossario (259/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/30
 - 2026-10-31T22:58:00Z | 2 | markets-first-principles | Pagina "Funding" scritta (44/51) + 6 voci di glossario (265/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/31
+- 2026-10-31T22:57:00Z | 4 | ear-training | formatHarte: tutte le combinazioni di tensioni (344k combinazioni testate, parser bb7) | merged | https://github.com/alessiomartini/ear-training/pull/5

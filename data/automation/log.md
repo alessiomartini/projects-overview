@@ -74,3 +74,4 @@
 - 2026-10-31T22:59:00Z | 2 | markets-first-principles | Pagina "Wrappers" scritta (45/51) + 6 voci di glossario (271/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/32
 - 2026-10-31T23:01:00Z | 2 | markets-first-principles | Pagina "Regulation" scritta (46/51) + 5 voci di glossario (276/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/33
 - 2026-10-31T23:03:00Z | 2 | markets-first-principles | Pagina "Crypto plumbing" scritta (47/51, percorso Plumbing completo) + 7 voci di glossario (283/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/34
+- 2026-10-31T23:05:00Z | 1 | realtime-earth | FIRMS passato da Suomi NPP (fine consegna 2 nov) a NOAA-20; licenza Wikimedia non più dichiarata CC0 | merged | https://github.com/alessiomartini/realtime-earth/pull/16

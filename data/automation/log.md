@@ -47,3 +47,4 @@
 - 2026-10-31T12:00:00Z | 2 | markets-first-principles | Pagina "What GDP actually measures" scritta (34/51) + 6 voci di glossario (227/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/21
 - 2026-10-31T12:00:00Z | 2 | conceptual-map-physics-math | Nuovo filo concettuale "Randomness and probability in physics", 8 DOI verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/19
 - 2026-10-31T12:00:00Z | 2 | markets-first-principles | Pagina "Money and inflation" scritta (35/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/22
+- 2026-10-31T12:01:00Z | 6 | mountain-huts-map | Attribuzione OSM/Wikidata/Wikipedia con licenze + test anti-deriva + package-lock riallineato | merged | https://github.com/alessiomartini/mountain-huts-map/pull/9

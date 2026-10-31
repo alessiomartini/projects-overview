@@ -43,3 +43,4 @@
 - 2026-10-31T11:58:00Z | 2 | markets-first-principles | Pagina "Position sizing" scritta (33/51) + 1 voce di glossario (201/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/19
 - 2026-10-31T11:58:00Z | 2 | conceptual-map-physics-math | Nuovo filo concettuale "Scaling and dimensional analysis", 8 DOI verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/17
 - 2026-10-31T11:59:00Z | 2 | markets-first-principles | Glossario: 20 voci (221/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/20
+- 2026-10-31T11:59:00Z | 3 | conceptual-map-physics-math | 30 link a paper originali verificati (Crossref/arXiv), sesto lotto | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/18

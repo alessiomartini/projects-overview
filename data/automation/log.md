@@ -54,3 +54,5 @@
 - 2026-10-31T12:03:00Z | 2 | conceptual-map-physics-math | 20 link a paper originali verificati sugli esperimenti, ottavo lotto | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/21
 - 2026-10-31T12:04:00Z | 2 | markets-first-principles | Pagina "Labour, output, prices" scritta (38/51) + 4 voci di glossario (237/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/25
 - 2026-10-31T12:05:00Z | 2 | markets-first-principles | Pagina "Exchange rates" scritta (39/51) + 6 voci di glossario (243/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/26
+- 2026-10-31T12:05:00Z | 5 | conceptual-map-physics-math | 52 link a paper originali verificati sui 20 file che non ne avevano, nono lotto | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/22
+- 2026-10-31T12:06:00Z | 2 | markets-first-principles | Pagina "Credit and the cycle" scritta (40/51) + 5 voci di glossario (248/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/27

@@ -76,3 +76,4 @@
 - 2026-10-31T23:03:00Z | 2 | markets-first-principles | Pagina "Crypto plumbing" scritta (47/51, percorso Plumbing completo) + 7 voci di glossario (283/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/34
 - 2026-10-31T23:05:00Z | 1 | realtime-earth | FIRMS passato da Suomi NPP (fine consegna 2 nov) a NOAA-20; licenza Wikimedia non più dichiarata CC0 | merged | https://github.com/alessiomartini/realtime-earth/pull/16
 - 2026-10-31T23:02:00Z | 4 | mountain-huts-map | "Dataset completo": voce obsoleta (5204 rifugi già presenti), testi aggiornati e sotto-voci per regioni nuove/refresh mensile; Overpass non raggiungibile dal sandbox | merged | https://github.com/alessiomartini/mountain-huts-map/pull/10
+- 2026-10-31T23:06:00Z | 2 | music-library | Suggerimento tonalità dal range vocale: già presente, aggiunti test dei casi limite e UI per tonalità ignota / già applicata | merged | https://github.com/alessiomartini/music-library/pull/47

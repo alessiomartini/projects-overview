@@ -85,3 +85,4 @@
 - 2026-10-31T23:06:00Z | 6 | mountain-huts-map | Workflow mensile di refresh dei dati con PR automatica (serve abilitare le PR da Actions nelle impostazioni) | merged | https://github.com/alessiomartini/mountain-huts-map/pull/11
 - 2026-10-31T23:10:00Z | 3 | amsterdam-events | Build su Windows: fix fileURLToPath già su main, riesaminato (test con CRLF ok), voce riformulata come verifica su Windows | merged | https://github.com/alessiomartini/amsterdam-events/pull/5
 - 2026-10-31T23:11:00Z | 3 | mountain-huts-map | Nuove regioni alpine: fermato senza modifiche (i bbox sovrapposti assegnerebbero il paese sbagliato; serve assegnazione per poligono) | skipped | -
+- 2026-10-31T23:12:00Z | 1 | conceptual-map-physics-math | Nuovo filo concettuale "Irreversibility and the arrow of time" (sezione definitions sulle sei frecce), 10 DOI verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/26

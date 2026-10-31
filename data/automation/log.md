@@ -84,3 +84,4 @@
 - 2026-10-31T23:10:00Z | 1 | markets-first-principles | Pagina "From research to P&L" scritta (51/51, tutte le pagine scritte; glossario completo, 301 voci) | merged | https://github.com/alessiomartini/markets-first-principles/pull/38
 - 2026-10-31T23:06:00Z | 6 | mountain-huts-map | Workflow mensile di refresh dei dati con PR automatica (serve abilitare le PR da Actions nelle impostazioni) | merged | https://github.com/alessiomartini/mountain-huts-map/pull/11
 - 2026-10-31T23:10:00Z | 3 | amsterdam-events | Build su Windows: fix fileURLToPath già su main, riesaminato (test con CRLF ok), voce riformulata come verifica su Windows | merged | https://github.com/alessiomartini/amsterdam-events/pull/5
+- 2026-10-31T23:11:00Z | 3 | mountain-huts-map | Nuove regioni alpine: fermato senza modifiche (i bbox sovrapposti assegnerebbero il paese sbagliato; serve assegnazione per poligono) | skipped | -

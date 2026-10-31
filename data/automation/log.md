@@ -49,3 +49,4 @@
 - 2026-10-31T12:00:00Z | 2 | markets-first-principles | Pagina "Money and inflation" scritta (35/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/22
 - 2026-10-31T12:01:00Z | 6 | mountain-huts-map | Attribuzione OSM/Wikidata/Wikipedia con licenze + test anti-deriva + package-lock riallineato | merged | https://github.com/alessiomartini/mountain-huts-map/pull/9
 - 2026-10-31T12:02:00Z | 2 | markets-first-principles | Pagina "Interest rates and central banks" scritta (36/51) + 3 voci di glossario (230/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/23
+- 2026-10-31T12:02:00Z | 4 | conceptual-map-physics-math | 29 link a paper originali verificati (Crossref/arXiv), settimo lotto | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/20

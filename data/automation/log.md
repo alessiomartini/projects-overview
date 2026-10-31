@@ -37,3 +37,5 @@
 - 2026-10-24T03:52:16Z | 2 | markets-first-principles | Pagina "Portfolio construction" scritta (31/51) + 4 voci di glossario (200/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/17
 - 2026-10-24T03:52:16Z | 8 | conceptual-map-physics-math | 20 link a paper originali verificati (Crossref/DataCite), quarto lotto | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/15
 - 2026-10-24T03:52:16Z | 10 | mountain-huts-map | Widget note/feedback verso il backend condiviso site-notes | merged | https://github.com/alessiomartini/mountain-huts-map/pull/7
+- 2026-10-31T13:10:00Z | 2 | markets-first-principles | Pagina "Risk measures" scritta (32/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/18
+- 2026-10-31T13:10:00Z | 2 | conceptual-map-physics-math | 18 link a paper originali verificati (Crossref/arXiv), quinto lotto | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/16

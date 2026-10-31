@@ -78,3 +78,7 @@
 - 2026-10-31T23:02:00Z | 4 | mountain-huts-map | "Dataset completo": voce obsoleta (5204 rifugi già presenti), testi aggiornati e sotto-voci per regioni nuove/refresh mensile; Overpass non raggiungibile dal sandbox | merged | https://github.com/alessiomartini/mountain-huts-map/pull/10
 - 2026-10-31T23:06:00Z | 2 | music-library | Suggerimento tonalità dal range vocale: già presente, aggiunti test dei casi limite e UI per tonalità ignota / già applicata | merged | https://github.com/alessiomartini/music-library/pull/47
 - 2026-10-31T23:08:00Z | 4 | music-library | Tonalità trasposte scritte secondo la tonalità di arrivo (Sib e non La#), test su 24 tonalità | merged | https://github.com/alessiomartini/music-library/pull/48
+- 2026-10-31T23:05:00Z | 2 | markets-first-principles | Pagina "Signals and alpha" scritta (48/51) + 6 voci di glossario | merged | https://github.com/alessiomartini/markets-first-principles/pull/35
+- 2026-10-31T23:07:00Z | 1 | markets-first-principles | Pagina "Backtesting and its pathologies" scritta (49/51) + 4 voci di glossario | merged | https://github.com/alessiomartini/markets-first-principles/pull/36
+- 2026-10-31T23:08:00Z | 2 | markets-first-principles | Pagina "Costs" scritta (50/51) + 4 voci di glossario | merged | https://github.com/alessiomartini/markets-first-principles/pull/37
+- 2026-10-31T23:10:00Z | 1 | markets-first-principles | Pagina "From research to P&L" scritta (51/51, tutte le pagine scritte; glossario completo, 301 voci) | merged | https://github.com/alessiomartini/markets-first-principles/pull/38

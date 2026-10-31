@@ -45,3 +45,5 @@
 - 2026-10-31T11:59:00Z | 2 | markets-first-principles | Glossario: 20 voci (221/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/20
 - 2026-10-31T11:59:00Z | 3 | conceptual-map-physics-math | 30 link a paper originali verificati (Crossref/arXiv), sesto lotto | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/18
 - 2026-10-31T12:00:00Z | 2 | markets-first-principles | Pagina "What GDP actually measures" scritta (34/51) + 6 voci di glossario (227/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/21
+- 2026-10-31T12:00:00Z | 2 | conceptual-map-physics-math | Nuovo filo concettuale "Randomness and probability in physics", 8 DOI verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/19
+- 2026-10-31T12:00:00Z | 2 | markets-first-principles | Pagina "Money and inflation" scritta (35/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/22

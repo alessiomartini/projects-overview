@@ -94,3 +94,4 @@
 - 2026-10-31T23:16:00Z | 3 | markets-first-principles | Script per gdp-decomposition (contributi BEA) e repo-rates (SOFR/EFFR/IORB) da FRED, 12/51; carry-and-cip saltata (servono punti forward non pubblici) | merged | https://github.com/alessiomartini/markets-first-principles/pull/41
 - 2026-10-31T23:17:00Z | 13 | geopolitics-atlas | Riverifica della pagina Gaza (dati al 12 ottobre, aggiornamenti attribuiti e citati, Times of Israel aggiunto con tier) | merged | https://github.com/alessiomartini/geopolitics-atlas/pull/21
 - 2026-10-31T23:17:00Z | 4 | mountain-huts-map | Nuove regioni (Alpi FR/CH/AT, Pirenei, Tatra) senza sovrapposizioni + dedup per id OSM; dati al prossimo refresh | merged | https://github.com/alessiomartini/mountain-huts-map/pull/13
+- 2026-10-31T23:18:00Z | 7 | conceptual-map-physics-math | 30 link a paper originali verificati (Crossref/arXiv) su 31 voci, decimo lotto | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/29

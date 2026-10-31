@@ -58,3 +58,5 @@
 - 2026-10-31T12:06:00Z | 2 | markets-first-principles | Pagina "Credit and the cycle" scritta (40/51) + 5 voci di glossario (248/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/27
 - 2026-10-31T12:06:00Z | 2 | markets-first-principles | Pagina "Economics as a complex system" scritta (41/51, percorso Economics completo) + 4 voci di glossario (252/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/28
 - 2026-10-31T12:06:00Z | 2 | conceptual-map-physics-math | Nuovo filo concettuale "Approximation and perturbation theory", 4 DOI verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/23
+- 2026-10-31T22:53:00Z | 0 | conceptual-map-physics-math | Filo "Linearity and superposition" (già presente su main, tracker locale non aggiornato) | skipped | -
+- 2026-10-31T22:53:00Z | 2 | realtime-earth | Lane B: già implementata, aggiunti 11 test di flusso proxy/cron con KV finto, Lane B spuntata | merged | https://github.com/alessiomartini/realtime-earth/pull/11

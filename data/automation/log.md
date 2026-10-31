@@ -39,3 +39,6 @@
 - 2026-10-24T03:52:16Z | 10 | mountain-huts-map | Widget note/feedback verso il backend condiviso site-notes | merged | https://github.com/alessiomartini/mountain-huts-map/pull/7
 - 2026-10-31T11:50:00Z | 2 | markets-first-principles | Pagina "Risk measures" scritta (32/51) | merged | https://github.com/alessiomartini/markets-first-principles/pull/18
 - 2026-10-31T11:50:00Z | 2 | conceptual-map-physics-math | 18 link a paper originali verificati (Crossref/arXiv), quinto lotto | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/16
+- 2026-10-31T11:50:00Z | 4 | mountain-huts-map | Pagina di attribuzione: contatore dei rifugi per fonte + nota sul dataset aggiornata | merged | https://github.com/alessiomartini/mountain-huts-map/pull/8
+- 2026-10-31T11:58:00Z | 2 | markets-first-principles | Pagina "Position sizing" scritta (33/51) + 1 voce di glossario (201/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/19
+- 2026-10-31T11:58:00Z | 2 | conceptual-map-physics-math | Nuovo filo concettuale "Scaling and dimensional analysis", 8 DOI verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/17

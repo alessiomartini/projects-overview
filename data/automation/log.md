@@ -95,3 +95,5 @@
 - 2026-10-31T23:17:00Z | 13 | geopolitics-atlas | Riverifica della pagina Gaza (dati al 12 ottobre, aggiornamenti attribuiti e citati, Times of Israel aggiunto con tier) | merged | https://github.com/alessiomartini/geopolitics-atlas/pull/21
 - 2026-10-31T23:17:00Z | 4 | mountain-huts-map | Nuove regioni (Alpi FR/CH/AT, Pirenei, Tatra) senza sovrapposizioni + dedup per id OSM; dati al prossimo refresh | merged | https://github.com/alessiomartini/mountain-huts-map/pull/13
 - 2026-10-31T23:18:00Z | 7 | conceptual-map-physics-math | 30 link a paper originali verificati (Crossref/arXiv) su 31 voci, decimo lotto | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/29
+- 2026-10-31T23:19:00Z | 2 | geopolitics-atlas | Riverifica della pagina Russia-Ucraina (OHCHR settembre, colloqui, attacchi all'energia) | merged | https://github.com/alessiomartini/geopolitics-atlas/pull/22
+- 2026-10-31T23:20:00Z | 2 | geopolitics-atlas | Riverifica della pagina Sudan (Kordofan, colloqui, sfollati; rivendicazioni attribuite) | merged | https://github.com/alessiomartini/geopolitics-atlas/pull/23

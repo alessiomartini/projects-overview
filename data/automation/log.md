@@ -56,3 +56,5 @@
 - 2026-10-31T12:05:00Z | 2 | markets-first-principles | Pagina "Exchange rates" scritta (39/51) + 6 voci di glossario (243/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/26
 - 2026-10-31T12:05:00Z | 5 | conceptual-map-physics-math | 52 link a paper originali verificati sui 20 file che non ne avevano, nono lotto | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/22
 - 2026-10-31T12:06:00Z | 2 | markets-first-principles | Pagina "Credit and the cycle" scritta (40/51) + 5 voci di glossario (248/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/27
+- 2026-10-31T12:06:00Z | 2 | markets-first-principles | Pagina "Economics as a complex system" scritta (41/51, percorso Economics completo) + 4 voci di glossario (252/300) | merged | https://github.com/alessiomartini/markets-first-principles/pull/28
+- 2026-10-31T12:06:00Z | 2 | conceptual-map-physics-math | Nuovo filo concettuale "Approximation and perturbation theory", 4 DOI verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/23

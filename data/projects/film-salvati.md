@@ -6,6 +6,7 @@ summary: "Sito su misura con i film dei post salvati su Instagram: rating, premi
 tags: [sito, film, instagram, dati-personali]
 repo: alessiomartini/film-salvati
 started: 2026-11-01
+url: https://alessiomartini.github.io/film-salvati/
 ---
 
 ## Stato

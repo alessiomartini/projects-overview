@@ -1,12 +1,22 @@
 ---
 title: "World Economies Map"
-status: idea
+status: in-corso
 kind: web
 summary: "Mappa del mondo per capire le economie dei paesi: passando il mouse su un paese, composizione del gettito e della spesa pubblica; cliccando, una pagina con più informazioni sulla sua economia. Solo dati ufficiali, con fonti citate."
 tags: [web, mappa, economia, dati]
+repo: alessiomartini/world-economies-map
+started: 2026-11-01
+showDetails: true
 ---
 
 Fa parte di [Capire il mondo](capire-il-mondo.md).
+
+## Ambito ampliato (2026-11-01)
+
+Repo separato, sito in inglese, MVP con 5 paesi (NOR, ITA, USA, IND, NGA). Per ogni paese: composizione del PIL,
+spesa pubblica, costo del lavoro, distribuzioni di reddito e ricchezza, energia, settori trainanti, storia
+economica, effetto della dimensione. Mappa con livelli attivabili: porti, petrolio, gas, carbone, minerali,
+centrali elettriche. Dettagli in `ROADMAP.md` e `docs/research.md` del repo.
 
 ## Idea
 

@@ -1,10 +1,17 @@
 ---
 title: "Film salvati"
-status: idea
+status: in-corso
 kind: web
 summary: "Sito su misura con i film dei post salvati su Instagram: rating, premi, attori, trailer e dove vederli (Netflix, Prime Video, RaiPlay...)."
 tags: [sito, film, instagram, dati-personali]
+repo: alessiomartini/film-salvati
+started: 2026-11-01
 ---
+
+## Stato
+
+Avviato il 2026-11-01: 145 titoli dalle tre raccolte di film salvate su Instagram, sito con
+griglia, filtri e scheda per titolo. Roadmap nel repo `film-salvati`.
 
 ## Idea
 

@@ -13,7 +13,7 @@ Fa parte di [Capire il mondo](capire-il-mondo.md).
 
 ## Ambito ampliato (2026-11-01)
 
-Repo separato, sito in inglese, MVP con 5 paesi (NOR, ITA, USA, IND, NGA). Per ogni paese: composizione del PIL,
+Repo separato, sito in inglese, 13 paesi (NOR, ITA, USA, IND, NGA, NLD, FRA, DEU, ESP, GRC, SWE, SGP, CHN). Per ogni paese: composizione del PIL,
 spesa pubblica, costo del lavoro, distribuzioni di reddito e ricchezza, energia, settori trainanti, storia
 economica, effetto della dimensione. Mappa con livelli attivabili: porti, petrolio, gas, carbone, minerali,
 centrali elettriche. Dettagli in `ROADMAP.md` e `docs/research.md` del repo.

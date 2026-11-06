@@ -5,6 +5,7 @@ kind: web
 summary: "Sito che mette a confronto affermazioni popolari dei due lati del dibattito (economia, politica, finanza) con le evidenze scientifiche, con dati, grafici e fonti."
 tags: [web, economia, dati]
 repo: alessiomartini/myths-vs-data
+url: https://alessiomartini.github.io/myths-vs-data/
 started: 2026-11-06
 ---
 

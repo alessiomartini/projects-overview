@@ -61,6 +61,7 @@ const links = [
       <slot />
     </main>
     {active !== 'inbox' && <QuickIdea client:idle />}
+    <script is:inline defer src={url('js/notes-widget.js') + '?v=1'}></script>
     <script is:inline>
       document.getElementById('theme-toggle').addEventListener('click', () => {
         const root = document.documentElement;

@@ -123,3 +123,4 @@
 - 2026-11-07T23:06:00Z | 4 | conceptual-map-physics-math | Nuovi fili "Causality and analyticity" e "Singularities and breakdown", 20 link verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/37
 - 2026-11-07T23:08:00Z | 8 | geopolitics-atlas | Riverifica delle pagine Sahel, Somalia, Etiopia (Etiopia: aggiunta la guerra ripresa a settembre); 4 testate aggiunte al registro; lacune elencate in ROADMAP | merged | https://github.com/alessiomartini/geopolitics-atlas/pull/29
 - 2026-11-07T23:09:00Z | 3 | conceptual-map-physics-math | Nuovi fili "Integrability and chaos" e "Unification", 17 link verificati | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/38
+- 2026-11-07T23:10:00Z | 7 | geopolitics-atlas | Riverifica delle pagine Corea, Stretto di Taiwan, Mar Cinese Meridionale, Kashmir; fonti quasi solo Al Jazeera, lacune in ROADMAP | merged | https://github.com/alessiomartini/geopolitics-atlas/pull/30

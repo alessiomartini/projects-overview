@@ -8,7 +8,7 @@
 - [x] Riordino delle priorità con drag & drop
 
 ## Prossimi passi
-- [ ] Sostituire i progetti d'esempio con quelli veri
+- [x] Sostituire i progetti d'esempio con quelli veri
 - [ ] Collegare i repo dei progetti e aggiungere a ognuno `ROADMAP.md` + istruzioni per Claude
 - [x] Vista calendario dell'attività
 
@@ -25,6 +25,7 @@ Calendario (`/calendario`): conta solo le voci `## Log` dei ROADMAP.md (stessi d
 Calendario con commit (2026-10-19): `scripts/fetch-repos.mjs` raccoglie i commit dell'ultimo anno del branch di default (fino a 1000, paginati) aggregati per giorno UTC in `commitDays`; se la chiamata fallisce il repo resta valido senza commit. Privacy (il repo del sito è pubblico): per i repo privati, con privacy sconosciuta o taggati `personale` si salvano e mostrano solo i conteggi giornalieri, mai messaggi, file o autori (per i privati i messaggi non vengono nemmeno scritti in `repos.json`); per i repo pubblici non `personale` si mostra la prima riga del messaggio. I filtri (progetto, tipo) sono lato client; i giorni con soli commit hanno tinta verde. I commit si contano sul solo branch di default.
 
 ## Log
+- 2026-11-07: 🤖 spuntata «Sostituire i progetti d'esempio»: in `data/projects/` restano solo schede vere, nessuna d'esempio.
 - 2026-11-06: aggiunto il pulsante Feedback (`public/js/notes-widget.js`, POST al Worker site-notes con coda locale) a tutte le pagine; serve il deploy di site-notes. widget note v2 canonico (site-notes/widget) al posto del vecchio feedback. widget note allineato alla versione finale (migrazione key#field, dedupe), ?v=3.
 - 2026-10-19: 🤖 Calendario: contati anche i commit di tutti i repo collegati (solo conteggi per privati/personali), con filtri per progetto e tipo.- 2026-10-18: protocollo unico: `## Idee` fuori dalla percentuale e mostrate a parte, template e snippet CLAUDE.md aggiornati; 🤖 vista calendario `/calendario` (heatmap 12 mesi dalle voci di Log, dettaglio per giorno)
 - 2026-10-15: prima versione del sito; home rifatta (tipi a colori, anello di progresso, liste per progetto, 3 sezioni, toggle tema); liste da fare mostrate per intero

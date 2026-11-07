@@ -97,3 +97,6 @@
 - 2026-10-31T23:18:00Z | 7 | conceptual-map-physics-math | 30 link a paper originali verificati (Crossref/arXiv) su 31 voci, decimo lotto | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/29
 - 2026-10-31T23:19:00Z | 2 | geopolitics-atlas | Riverifica della pagina Russia-Ucraina (OHCHR settembre, colloqui, attacchi all'energia) | merged | https://github.com/alessiomartini/geopolitics-atlas/pull/22
 - 2026-10-31T23:20:00Z | 2 | geopolitics-atlas | Riverifica della pagina Sudan (Kordofan, colloqui, sfollati; rivendicazioni attribuite) | merged | https://github.com/alessiomartini/geopolitics-atlas/pull/23
+- 2026-11-07T11:58:00Z | 1 | conceptual-map-physics-math | Fili "Variational principles" e "Linearity and superposition": già presenti su main, nessuna modifica | skipped | -
+- 2026-11-07T12:00:00Z | 3 | lecture-notes-mit-18642-math-finance | Appendice A: riga "planned" chiarita (trascrizione di un altro corso OCW), non compilato (niente LaTeX nel sandbox) | merged | https://github.com/alessiomartini/lecture-notes-mit-18642-math-finance/pull/2
+- 2026-11-07T11:58:00Z | 4 | music-library | Range dell'artista → range comodo: già coperto da KeySuggestion/VocalHistogram, voce spuntata | merged | https://github.com/alessiomartini/music-library/pull/51

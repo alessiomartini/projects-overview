@@ -252,7 +252,7 @@ button.f.on{background:var(--acc);border-color:var(--acc);color:var(--bg)}
 h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:24px 0 8px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px}
 .kids{margin:8px 0 0 14px;padding-left:12px;border-left:3px solid var(--line)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:5px}
+.card{cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:5px}
 .card.dim{opacity:.5}
 .card b{font-size:15px}
 .d{color:var(--mut);font-size:13px}
@@ -282,11 +282,13 @@ a{font-weight:700;text-decoration:none;color:inherit}a:hover{color:var(--acc)}
 const SECS = /*DATA*/[];
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const all = SECS.flatMap((s) => s.groups.flat().map((c) => ({ ...c, sec: s.title })));
-const cardHtml = (c) => `<div class="card" id="c-${esc(c.id)}">
+const mainUrl = (c) => (c.links.find(([l]) => l === 'Sito') || c.links.find(([, u]) => u.endsWith('.html')) || c.links[0] || [0, ''])[1];
+const cardHtml = (c) => `<div class="card" id="c-${esc(c.id)}" data-go="${esc(mainUrl(c))}">
   <b>${esc(c.title)}</b><div class="d">${esc(c.desc)}</div>
   <div class="m"><span class="s-${c.status}">${c.status}</span><span>${esc(c.type)}</span>${c.tags.filter((t) => t !== c.type).map((t) => `<span>${esc(t)}</span>`).join('')}</div>
   ${c.pct == null ? '' : `<div class="bar" title="${c.pct}% della ROADMAP"><i style="width:${c.pct}%"></i></div>`}
-  <div class="l">${c.pct == null ? '' : `<span class="d">${c.pct}%</span>`}${c.links.map(([l, u]) => `<a href="${esc(u)}">${esc(l)}</a>`).join('')}</div></div>`;
+  <div class="l">${c.pct == null ? '' : `<span class="d">${c.pct}%</span>`}${c.links.map(([l, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(l)}</a>`).join('')}</div></div>`;
+document.getElementById('out').onclick = (e) => { const c = e.target.closest('.card'); if (c && c.dataset.go && !e.target.closest('a')) window.open(c.dataset.go, '_blank', 'noopener'); };
 document.getElementById('out').innerHTML = SECS.map((s) => `<section><h2>${esc(s.title)}</h2>` + s.groups.map((g) =>
   `<div class="grp"><div class="grid">${cardHtml(g[0])}</div>` + (g.length > 1 ? `<div class="kids grid">${g.slice(1).map(cardHtml).join('')}</div>` : '') + '</div>').join('') + '</section>').join('');
 const st = { s: new Set(), t: new Set() };

@@ -33,7 +33,7 @@ SECTIONS = [
         ('life-log', ['PENSIERI', 'personal-healthcare', 'snapshots-psicologia-personale', 'self-quantification',
                       'morning-brief']),
         ('cassaforte-dati-personali', []), ('film-salvati', []), ('storie-raccontate', [])]),
-    ('Lavoro', [('job-research-website', []), ('personal-cv-resume', []), ('alessiomartini.github.io', [])]),
+    ('Lavoro', [('job-research-website', []), ('personal-cv-resume', ['lattice-ml-symmetries']), ('alessiomartini.github.io', [])]),
     ('Finanza e quant', [('markets-first-principles', [
         'mit-18642-lecture-notes', 'lecture-notes-economics-of-money-and-banking-Perry-Mehrling',
         'notebooks-econophysics-benzaquen', 'wikipedia-attention-etf-volatility'])]),

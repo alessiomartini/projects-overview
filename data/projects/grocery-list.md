@@ -1,6 +1,6 @@
 ---
 title: "Pantry – lista della spesa"
-status: in-pausa
+status: in-corso
 kind: android
 summary: "App Android (Kotlin + Compose) per spesa e dispensa: cosa comprare, cosa c'è in casa, scadenze, ricette."
 tags: [app, android]

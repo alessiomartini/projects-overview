@@ -135,3 +135,4 @@
 - 2026-11-14T11:58:00Z | 3 | realtime-earth | Altro modulo Lane A: nessuna fonte pianificata con licenza chiara e senza chiave o modifiche di config | skipped | -
 - 2026-11-14T11:58:00Z | 3 | conceptual-map-physics-math | Nuovi fili "The classical limit" e "What is a particle?", 20 DOI verificati (Crossref) | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/41
 - 2026-11-14T11:59:00Z | 2 | realtime-earth | Modulo aerei da adsb.lol (Lane B, ODbL, cron di GDELT riusato, 145 test ok); in bozza: il merge fa partire il deploy e adsb.lol consiglia la chiave ai client automatici | draft | https://github.com/alessiomartini/realtime-earth/pull/24
+- 2026-11-14T11:58:46Z | 3 | markets-first-principles | Glossario senza scroll orizzontale (due $ letti come formula, griglia mobile) + 3 figure nuove (payoff, interesse composto, smile di Merton) su 10 voci | merged | https://github.com/alessiomartini/markets-first-principles/pull/52

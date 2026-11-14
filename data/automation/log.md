@@ -132,3 +132,4 @@
 - 2026-11-14T11:52:56Z | 4 | conceptual-map-physics-math | Nuovi fili "Entanglement and quantum correlations" e "Dimensionality", 30 link verificati (Crossref/arXiv) | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/40
 - 2026-11-14T11:57:00Z | 1 | mountain-huts-map | Refresh dati con le nuove regioni: Overpass non raggiungibile da questo ambiente (timeout su 3 istanze) | skipped | -
 - 2026-11-14T11:54:49Z | 3 | markets-first-principles | Glossario: campo figure e 57 voci collegate a 24 figure esistenti (versione compatta con link alla figura completa) | merged | https://github.com/alessiomartini/markets-first-principles/pull/51
+- 2026-11-14T11:58:00Z | 3 | realtime-earth | Altro modulo Lane A: nessuna fonte pianificata con licenza chiara e senza chiave o modifiche di config | skipped | -

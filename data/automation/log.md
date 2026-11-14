@@ -131,3 +131,4 @@
 - 2026-11-14T11:54:48Z | 1 | grocery-list | Bug alimenti non collegati al catalogo: causa probabile nel confronto esatto dei nomi scritti a mano (plurali/accenti/spazi), fix con normalizzazione e test; da provare sul telefono | draft | https://github.com/alessiomartini/grocery-list/pull/8
 - 2026-11-14T11:52:56Z | 4 | conceptual-map-physics-math | Nuovi fili "Entanglement and quantum correlations" e "Dimensionality", 30 link verificati (Crossref/arXiv) | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/40
 - 2026-11-14T11:57:00Z | 1 | mountain-huts-map | Refresh dati con le nuove regioni: Overpass non raggiungibile da questo ambiente (timeout su 3 istanze) | skipped | -
+- 2026-11-14T11:54:49Z | 3 | markets-first-principles | Glossario: campo figure e 57 voci collegate a 24 figure esistenti (versione compatta con link alla figura completa) | merged | https://github.com/alessiomartini/markets-first-principles/pull/51

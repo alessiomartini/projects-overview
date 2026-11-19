@@ -36,7 +36,7 @@ SECTIONS = [
     ('Lavoro', [('job-research-website', []), ('personal-cv-resume', ['lattice-ml-symmetries']), ('alessiomartini.github.io', [])]),
     ('Finanza e quant', [('markets-first-principles', [
         'mit-18642-lecture-notes', 'lecture-notes-economics-of-money-and-banking-Perry-Mehrling',
-        'notebooks-econophysics-benzaquen', 'wikipedia-attention-etf-volatility'])]),
+        'notebooks-econophysics-benzaquen', 'wikipedia-attention-etf-volatility']), ('mental-math', [])]),
     ('Capire il mondo', [('capire-il-mondo', ['geopolitics-atlas', 'world-economies-map', 'realtime-earth'])]),
     ('Musica', [('music-library', ['music-library-offline']), ('ear-training', [])]),
     ('Amsterdam', [('eating-amsterdam', []), ('amsterdam-events', [])]),

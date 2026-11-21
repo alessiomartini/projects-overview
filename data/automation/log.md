@@ -197,3 +197,4 @@
 - 2026-11-21T19:20:00Z | 2 | anki-decks | ROADMAP translated to English (card tips stay Italian) | merged | https://github.com/alessiomartini/anki-decks/pull/6
 - 2026-11-21T19:20:00Z | 1 | notebooks-ml-and-deep-learning | ROADMAP translated to English (language rule) | merged | https://github.com/alessiomartini/notebooks-ml-and-deep-learning/pull/3
 - 2026-11-21T19:20:00Z | 1 | notebooks-econophysics-benzaquen | ROADMAP translated to English (language rule) | merged | https://github.com/alessiomartini/notebooks-econophysics-benzaquen/pull/2
+- 2026-11-21T19:30:00Z | 2 | conceptual-map-physics-math | ROADMAP translated to English (Italian parts of a mixed file) | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/50

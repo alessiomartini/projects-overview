@@ -84,3 +84,34 @@ Provato X, tornato indietro.
     expect(r.log).toHaveLength(1);
   });
 });
+
+describe('parseRoadmap: English and Italian special sections', () => {
+  const body = (ideas: string, decisions: string) => `# Roadmap
+
+## To do
+- [x] a
+- [ ] b
+
+## ${ideas}
+- [ ] idea one
+
+## ${decisions}
+Tried X and reverted.
+- [ ] not counted
+
+## Log
+- 2026-11-21: 🤖 done
+`;
+
+  it.each([
+    ['Ideas', 'Decisions and things tried'],
+    ['Ideas', 'Decisions'],
+    ['Idee', 'Decisioni e cose provate'],
+  ])('%s / %s', (ideas, decisions) => {
+    const r = parseRoadmap(body(ideas, decisions));
+    expect(r.phases.map((p) => p.title)).toEqual(['To do']);
+    expect([r.done, r.total]).toEqual([1, 2]);
+    expect(r.ideas.map((i) => i.text)).toEqual(['idea one']);
+    expect(r.log).toEqual([{ date: '2026-11-21', text: '🤖 done' }]);
+  });
+});

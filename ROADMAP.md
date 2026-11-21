@@ -1,42 +1,48 @@
 # Roadmap
 
+<!-- Single file for todo, ideas, decisions and log, read by Projects Overview (https://alessiomartini.github.io/projects-overview/). Protocol: templates/ROADMAP.md in projects-overview. -->
+
 ## Base
-- [x] Sito statico con Astro e GitHub Pages
-- [x] Progetti come file Markdown in `data/projects/`
-- [x] Avanzamento automatico dal `ROADMAP.md` dei repo collegati
-- [x] Inbox per le idee e note sui progetti, salvate via API GitHub
-- [x] Riordino delle priorità con drag & drop
+- [x] Static site with Astro and GitHub Pages
+- [x] Projects as Markdown files in `data/projects/`
+- [x] Automatic progress from the `ROADMAP.md` of linked repos
+- [x] Inbox for ideas and project notes, saved via the GitHub API
+- [x] Priority reordering with drag and drop
 
-## Prossimi passi
-- [x] Sostituire i progetti d'esempio con quelli veri
-- [x] Collegare i repo dei progetti e aggiungere a ognuno `ROADMAP.md` + istruzioni per Claude (tutti i repo hanno `ROADMAP.md`; il protocollo è globale, lo snippet in `CLAUDE.md` è facoltativo)
-- [x] Vista calendario dell'attività
+## Next steps
+- [x] Replace the example projects with the real ones
+- [x] Link the project repos and add `ROADMAP.md` + instructions for Claude to each (all repos have `ROADMAP.md`; the protocol is global, the snippet in `CLAUDE.md` is optional)
+- [x] Calendar view of activity
 
-- [x] Home rifatta: colori per tipo, anello di avanzamento, liste in corso/da fare, 3 sezioni, tema chiaro/scuro
-- [ ] Decidere a mano quali progetti sono finiti
-- [x] Calendario: filtro per progetto/tipo e contare anche i commit (non solo le voci di Log)
+- [x] Home redesigned: colours by kind, progress ring, in-progress/to-do lists, 3 sections, light/dark theme
+- [ ] Decide by hand which projects are finished
+- [x] Calendar: filter by project/kind and count commits too (not only Log entries)
+- [ ] Translate the site UI (Italian today) to English or bilingual
 
 - [ ] Language rule (2026-11-21): every project in English or bilingual EN/IT. Italian-only today, to fix:
-  - [ ] projects-overview: README.md, CLAUDE.md, ROADMAP.md
+  - [x] projects-overview: README.md, CLAUDE.md, ROADMAP.md, templates and automation prompts (translated 2026-11-21)
   - [ ] eating-amsterdam: README.md (says "notes stay in Italian"), ROADMAP.md
-  - [ ] job-news: README.md, ROADMAP.md (or close the repo: merged into job-research-website on 2026-10-25)
+  - [ ] job-news: README.md, ROADMAP.md (or close the repo: merged into job-research-website on 2026-10-25; it has no card in `data/projects/`, so nothing to remove here)
   - [ ] Mostly-Italian ROADMAP.md: geopolitics-atlas, mountain-huts-map, realtime-earth, ear-training, markets-first-principles, amsterdam-events, music-library, music-library-offline, alessiomartini.github.io, lecture-notes x3, wikipedia-attention-etf-volatility, notebooks x2, anki-decks, conceptual-map-physics-math (mixed), the 13 archive/bsc/msc repos (boilerplate)
-  - [ ] Template `templates/ROADMAP.md` (HTML comment and headings) in English/bilingual; check that the parser of the `##` headings accepts the English names before renaming
+  - [x] Template `templates/ROADMAP.md` (HTML comment and headings) in English; the parser (`src/lib/roadmap.ts`, `scripts/build-home.py`) accepts both the English and Italian `##` names, with unit tests
   - [ ] Historical artifacts (theses, reports, Italian code comments): do not translate, add an Italian summary to the English README instead
   - [ ] Decide whether private personal repos and the Italian card tips in anki-decks are exempt
 
-## Idee
-- [ ] Calendario: selettore dell'anno / scorrimento oltre gli ultimi 12 mesi
+## Ideas
+- [ ] Calendar: year selector / scrolling beyond the last 12 months
 
-## Decisioni e cose provate
-Calendario (`/calendario`): conta solo le voci `## Log` dei ROADMAP.md (stessi dati già letti per il progresso), non i commit. Per i repo privati con dettagli nascosti il giorno è contato ma il testo mostra "(dettagli privati)". La griglia è calcolata alla build, quindi si aggiorna a ogni rebuild del sito.
+## Decisions and things tried
+Calendar (`/calendario`): counts only the `## Log` entries of the ROADMAP.md files (the same data already read for progress), not commits. For private repos with hidden details the day is counted but the text shows "(dettagli privati)". The grid is computed at build time, so it updates on every site rebuild.
 
-Calendario con commit (2026-10-19): `scripts/fetch-repos.mjs` raccoglie i commit dell'ultimo anno del branch di default (fino a 1000, paginati) aggregati per giorno UTC in `commitDays`; se la chiamata fallisce il repo resta valido senza commit. Privacy (il repo del sito è pubblico): per i repo privati, con privacy sconosciuta o taggati `personale` si salvano e mostrano solo i conteggi giornalieri, mai messaggi, file o autori (per i privati i messaggi non vengono nemmeno scritti in `repos.json`); per i repo pubblici non `personale` si mostra la prima riga del messaggio. I filtri (progetto, tipo) sono lato client; i giorni con soli commit hanno tinta verde. I commit si contano sul solo branch di default.
+Calendar with commits (2026-10-19): `scripts/fetch-repos.mjs` collects the commits of the last year on the default branch (up to 1000, paginated) aggregated by UTC day into `commitDays`; if the call fails the repo stays valid without commits. Privacy (the site repo is public): for private repos, with unknown privacy or tagged `personale`, only daily counts are stored and shown, never messages, files or authors (for private repos the messages are not even written to `repos.json`); for public non-`personale` repos the first line of the message is shown. The filters (project, kind) are client-side; days with commits only are tinted green. Commits are counted on the default branch only.
+
+Special section names (2026-11-21): the parser accepts `## Ideas`/`## Idee` and `## Decisions and things tried`/`## Decisions`/`## Decisioni e cose provate` (checkboxes in the decisions section are ignored), plus `## Log`.
 
 ## Log
-- 2026-11-21: 🤖 Audit di istruzioni, README e ROADMAP di tutti i repo; nuova regola: progetti in inglese o bilingui EN/IT, elenco dei repo da correggere.
-- 2026-11-14: note del sito smistate; grocery-list non è più in pausa (usata spesso); idea di una mappa delle saune in `data/inbox/`
-- 2026-11-07: 🤖 spuntata «Sostituire i progetti d'esempio»: in `data/projects/` restano solo schede vere, nessuna d'esempio.
-- 2026-11-06: aggiunto il pulsante Feedback (`public/js/notes-widget.js`, POST al Worker site-notes con coda locale) a tutte le pagine; serve il deploy di site-notes. widget note v2 canonico (site-notes/widget) al posto del vecchio feedback. widget note allineato alla versione finale (migrazione key#field, dedupe), ?v=3.
-- 2026-10-19: 🤖 Calendario: contati anche i commit di tutti i repo collegati (solo conteggi per privati/personali), con filtri per progetto e tipo.- 2026-10-18: protocollo unico: `## Idee` fuori dalla percentuale e mostrate a parte, template e snippet CLAUDE.md aggiornati; 🤖 vista calendario `/calendario` (heatmap 12 mesi dalle voci di Log, dettaglio per giorno)
-- 2026-10-15: prima versione del sito; home rifatta (tipi a colori, anello di progresso, liste per progetto, 3 sezioni, toggle tema); liste da fare mostrate per intero
+- 2026-11-21: 🤖 Docs cleanup: translated README, CLAUDE.md, ROADMAP, templates and automation prompts to English (improved the prompts: duplicate check, stop rules, clearer lock rule); parser now accepts the English special sections `## Ideas` and `## Decisions and things tried`, with tests. Audit of instructions, README and ROADMAP of all repos; new rule: projects in English or bilingual EN/IT, list of repos to fix.
+- 2026-11-14: site notes sorted; grocery-list is no longer paused (used often); idea for a sauna map in `data/inbox/`
+- 2026-11-07: 🤖 ticked "Replace the example projects": `data/projects/` now holds only real cards, no examples.
+- 2026-11-06: added the Feedback button (`public/js/notes-widget.js`, POST to the site-notes Worker with a local queue) to all pages; needs the site-notes deploy. Canonical note widget v2 (site-notes/widget) replaces the old feedback. Note widget aligned to the final version (key#field migration, dedupe), ?v=3.
+- 2026-10-19: 🤖 Calendar: commits of all linked repos now counted too (counts only for private/personal repos), with project and kind filters.
+- 2026-10-18: single protocol: `## Ideas` outside the percentage and shown separately, template and CLAUDE.md snippet updated; 🤖 `/calendario` calendar view (12-month heatmap from Log entries, per-day detail)
+- 2026-10-15: first version of the site; home redesigned (colour-coded kinds, progress ring, per-project lists, 3 sections, theme toggle); to-do lists shown in full

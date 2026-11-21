@@ -1,19 +1,20 @@
 ---
 name: update-roadmap
-description: Aggiorna ROADMAP.md con i progressi della sessione (checkbox completate, nuovi todo, voce di diario). Usala a fine lavoro o quando l'utente chiede di aggiornare roadmap/progressi.
+description: Update ROADMAP.md with this session's progress (ticked checkboxes, new todos, a log line). Use at the end of work or when the user asks to update the roadmap or progress.
 ---
 
-# Aggiorna la roadmap
+# Update the roadmap
 
-`ROADMAP.md` nella root del repo alimenta il tracker dei progetti
-(https://alessiomartini.github.io/projects-overview/): le checkbox danno la percentuale di avanzamento,
-`## Idee` raccoglie le idee (fuori dalla percentuale), `## Decisioni e cose provate` la prosa
-(scartato/rimandato, provato e annullato, limiti noti), `## Log` il diario.
+`ROADMAP.md` in the repo root feeds the project tracker
+(https://alessiomartini.github.io/projects-overview/): checkboxes give the progress percentage,
+`## Ideas` holds ideas (outside the percentage), `## Decisions and things tried` holds prose
+(discarded/postponed, tried and reverted, known limits), `## Log` is the diary.
+The Italian names `## Idee` and `## Decisioni e cose provate` are also accepted; keep whichever the file already uses.
 
-1. Guarda cosa è stato fatto: la conversazione corrente, `git diff` e `git log` dall'ultima voce del Log.
-2. Apri `ROADMAP.md` (se non c'è, crealo partendo dalle fasi `## ...` emerse dal progetto, più `## Log`).
-3. Spunta (`- [x]`) i punti completati. Aggiungi i nuovi compiti come `- [ ]` sotto la fase giusta,
-   le idee non decise in `## Idee`, le cose scartate o annullate (col perché) in `## Decisioni e cose provate`.
-4. In cima a `## Log` aggiungi `- AAAA-MM-GG: <riassunto in una frase>` con la data di oggi
-   (se la riga di oggi esiste già, estendila).
-5. Non cancellare o riordinare voci esistenti. Mostra all'utente il diff e committalo insieme al lavoro.
+1. See what was done: the current conversation, `git diff` and `git log` since the last Log entry.
+2. Open `ROADMAP.md` (if missing, create it with the `## ...` phases that emerge from the project, plus `## Log`).
+3. Tick (`- [x]`) completed items. Add new tasks as `- [ ]` under the right phase,
+   undecided ideas under `## Ideas`, discarded or reverted things (with the reason) under `## Decisions and things tried`.
+4. At the top of `## Log` add `- YYYY-MM-DD: <one-sentence summary>` with today's date
+   (if today's line already exists, extend it).
+5. Do not delete or reorder existing items. Show the user the diff and commit it together with the work.

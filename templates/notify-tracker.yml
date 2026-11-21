@@ -1,9 +1,9 @@
-# (Facoltativo) Copia in .github/workflows/notify-tracker.yml nel repo di un progetto:
-# a ogni push che modifica ROADMAP.md il tracker si ricostruisce subito, invece di aspettare il giro ogni 3 ore.
+# (Optional) Copy to .github/workflows/notify-tracker.yml in a project repo:
+# on every push that changes ROADMAP.md the tracker rebuilds immediately, instead of waiting for the 3-hourly run.
 #
-# Richiede nel repo del progetto un secret TRACKER_TOKEN: fine-grained token con accesso
-# a alessiomartini/projects-overview e permesso "Contents: Read and write".
-name: Aggiorna tracker progetti
+# Needs a TRACKER_TOKEN secret in the project repo: a fine-grained token with access
+# to alessiomartini/projects-overview and "Contents: Read and write" permission.
+name: Update project tracker
 
 on:
   push:

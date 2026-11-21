@@ -1,104 +1,108 @@
 # Projects Overview
 
-Panoramica di tutti i miei progetti — idee, in corso, in pausa, finiti — con avanzamento che si aggiorna da solo.
+Overview of all my projects (ideas, in progress, paused, finished) with progress that updates itself. The site UI is currently in Italian.
 
 🌐 **https://alessiomartini.github.io/projects-overview/**
 
-- **Avanzamento automatico**: per i progetti collegati a un repo GitHub, il sito legge il suo `ROADMAP.md`
-  (checkbox → percentuale, sezione `## Log` → diario) e l'attività dei commit. Claude Code aggiorna quel file a fine sessione.
-- **Scrivi dal sito** (anche dal telefono): inbox per le idee al volo, note sui progetti, cambio di stato.
-- **Priorità**: ordina i progetti con drag & drop per decidere su cosa lavorare prima.
-- **GitHub come database**: ogni modifica fatta dal sito è un commit in questo repo. Niente server, niente costi.
+- **Automatic progress**: for projects linked to a GitHub repo, the site reads its `ROADMAP.md`
+  (checkboxes give the percentage, the `## Log` section gives the diary) and the commit activity. Claude Code updates that file at the end of a session.
+- **Write from the site** (also from a phone): inbox for quick ideas, project notes, status changes.
+- **Priority**: order projects by drag and drop to decide what to work on first.
+- **GitHub as database**: every change made from the site is a commit in this repo. No server, no cost.
 
-## Primo avvio (una volta sola)
+## First setup (once)
 
-1. **Attiva GitHub Pages**: *Settings → Pages → Source: GitHub Actions*. Il sito si pubblica a ogni push su `main`,
-   ogni 3 ore (per raccogliere i progressi dai repo) e su richiesta da *Actions → Deploy sito → Run workflow*.
-2. **Token per leggere i repo privati** (facoltativo se sono tutti pubblici):
-   crea un [fine-grained token](https://github.com/settings/personal-access-tokens/new) con accesso
-   ai repo dei progetti e permesso *Contents: Read-only* (e *Metadata: Read-only*), poi salvalo
-   come secret `REPOS_TOKEN` in *Settings → Secrets and variables → Actions*.
-3. **Modalità modifica sul sito**: crea un secondo fine-grained token con accesso **solo** a
-   `projects-overview` e permesso *Contents: Read and write*. Aprilo nella pagina ⚙︎ *Impostazioni* del sito
-   e incollalo. Resta salvato solo su quel dispositivo; ripeti sul telefono.
-   Sul telefono usa “Aggiungi a schermata Home”: si apre direttamente sull'Inbox.
-4. Sostituisci i progetti d'esempio in `data/projects/` con i tuoi.
+1. **Enable GitHub Pages**: *Settings → Pages → Source: GitHub Actions*. The site is published on every push to `main`,
+   every 3 hours (to collect progress from the repos) and on demand from *Actions → Deploy sito → Run workflow*.
+2. **Token to read private repos** (optional if all are public):
+   create a [fine-grained token](https://github.com/settings/personal-access-tokens/new) with access
+   to the project repos and *Contents: Read-only* (and *Metadata: Read-only*) permission, then save it
+   as the `REPOS_TOKEN` secret in *Settings → Secrets and variables → Actions*.
+3. **Edit mode on the site**: create a second fine-grained token with access **only** to
+   `projects-overview` and *Contents: Read and write* permission. Open the site's ⚙︎ *Impostazioni* (Settings) page
+   and paste it. It stays stored on that device only; repeat on the phone.
+   On the phone use "Add to Home screen": it opens directly on the Inbox.
+4. Replace the example projects in `data/projects/` with your own.
 
-## Dove stanno i dati
+## Where the data lives
 
 ```
 data/
-  projects/<slug>.md         un file per progetto
-  order.json                 ordine di priorità (scritto dal drag & drop)
-  inbox/<data>.md            idee veloci
-  notes/<slug>/<data>.md     note sui progetti
+  projects/<slug>.md         one file per project
+  order.json                 priority order (written by drag and drop)
+  inbox/<date>.md            quick ideas
+  notes/<slug>/<date>.md     project notes
 ```
 
-### Un progetto
+### A project
 
 ```md
 ---
-title: "Nome progetto"
+title: "Project name"
 status: in-corso          # idea | in-corso | in-pausa | finito | abbandonato
-kind: web                 # web | ricerca | self-study | android | school | automazione | dati | strumento (colore della card)
-section: niente           # facoltativo: forza la sezione della home (attivi | niente | archiviati)
-summary: "Una riga di descrizione"
+kind: web                 # web | ricerca | self-study | android | school | automazione | dati | strumento (card colour)
+section: niente           # optional: force the home section (attivi | niente | archiviati)
+summary: "One-line description"
 tags: [web, hardware]
-repo: alessiomartini/nome-repo   # facoltativo: collega il repo per l'avanzamento automatico
-link: https://...                # facoltativo: sito o demo
-started: 2026-10-01              # facoltativo
-finished: 2026-12-01             # facoltativo
-showDetails: false               # repo privato: true per mostrare comunque todo e diario nel sito pubblico
+repo: alessiomartini/repo-name   # optional: link the repo for automatic progress
+link: https://...                # optional: site or demo
+started: 2026-10-01              # optional
+finished: 2026-12-01             # optional
+showDetails: false               # private repo: true to show todos and log on the public site anyway
 ---
 
-Descrizione libera in Markdown.
+Free description in Markdown.
 
-<!-- Senza `repo`, l'avanzamento si calcola dalle checklist scritte qui: -->
-## Fase 1
-- [x] fatto
-- [ ] da fare
+<!-- Without `repo`, progress is computed from the checklists written here: -->
+## Phase 1
+- [x] done
+- [ ] to do
 ```
 
-Se il frontmatter è sbagliato (es. uno `status` inesistente) la build fallisce indicando file e campo.
+If the frontmatter is wrong (e.g. an unknown `status`) the build fails and names the file and field.
 
-Puoi modificare i file direttamente su GitHub (anche dall'app) oppure dal sito: “Modifica file ↗” nella pagina di un progetto
-porta all'editor di GitHub; lo stato si cambia anche dal riquadro *Stato*.
+You can edit the files directly on GitHub (also from the app) or from the site: "Modifica file ↗" on a project page
+opens the GitHub editor; the status can also be changed from the *Stato* box.
 
-## Collegare il repo di un progetto
+## Linking a project's repo
 
-1. Aggiungi `repo: proprietario/nome` nel file del progetto.
-2. Copia [`templates/ROADMAP.md`](templates/ROADMAP.md) nella root di quel repo e compilalo. È l'**unico** file
-   per todo, idee, decisioni e diario del progetto (niente `FUTURE-ARCHITECTURE.md` o `IDEE.md` separati):
-   - `## <fase>`: le checkbox danno la percentuale;
-   - `## Idee`: checkbox mostrate a parte, non contano nella percentuale;
-   - `## Decisioni e cose provate`: prosa (scartato/rimandato, provato e annullato, limiti noti), ignorata dal conteggio;
-   - `## Log`: il diario (`- AAAA-MM-GG: testo`).
-   Le idee per progetti nuovi diventano un file in `data/projects/` con `status: idea`; quelle sciolte vanno nell'Inbox.
-3. Perché **Claude Code** lo tenga aggiornato mentre lavori, incolla
-   [`templates/CLAUDE.md.snippet`](templates/CLAUDE.md.snippet) nel `CLAUDE.md` del repo.
-   Facoltativo: copia anche [`templates/.claude/skills/update-roadmap/`](templates/.claude/skills/update-roadmap/SKILL.md)
-   in `.claude/skills/` per avere il comando `/update-roadmap`.
-4. Facoltativo, per aggiornamenti immediati invece che ogni 3 ore:
-   copia [`templates/notify-tracker.yml`](templates/notify-tracker.yml) in `.github/workflows/` del repo progetto
-   e aggiungi lì il secret `TRACKER_TOKEN`.
+1. Add `repo: owner/name` to the project file.
+2. Copy [`templates/ROADMAP.md`](templates/ROADMAP.md) to the root of that repo and fill it in. It is the **only** file
+   for a project's todos, ideas, decisions and log (no separate `FUTURE-ARCHITECTURE.md` or `IDEAS.md`):
+   - `## <phase>`: the checkboxes give the percentage;
+   - `## Ideas`: checkboxes shown separately, not counted in the percentage;
+   - `## Decisions and things tried`: prose (discarded/postponed, tried and reverted, known limits), ignored by the count;
+   - `## Log`: the diary (`- YYYY-MM-DD: text`).
 
-Per i **repo privati** il sito pubblico mostra solo percentuale, fasi e date (non i testi dei todo, né il diario,
-né i messaggi di commit). In modalità modifica li vedi se il tuo token ha accesso in lettura a quel repo.
+   The parser also accepts the Italian names `## Idee` and `## Decisioni e cose provate`.
+   Ideas for new projects become a file in `data/projects/` with `status: idea`; loose ones go to the Inbox.
+3. So that **Claude Code** keeps it updated while you work, paste
+   [`templates/CLAUDE.md.snippet`](templates/CLAUDE.md.snippet) into the repo's `CLAUDE.md`.
+   Optional: also copy [`templates/.claude/skills/update-roadmap/`](templates/.claude/skills/update-roadmap/SKILL.md)
+   to `.claude/skills/` to get the `/update-roadmap` command.
+4. Optional, for immediate updates instead of every 3 hours:
+   copy [`templates/notify-tracker.yml`](templates/notify-tracker.yml) to `.github/workflows/` of the project repo
+   and add the `TRACKER_TOKEN` secret there.
 
-Badge automatici: **fermo** (progetto in corso senza commit da 30 giorni, configurabile in `src/config.ts`)
-e **roadmap completa** (100% ma non ancora segnato come finito).
+For **private repos** the public site shows only percentage, phases and dates (not todo texts, the log,
+or commit messages). In edit mode you see them if your token has read access to that repo.
 
-## Sviluppo in locale
+Automatic badges: **fermo** (stalled: in-progress project with no commits for 30 days, configurable in `src/config.ts`)
+and **roadmap completa** (100% but not yet marked as finished).
+
+## Local development
 
 ```sh
 npm install
-npm run dev        # raccoglie i dati dai repo e avvia il sito su http://localhost:4321/projects-overview/
-npm test           # test del parser della roadmap e della logica dei progetti
-npm run check      # controllo dei tipi
-npm run build      # build statica in dist/
+npm run dev        # fetches data from the repos and starts the site at http://localhost:4321/projects-overview/
+npm test           # tests for the roadmap parser and project logic
+npm run check      # type check
+npm run build      # static build into dist/
 ```
 
-`npm run fetch` legge i repo con `REPOS_TOKEN` (o `GITHUB_TOKEN`) se presente; con `OFFLINE=1` o se un repo non è
-raggiungibile usa i dati di `fixtures/repos.json`.
+`npm run fetch` reads the repos with `REPOS_TOKEN` (or `GITHUB_TOKEN`) if set; with `OFFLINE=1` or if a repo is
+unreachable it uses the data in `fixtures/repos.json`.
 
-Stack: [Astro](https://astro.build) (sito statico) + isole [Preact](https://preactjs.com) per le parti interattive.
+Stack: [Astro](https://astro.build) (static site) + [Preact](https://preactjs.com) islands for the interactive parts.
+
+The `automation/` folder holds the prompts of the scheduled autonomous assistant (see `automation/README.md`).

@@ -1,23 +1,24 @@
 # Roadmap
 
 <!--
-Unico file per il futuro e il passato del progetto, letto da Projects Overview
-(https://alessiomartini.github.io/projects-overview/). Sezioni:
-- "## <fase>": checkbox "- [ ]" / "- [x]", danno la percentuale di avanzamento
-- "## Idee": checkbox, mostrate a parte, NON contano nella percentuale
-- "## Decisioni e cose provate": prosa (scartato/rimandato e perché, provato e annullato, limiti e bug noti);
-  niente checkbox, così non conta. Documenti di progetto lunghi in docs/, con un link da qui
-- "## Log": diario, "- AAAA-MM-GG: testo", una riga per giorno, la più recente in alto
+Single file for the project's future and past, read by Projects Overview
+(https://alessiomartini.github.io/projects-overview/). Sections:
+- "## <phase>": checkboxes "- [ ]" / "- [x]", they give the progress percentage
+- "## Ideas": checkboxes, shown separately, NOT counted in the percentage
+- "## Decisions and things tried": prose (discarded/postponed and why, tried and reverted, known limits and bugs);
+  no checkboxes, so it is not counted. Long project documents go in docs/, linked from here
+- "## Log": diary, "- YYYY-MM-DD: text", one line per day, newest on top
+(The Italian names "## Idee" and "## Decisioni e cose provate" are also accepted.)
 -->
 
 ## MVP
-- [ ] Primo obiettivo
-- [ ] Secondo obiettivo
+- [ ] First goal
+- [ ] Second goal
 
-## Idee
-- [ ] Idea per più avanti
+## Ideas
+- [ ] Idea for later
 
-## Decisioni e cose provate
+## Decisions and things tried
 
 ## Log
-- AAAA-MM-GG: progetto avviato
+- YYYY-MM-DD: project started

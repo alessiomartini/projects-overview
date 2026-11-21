@@ -198,3 +198,4 @@
 - 2026-11-21T19:20:00Z | 1 | notebooks-ml-and-deep-learning | ROADMAP translated to English (language rule) | merged | https://github.com/alessiomartini/notebooks-ml-and-deep-learning/pull/3
 - 2026-11-21T19:20:00Z | 1 | notebooks-econophysics-benzaquen | ROADMAP translated to English (language rule) | merged | https://github.com/alessiomartini/notebooks-econophysics-benzaquen/pull/2
 - 2026-11-21T19:30:00Z | 2 | conceptual-map-physics-math | ROADMAP translated to English (Italian parts of a mixed file) | merged | https://github.com/alessiomartini/conceptual-map-physics-math/pull/50
+- 2026-11-21T19:28:00Z | 6 | markets-first-principles | regulation-timeline figure scripted: 10 dated US/EU milestones 2005–2024 (new timeline chart type), linked from 4 glossary entries; 123 tests, build ok | merged | https://github.com/alessiomartini/markets-first-principles/pull/63

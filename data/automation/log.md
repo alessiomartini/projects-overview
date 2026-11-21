@@ -213,3 +213,5 @@
 - 2026-11-21T20:52:00Z | 10 | music-library | Key check of «E cerca 'e me capi»: score is in D major, originalKey Bb/capo 1 is inconsistent; needs the original recording, analysis in ROADMAP, item left open | merged | https://github.com/alessiomartini/music-library/pull/62
 - 2026-11-21T20:52:00Z | 6 | realtime-earth, job-research-website | ROADMAP translated to English (language rule), ROADMAP-only diffs | merged | https://github.com/alessiomartini/realtime-earth/pull/26
 - 2026-11-21T20:52:00Z | 14 | grocery-list | Catalog matching for Italian/English plurals (pomodori→pomodoro, funghi, uova; exact match still wins), 5 new tests, CI green | merged | https://github.com/alessiomartini/grocery-list/pull/21
+- 2026-11-21T21:06:00Z | 3 | grocery-list | ROADMAP translated to English (language rule), ROADMAP-only diff | merged | https://github.com/alessiomartini/grocery-list/pull/22
+- 2026-11-21T21:10:00Z | 0 | (sprint) | Stop: the remaining open items need Alessio (decisions, recordings, Windows checkout, real data), local-only files or credentials, or are ideas | skipped | -

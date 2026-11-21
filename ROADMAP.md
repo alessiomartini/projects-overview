@@ -9,7 +9,7 @@
 
 ## Prossimi passi
 - [x] Sostituire i progetti d'esempio con quelli veri
-- [ ] Collegare i repo dei progetti e aggiungere a ognuno `ROADMAP.md` + istruzioni per Claude
+- [x] Collegare i repo dei progetti e aggiungere a ognuno `ROADMAP.md` + istruzioni per Claude (tutti i repo hanno `ROADMAP.md`; il protocollo è globale, lo snippet in `CLAUDE.md` è facoltativo)
 - [x] Vista calendario dell'attività
 
 - [x] Home rifatta: colori per tipo, anello di avanzamento, liste in corso/da fare, 3 sezioni, tema chiaro/scuro

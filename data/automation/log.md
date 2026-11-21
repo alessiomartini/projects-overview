@@ -207,3 +207,6 @@
 - 2026-11-21T19:52:00Z | 3 | grocery-list | Draft PR #8 closed as superseded by #18; plural/gender matching noted as a todo in ROADMAP | merged | https://github.com/alessiomartini/grocery-list/pull/20
 - 2026-11-21T19:52:00Z | 5 | job-research-website | PR #22 (status editing via Worker + D1) updated with main (conflicts in index.html and ROADMAP) and merged; inactive until the D1 is created | merged | https://github.com/alessiomartini/job-research-website/pull/22
 - 2026-11-21T19:52:00Z | 8 | realtime-earth | adsb.lol module updated with main and switched off until the ADSB_LOL_API_KEY secret is set (no calls without a key), deploy smoke test, 150 tests | merged | https://github.com/alessiomartini/realtime-earth/pull/24
+- 2026-11-21T19:53:00Z | 5 | geopolitics-atlas, lecture-notes-mit-18642-math-finance | ROADMAP translation check: already English, nothing to do | skipped | -
+- 2026-11-21T19:53:00Z | 5 | job-news | README/ROADMAP translation: repo is archived (push 403), not unarchived | failed | -
+- 2026-11-21T20:00:00Z | 0 | (sprint) | Stop: the other open items are in repos another session pushed to in the last 3 hours (grocery-list, markets-first-principles, realtime-earth, job-research-website, music-library) or need Alessio/real data | skipped | -

@@ -23,8 +23,10 @@
   - [x] projects-overview: README.md, CLAUDE.md, ROADMAP.md, templates and automation prompts (translated 2026-11-21)
   - [x] eating-amsterdam: README.md (says "notes stay in Italian"), ROADMAP.md
   - [ ] job-news: README.md, ROADMAP.md (or close the repo: merged into job-research-website on 2026-10-25; it has no card in `data/projects/`, so nothing to remove here)
+    - 🤖 2026-11-21: the repo is archived (read-only), so it can't be translated without unarchiving it; Alessio's choice
   - [ ] Mostly-Italian ROADMAP.md: geopolitics-atlas, mountain-huts-map, realtime-earth, ear-training, markets-first-principles, amsterdam-events, music-library, music-library-offline, alessiomartini.github.io, lecture-notes x3, wikipedia-attention-etf-volatility, notebooks x2, anki-decks, conceptual-map-physics-math (mixed), the 13 archive/bsc/msc repos (boilerplate)
     - 🤖 2026-11-21: translated in all of them except realtime-earth, and geopolitics-atlas and lecture-notes-mit-18642-math-finance (open docs-cleanup PRs #42 and #9)
+    - 🤖 2026-11-21 (later): geopolitics-atlas and lecture-notes-mit-18642-math-finance checked, already fully English; realtime-earth still Italian
   - [x] Template `templates/ROADMAP.md` (HTML comment and headings) in English; the parser (`src/lib/roadmap.ts`, `scripts/build-home.py`) accepts both the English and Italian `##` names, with unit tests
   - [ ] Historical artifacts (theses, reports, Italian code comments): do not translate, add an Italian summary to the English README instead
   - [ ] Decide whether private personal repos and the Italian card tips in anki-decks are exempt

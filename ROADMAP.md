@@ -16,11 +16,21 @@
 - [ ] Decidere a mano quali progetti sono finiti
 - [x] Calendario: filtro per progetto/tipo e contare anche i commit (non solo le voci di Log)
 
+- [ ] Language rule (2026-11-21): every project in English or bilingual EN/IT. Italian-only today, to fix:
+  - [ ] projects-overview: README.md, CLAUDE.md, ROADMAP.md
+  - [ ] eating-amsterdam: README.md (says "notes stay in Italian"), ROADMAP.md
+  - [ ] job-news: README.md, ROADMAP.md (or close the repo: merged into job-research-website on 2026-10-25)
+  - [ ] Mostly-Italian ROADMAP.md: geopolitics-atlas, mountain-huts-map, realtime-earth, ear-training, markets-first-principles, amsterdam-events, music-library, music-library-offline, alessiomartini.github.io, lecture-notes x3, wikipedia-attention-etf-volatility, notebooks x2, anki-decks, conceptual-map-physics-math (mixed), the 13 archive/bsc/msc repos (boilerplate)
+  - [ ] Template `templates/ROADMAP.md` (HTML comment and headings) in English/bilingual; check that the parser of the `##` headings accepts the English names before renaming
+  - [ ] Historical artifacts (theses, reports, Italian code comments): do not translate, add an Italian summary to the English README instead
+  - [ ] Decide whether private personal repos and the Italian card tips in anki-decks are exempt
+
 ## Idee
 - [ ] Calendario: selettore dell'anno / scorrimento oltre gli ultimi 12 mesi
 
 ## Decisioni e cose provate
-Calendario (`/calendario`): conta solo le voci `## Log` dei ROADMAP.md (stessi dati già letti per il progresso), non i commit. Per i repo privati con dettagli nascosti il giorno è contato ma il testo mostra "(dettagli privati)". La griglia è calcolata alla build, quindi si aggiorna a ogni rebuild del sito.
+Calendario (`/calendario`): conta solo le voci `## Log`- 2026-11-21: 🤖 Audit di istruzioni, README e ROADMAP di tutti i repo; nuova regola: progetti in inglese o bilingui EN/IT, elenco dei repo da correggere.
+ dei ROADMAP.md (stessi dati già letti per il progresso), non i commit. Per i repo privati con dettagli nascosti il giorno è contato ma il testo mostra "(dettagli privati)". La griglia è calcolata alla build, quindi si aggiorna a ogni rebuild del sito.
 
 Calendario con commit (2026-10-19): `scripts/fetch-repos.mjs` raccoglie i commit dell'ultimo anno del branch di default (fino a 1000, paginati) aggregati per giorno UTC in `commitDays`; se la chiamata fallisce il repo resta valido senza commit. Privacy (il repo del sito è pubblico): per i repo privati, con privacy sconosciuta o taggati `personale` si salvano e mostrano solo i conteggi giornalieri, mai messaggi, file o autori (per i privati i messaggi non vengono nemmeno scritti in `repos.json`); per i repo pubblici non `personale` si mostra la prima riga del messaggio. I filtri (progetto, tipo) sono lato client; i giorni con soli commit hanno tinta verde. I commit si contano sul solo branch di default.
 

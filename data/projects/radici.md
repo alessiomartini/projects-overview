@@ -1,9 +1,10 @@
 ---
 title: "Radici"
-status: idea
+status: in-corso
 kind: self-study
 summary: "Un metodo e un sito locale per ripassare e consolidare tutto ciò che ho studiato (e imparare il nuovo): ripetizione spaziata, derivazioni a mano, teoremi portanti e connessioni fra campi."
 tags: [studio, ripetizione-spaziata, fisica, matematica]
+repo: alessiomartini/radici
 started: 2026-11-21
 ---
 

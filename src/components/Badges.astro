@@ -8,6 +8,6 @@ interface Props {
 const { badges, openNotes = 0 } = Astro.props;
 ---
 
-{badges.includes('fermo') && <span class="badge warn" title="Nessun commit da più di un mese">fermo</span>}
-{badges.includes('completo') && <span class="badge good" title="Roadmap completata: segnalo come finito?">roadmap completa</span>}
-{openNotes > 0 && <span class="badge" title="Note aperte">✎ {openNotes}</span>}
+{badges.includes('fermo') && <span class="badge warn" title="No commits for over a month">stalled</span>}
+{badges.includes('completo') && <span class="badge good" title="Roadmap complete: mark as done?">roadmap complete</span>}
+{openNotes > 0 && <span class="badge" title="Open notes">✎ {openNotes}</span>}

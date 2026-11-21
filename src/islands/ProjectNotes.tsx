@@ -19,9 +19,9 @@ interface Props {
   initial: Note[];
 }
 
-const TYPE_LABEL: Record<NoteType, string> = { nota: 'Nota', modifica: 'Da cambiare', idea: 'Idea' };
+const TYPE_LABEL: Record<NoteType, string> = { nota: 'Note', modifica: 'To change', idea: 'Idea' };
 
-const fmt = (iso: string) => new Date(iso).toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric' });
+const fmt = (iso: string) => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 
 const serialize = (slug: string, n: Note) =>
   stringifyFrontmatter({ project: slug, date: n.date, type: n.type, resolved: n.resolved }, n.text);
@@ -79,7 +79,7 @@ export default function ProjectNotes({ slug, initial }: Props) {
     run(async () => {
       const now = new Date();
       const note: Note = { path: `${dir}/${timestampName(now)}.md`, date: now.toISOString(), type, resolved: false, text: text.trim() };
-      note.sha = await writeFile(note.path, serialize(slug, note), `Nota su ${slug}: ${note.text.split('\n')[0].slice(0, 50)}`);
+      note.sha = await writeFile(note.path, serialize(slug, note), `Note on ${slug}: ${note.text.split('\n')[0].slice(0, 50)}`);
       setNotes((list) => [note, ...list]);
       setText('');
     });
@@ -88,14 +88,14 @@ export default function ProjectNotes({ slug, initial }: Props) {
   const toggle = (note: Note) =>
     run(async () => {
       const updated = { ...note, resolved: !note.resolved };
-      updated.sha = await writeFile(note.path, serialize(slug, updated), `Nota su ${slug}: ${updated.resolved ? 'risolta' : 'riaperta'}`, note.sha);
+      updated.sha = await writeFile(note.path, serialize(slug, updated), `Note on ${slug}: ${updated.resolved ? 'resolved' : 'reopened'}`, note.sha);
       setNotes((list) => list.map((n) => (n.path === note.path ? updated : n)));
     });
 
   const remove = (note: Note) => {
-    if (!note.sha || !window.confirm('Eliminare questa nota?')) return;
+    if (!note.sha || !window.confirm('Delete this note?')) return;
     run(async () => {
-      await deleteFile(note.path, note.sha!, `Nota su ${slug} eliminata`);
+      await deleteFile(note.path, note.sha!, `Note on ${slug} deleted`);
       setNotes((list) => list.filter((n) => n.path !== note.path));
     });
   };
@@ -112,12 +112,12 @@ export default function ProjectNotes({ slug, initial }: Props) {
           <textarea
             value={text}
             rows={3}
-            placeholder="Aggiungi una nota, un'idea o qualcosa da cambiare…"
-            aria-label="Testo della nota"
+            placeholder="Add a note, an idea or something to change…"
+            aria-label="Note text"
             onInput={(e) => setText((e.target as HTMLTextAreaElement).value)}
           />
           <div class="row" style={{ marginTop: '8px' }}>
-            <select value={type} onChange={(e) => setType((e.target as HTMLSelectElement).value as NoteType)} style={{ width: 'auto' }} aria-label="Tipo">
+            <select value={type} onChange={(e) => setType((e.target as HTMLSelectElement).value as NoteType)} style={{ width: 'auto' }} aria-label="Type">
               {Object.entries(TYPE_LABEL).map(([k, v]) => (
                 <option value={k} key={k}>
                   {v}
@@ -125,13 +125,13 @@ export default function ProjectNotes({ slug, initial }: Props) {
               ))}
             </select>
             <button class="primary" type="submit" disabled={busy || !text.trim() || !live}>
-              Aggiungi
+              Add
             </button>
           </div>
         </form>
       )}
       {msg && <p class={`msg ${msg.kind}`}>{msg.text}</p>}
-      {visible.length === 0 && <p class="muted small">{open.length === 0 && notes.length > 0 ? 'Tutte le note sono risolte.' : 'Nessuna nota.'}</p>}
+      {visible.length === 0 && <p class="muted small">{open.length === 0 && notes.length > 0 ? 'All notes are resolved.' : 'No notes.'}</p>}
       <ul class="note-list">
         {visible.map((n) => (
           <li key={n.path} class={n.resolved ? 'resolved' : ''}>
@@ -142,9 +142,9 @@ export default function ProjectNotes({ slug, initial }: Props) {
               {canEdit && (
                 <>
                   <button type="button" class="link" disabled={busy} onClick={() => toggle(n)}>
-                    {n.resolved ? 'Riapri' : '✓ Risolta'}
+                    {n.resolved ? 'Reopen' : '✓ Resolved'}
                   </button>
-                  <button type="button" class="link" disabled={busy} onClick={() => remove(n)} aria-label="Elimina nota">
+                  <button type="button" class="link" disabled={busy} onClick={() => remove(n)} aria-label="Delete note">
                     ✕
                   </button>
                 </>
@@ -156,7 +156,7 @@ export default function ProjectNotes({ slug, initial }: Props) {
       </ul>
       {resolved.length > 0 && (
         <button type="button" class="link small" onClick={() => setShowResolved(!showResolved)}>
-          {showResolved ? 'Nascondi risolte' : `Mostra risolte (${resolved.length})`}
+          {showResolved ? 'Hide resolved' : `Show resolved (${resolved.length})`}
         </button>
       )}
     </div>

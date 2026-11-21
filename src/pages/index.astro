@@ -15,7 +15,7 @@ const usedKinds = KINDS.filter((k) => projects.some((p) => p.kind === k));
 <Base active="home">
   <div class="head">
     <div>
-      <h1>I miei progetti</h1>
+      <h1>My projects</h1>
       <p class="legend small">
         {usedKinds.map((k) => <span data-kind={k}><i />{KIND_LABEL[k]}</span>)}
       </p>
@@ -51,9 +51,9 @@ const usedKinds = KINDS.filter((k) => projects.some((p) => p.kind === k));
     )
   }
 
-  {projects.length === 0 && <p class="muted">Nessun progetto ancora: aggiungi un file in <code>data/projects/</code> o trasforma un'idea dall'Inbox.</p>}
+  {projects.length === 0 && <p class="muted">No projects yet: add a file in <code>data/projects/</code> or turn an idea from the Inbox into one.</p>}
 
-  {generatedAt && <p class="muted small updated">Dati dai repo aggiornati {relativeDate(generatedAt)} ({new Date(generatedAt).toLocaleString('it-IT', { timeZone: 'Europe/Rome' })}).</p>}
+  {generatedAt && <p class="muted small updated">Repo data updated {relativeDate(generatedAt)} ({new Date(generatedAt).toLocaleString('en-GB', { timeZone: 'Europe/Rome' })}).</p>}
 </Base>
 
 <style>

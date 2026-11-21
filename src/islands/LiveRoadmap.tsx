@@ -23,16 +23,16 @@ export default function LiveRoadmap({ repo }: Props) {
       .catch((e) => setError(errorMessage(e)));
   }, [token]);
 
-  if (!token) return <p class="muted small">Repo privato: i dettagli della roadmap sono visibili solo in modalità modifica.</p>;
-  if (error) return <p class="muted small">Repo privato: per vedere i dettagli dai al token anche l'accesso in lettura a {repo}. ({error})</p>;
-  if (!roadmap) return <p class="muted small">Carico la roadmap privata…</p>;
+  if (!token) return <p class="muted small">Private repo: roadmap details are visible only in edit mode.</p>;
+  if (error) return <p class="muted small">Private repo: to see the details, also give the token read access to {repo}. ({error})</p>;
+  if (!roadmap) return <p class="muted small">Loading the private roadmap…</p>;
 
   return (
     <div class="live-roadmap">
       {roadmap.phases.map((phase) => (
         <section key={phase.title}>
           <h3>
-            {phase.title || 'Da fare'}{' '}
+            {phase.title || 'To do'}{' '}
             <span class="muted small">
               {phase.done}/{phase.total}
             </span>
@@ -48,7 +48,7 @@ export default function LiveRoadmap({ repo }: Props) {
       ))}
       {roadmap.ideas.length > 0 && (
         <section>
-          <h3>Idee</h3>
+          <h3>Ideas</h3>
           <ul>
             {roadmap.ideas.map((item, i) => (
               <li key={i} style={{ marginLeft: `${item.depth * 1.2}em`, color: item.done ? 'var(--muted)' : undefined }}>
@@ -60,7 +60,7 @@ export default function LiveRoadmap({ repo }: Props) {
       )}
       {roadmap.log.length > 0 && (
         <>
-          <h3>Diario</h3>
+          <h3>Log</h3>
           <ul>
             {roadmap.log.slice(0, 15).map((entry) => (
               <li key={entry.date + entry.text}>

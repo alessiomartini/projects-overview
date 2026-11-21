@@ -1,7 +1,7 @@
 {
-  "name": "Progetti",
-  "short_name": "Progetti",
-  "description": "Panoramica dei miei progetti e inbox delle idee",
+  "name": "Projects",
+  "short_name": "Projects",
+  "description": "Overview of my projects and idea inbox",
   "start_url": "/projects-overview/inbox/",
   "scope": "/projects-overview/",
   "display": "standalone",

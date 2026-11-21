@@ -15,7 +15,7 @@ const { roadmap, hideText = false } = Astro.props;
     roadmap.phases.map((phase) => (
       <section class="phase">
         <div class="phase-head">
-          <h3>{phase.title || 'Da fare'}</h3>
+          <h3>{phase.title || 'To do'}</h3>
           <ProgressBar progress={{ done: phase.done, total: phase.total, pct: Math.round((phase.done / phase.total) * 100) }} />
         </div>
         {!hideText && (
@@ -35,7 +35,7 @@ const { roadmap, hideText = false } = Astro.props;
     !hideText && roadmap.ideas.length > 0 && (
       <section class="phase">
         <div class="phase-head">
-          <h3>Idee</h3>
+          <h3>Ideas</h3>
         </div>
         <ul>
           {roadmap.ideas.map((item) => (

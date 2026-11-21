@@ -35,21 +35,21 @@ export default function TokenSettings() {
     return (
       <div>
         <p>
-          ✅ <strong>Modalità modifica attiva</strong> su questo dispositivo (token …{token.slice(-4)}).
+          ✅ <strong>Edit mode on</strong> on this device (token …{token.slice(-4)}).
         </p>
         <div class="row">
           <button type="button" onClick={verify} disabled={busy}>
-            Verifica token
+            Check token
           </button>
           <button
             type="button"
             class="danger"
             onClick={() => {
               setToken(null);
-              setMsg({ kind: 'ok', text: 'Token rimosso da questo dispositivo.' });
+              setMsg({ kind: 'ok', text: 'Token removed from this device.' });
             }}
           >
-            Esci (rimuovi token)
+            Sign out (remove token)
           </button>
         </div>
         {msg && <p class={`msg ${msg.kind}`}>{msg.text}</p>}
@@ -60,7 +60,7 @@ export default function TokenSettings() {
   return (
     <form onSubmit={save}>
       <label for="token" class="small muted">
-        Token GitHub (fine-grained)
+        GitHub token (fine-grained)
       </label>
       <div class="row" style={{ marginTop: '4px' }}>
         <input
@@ -73,7 +73,7 @@ export default function TokenSettings() {
           style={{ flex: 1, minWidth: '220px' }}
         />
         <button class="primary" type="submit" disabled={busy || !value.trim()}>
-          {busy ? 'Verifico…' : 'Attiva modifica'}
+          {busy ? 'Checking…' : 'Turn on edit mode'}
         </button>
       </div>
       {msg && <p class={`msg ${msg.kind}`}>{msg.text}</p>}

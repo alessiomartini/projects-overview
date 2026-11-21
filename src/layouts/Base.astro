@@ -9,22 +9,22 @@ interface Props {
 }
 
 const { title, active } = Astro.props;
-const fullTitle = title ? `${title} · Progetti` : 'Progetti';
+const fullTitle = title ? `${title} · Projects` : 'Projects';
 const links = [
-  { key: 'home', href: url(), label: 'Progetti' },
-  { key: 'calendario', href: url('calendario/'), label: 'Calendario' },
+  { key: 'home', href: url(), label: 'Projects' },
+  { key: 'calendario', href: url('calendario/'), label: 'Calendar' },
   { key: 'inbox', href: url('inbox/'), label: 'Inbox' },
   { key: 'impostazioni', href: url('impostazioni/'), label: '⚙︎' },
 ] as const;
 ---
 
 <!doctype html>
-<html lang="it">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
-    <meta name="description" content="Panoramica dei miei progetti: idee, in corso e finiti." />
+    <meta name="description" content="Overview of my projects: ideas, in progress and finished." />
     <link rel="icon" href={url('icon.svg')} type="image/svg+xml" />
     <link rel="apple-touch-icon" href={url('icon-192.png')} />
     <link rel="manifest" href={url('manifest.webmanifest')} />
@@ -42,19 +42,19 @@ const links = [
       <div class="container">
         <a class="brand" href={url()}>
           <img src={url('icon.svg')} alt="" width="22" height="22" />
-          Progetti
+          Projects
         </a>
-        <span class="edit-pill" title="Puoi modificare dal sito">modifica attiva</span>
+        <span class="edit-pill" title="You can edit from the site">edit mode</span>
         <nav class="nav">
           {
             links.map((l) => (
-              <a href={l.href} aria-current={active === l.key ? 'page' : undefined} aria-label={l.key === 'impostazioni' ? 'Impostazioni' : undefined}>
+              <a href={l.href} aria-current={active === l.key ? 'page' : undefined} aria-label={l.key === 'impostazioni' ? 'Settings' : undefined}>
                 {l.label}
               </a>
             ))
           }
         </nav>
-        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Cambia tema chiaro/scuro" title="Tema chiaro/scuro">◐</button>
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch light/dark theme" title="Light/dark theme">◐</button>
       </div>
     </header>
     <main class="container">

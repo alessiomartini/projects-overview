@@ -7,7 +7,7 @@ const { progress } = Astro.props;
 
 {
   progress && (
-    <div class="progress" title={`${progress.done} di ${progress.total} completati`}>
+    <div class="progress" title={`${progress.done} of ${progress.total} completed`}>
       <div class="bar" role="progressbar" aria-valuenow={progress.pct} aria-valuemin="0" aria-valuemax="100">
         <div class="fill" style={`width:${progress.pct}%`} />
       </div>

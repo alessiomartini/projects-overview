@@ -123,22 +123,22 @@ export async function deleteFile(path: string, sha: string, message: string): Pr
 export async function checkToken(token: string): Promise<{ ok: boolean; message: string }> {
   try {
     const repo = await request<{ full_name: string; permissions?: { push?: boolean } }>(`/repos/${DATA_REPO}`, {}, token);
-    if (repo.permissions?.push) return { ok: true, message: `Token valido: puoi modificare ${repo.full_name}.` };
-    return { ok: false, message: `Il token può leggere ${repo.full_name} ma non scriverci (serve "Contents: Read and write").` };
+    if (repo.permissions?.push) return { ok: true, message: `Token valid: you can edit ${repo.full_name}.` };
+    return { ok: false, message: `The token can read ${repo.full_name} but not write to it (needs "Contents: Read and write").` };
   } catch (e) {
-    if (e instanceof GitHubError && (e.status === 401 || e.status === 403)) return { ok: false, message: 'Token non valido o scaduto.' };
-    if (e instanceof GitHubError && e.status === 404) return { ok: false, message: `Il token non ha accesso a ${DATA_REPO}.` };
-    return { ok: false, message: `Errore di rete: ${(e as Error).message}` };
+    if (e instanceof GitHubError && (e.status === 401 || e.status === 403)) return { ok: false, message: 'Token invalid or expired.' };
+    if (e instanceof GitHubError && e.status === 404) return { ok: false, message: `The token has no access to ${DATA_REPO}.` };
+    return { ok: false, message: `Network error: ${(e as Error).message}` };
   }
 }
 
 export function errorMessage(e: unknown): string {
   if (e instanceof GitHubError) {
-    if (e.status === 401) return 'Token non valido o scaduto: aggiornalo in Impostazioni.';
-    if (e.status === 403 || e.status === 404) return 'Il token non ha i permessi necessari.';
-    if (e.status === 409) return 'Il file è stato modificato nel frattempo: ricarica la pagina e riprova.';
-    if (e.status === 422) return 'Esiste già un file con questo nome (es. un progetto con lo stesso titolo).';
+    if (e.status === 401) return 'Token invalid or expired: update it in Settings.';
+    if (e.status === 403 || e.status === 404) return 'The token does not have the required permissions.';
+    if (e.status === 409) return 'The file was changed in the meantime: reload the page and try again.';
+    if (e.status === 422) return 'A file with this name already exists (e.g. a project with the same title).';
     return `GitHub: ${e.message}`;
   }
-  return `Errore: ${(e as Error).message}`;
+  return `Error: ${(e as Error).message}`;
 }

@@ -73,8 +73,8 @@ export default function ReorderBoard({ items, statusLabels }: Props) {
       const slugs = list.map((i) => i.slug);
       // Mantiene in coda gli slug non mostrati qui (es. progetti finiti).
       const order = [...slugs, ...previous.filter((s) => !slugs.includes(s))];
-      await writeFile('data/order.json', JSON.stringify(order, null, 2) + '\n', 'Aggiorna priorità dei progetti', sha);
-      setMsg({ kind: 'ok', text: 'Priorità salvate ✓ Il sito si aggiorna tra un paio di minuti.' });
+      await writeFile('data/order.json', JSON.stringify(order, null, 2) + '\n', 'Update project priorities', sha);
+      setMsg({ kind: 'ok', text: 'Priorities saved ✓ The site updates in a couple of minutes.' });
     } catch (e) {
       setMsg({ kind: 'error', text: errorMessage(e) });
     } finally {
@@ -85,7 +85,7 @@ export default function ReorderBoard({ items, statusLabels }: Props) {
   if (!open) {
     return (
       <button type="button" onClick={() => setOpen(true)}>
-        ↕ Riordina priorità
+        ↕ Reorder priorities
       </button>
     );
   }
@@ -93,19 +93,19 @@ export default function ReorderBoard({ items, statusLabels }: Props) {
   return (
     <div class="card reorder">
       <div class="row" style={{ marginBottom: '8px' }}>
-        <h2 style={{ margin: 0 }}>Priorità</h2>
+        <h2 style={{ margin: 0 }}>Priorities</h2>
         <span class="spacer" />
-        <button type="button" class="link" onClick={() => setOpen(false)} aria-label="Chiudi">
+        <button type="button" class="link" onClick={() => setOpen(false)} aria-label="Close">
           ✕
         </button>
       </div>
       <p class="muted small" style={{ marginTop: 0 }}>
-        Trascina (o usa le frecce) per decidere su cosa lavorare prima. In alto = più importante.
+        Drag (or use the arrows) to decide what to work on first. Top = most important.
       </p>
       <ul ref={ul} class="reorder-list">
         {list.map((item, i) => (
           <li key={item.slug}>
-            <span class="handle" title="Trascina" aria-hidden="true">
+            <span class="handle" title="Drag" aria-hidden="true">
               ⠿
             </span>
             <span class="pos">{i + 1}</span>
@@ -113,10 +113,10 @@ export default function ReorderBoard({ items, statusLabels }: Props) {
             <span class="status" data-status={item.status}>
               {statusLabels[item.status]}
             </span>
-            <button type="button" class="link" onClick={() => move(i, -1)} disabled={i === 0} aria-label={`Sposta su ${item.title}`}>
+            <button type="button" class="link" onClick={() => move(i, -1)} disabled={i === 0} aria-label={`Move up ${item.title}`}>
               ↑
             </button>
-            <button type="button" class="link" onClick={() => move(i, 1)} disabled={i === list.length - 1} aria-label={`Sposta giù ${item.title}`}>
+            <button type="button" class="link" onClick={() => move(i, 1)} disabled={i === list.length - 1} aria-label={`Move down ${item.title}`}>
               ↓
             </button>
           </li>
@@ -124,7 +124,7 @@ export default function ReorderBoard({ items, statusLabels }: Props) {
       </ul>
       <div class="row" style={{ marginTop: '10px' }}>
         <button type="button" class="primary" onClick={save} disabled={busy}>
-          {busy ? 'Salvo…' : 'Salva ordine'}
+          {busy ? 'Saving…' : 'Save order'}
         </button>
         <button type="button" onClick={() => setList(items)} disabled={busy}>
           Annulla modifiche

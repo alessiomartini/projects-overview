@@ -44,6 +44,10 @@ Ogni voce ha un campo "connessioni" e, dove possibile, **più soluzioni da ambit
 3. Cose nuove da imparare: lista personale (RMT, meccanica statistica fuori equilibrio e grandi deviazioni, informazione classica e quantistica, caos, complessità, teoria dei giochi / economia / finanza), con i testi indicati.
 4. In futuro: altri ambiti (geografia, storia, letteratura, politica, arte, economia).
 
+## Saper fare una lezione per argomento (dall'inbox, 2026-11-20)
+
+Obiettivo finale per ogni grande argomento: saperci fare una lezione, con la big picture (senso, obiettivo dell'ambito, applicazioni, limiti) e una base tecnica solida (rispondere con dati e matematica). Argomenti indicati: simmetrie generalizzate, rinormalizzazione e flusso del gruppo di rinormalizzazione, QFT, "Geometrical Anatomy of Theoretical Physics" di Frederic Schuller, finanza ed economia (finanze pubbliche, macroeconomia, globalizzazione), "Economics of Money and Banking" di Perry Mehrling. Possibile quarto livello sopra i teoremi portanti.
+
 ## Pilota
 
 Meccanica classica + analisi complessa, alternate.

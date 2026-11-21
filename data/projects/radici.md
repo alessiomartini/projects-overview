@@ -2,17 +2,18 @@
 title: "Radici"
 status: in-corso
 kind: self-study
-summary: "Un metodo e un sito locale per ripassare e consolidare tutto ciò che ho studiato (e imparare il nuovo): ripetizione spaziata, derivazioni a mano, teoremi portanti e connessioni fra campi."
+summary: "Un metodo e un sito per ripassare e consolidare tutto ciò che ho studiato (e imparare il nuovo): ripetizione spaziata, derivazioni a mano, teoremi portanti e connessioni fra campi."
 tags: [studio, ripetizione-spaziata, fisica, matematica]
 repo: alessiomartini/radici
+url: https://alessiomartini.github.io/radici/
 started: 2026-11-21
 ---
 
 ## Idea
 
 Tenere vive le basi (bachelor e ogni corso seguito) e diventare bravo a **derivare**
-le cose, non solo a parlarne. Un sito che gira sul PC (sessione alla scrivania, non al telefono) e fa tutto:
-anche la ripetizione spaziata, senza Anki a parte.
+le cose, non solo a parlarne. Un sito pubblico (GitHub Pages), pensato per la sessione alla scrivania, che fa tutto:
+anche la ripetizione spaziata, senza Anki a parte. Progressi nel browser con backup esportabile.
 
 ## Metodo (evidenza)
 

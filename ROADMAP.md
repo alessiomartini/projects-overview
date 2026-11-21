@@ -21,9 +21,10 @@
 
 - [ ] Language rule (2026-11-21): every project in English or bilingual EN/IT. Italian-only today, to fix:
   - [x] projects-overview: README.md, CLAUDE.md, ROADMAP.md, templates and automation prompts (translated 2026-11-21)
-  - [ ] eating-amsterdam: README.md (says "notes stay in Italian"), ROADMAP.md
+  - [x] eating-amsterdam: README.md (says "notes stay in Italian"), ROADMAP.md
   - [ ] job-news: README.md, ROADMAP.md (or close the repo: merged into job-research-website on 2026-10-25; it has no card in `data/projects/`, so nothing to remove here)
   - [ ] Mostly-Italian ROADMAP.md: geopolitics-atlas, mountain-huts-map, realtime-earth, ear-training, markets-first-principles, amsterdam-events, music-library, music-library-offline, alessiomartini.github.io, lecture-notes x3, wikipedia-attention-etf-volatility, notebooks x2, anki-decks, conceptual-map-physics-math (mixed), the 13 archive/bsc/msc repos (boilerplate)
+    - 🤖 2026-11-21: translated in all of them except realtime-earth, and geopolitics-atlas and lecture-notes-mit-18642-math-finance (open docs-cleanup PRs #42 and #9)
   - [x] Template `templates/ROADMAP.md` (HTML comment and headings) in English; the parser (`src/lib/roadmap.ts`, `scripts/build-home.py`) accepts both the English and Italian `##` names, with unit tests
   - [ ] Historical artifacts (theses, reports, Italian code comments): do not translate, add an Italian summary to the English README instead
   - [ ] Decide whether private personal repos and the Italian card tips in anki-decks are exempt
@@ -39,7 +40,7 @@ Calendar with commits (2026-10-19): `scripts/fetch-repos.mjs` collects the commi
 Special section names (2026-11-21): the parser accepts `## Ideas`/`## Idee` and `## Decisions and things tried`/`## Decisions`/`## Decisioni e cose provate` (checkboxes in the decisions section are ignored), plus `## Log`.
 
 ## Log
-- 2026-11-21: 🤖 Docs cleanup: translated README, CLAUDE.md, ROADMAP, templates and automation prompts to English (improved the prompts: duplicate check, stop rules, clearer lock rule); parser now accepts the English special sections `## Ideas` and `## Decisions and things tried`, with tests. Audit of instructions, README and ROADMAP of all repos; new rule: projects in English or bilingual EN/IT, list of repos to fix. 🤖 Site UI translated to English (routes and data values unchanged).
+- 2026-11-21: 🤖 Docs cleanup: translated README, CLAUDE.md, ROADMAP, templates and automation prompts to English (improved the prompts: duplicate check, stop rules, clearer lock rule); parser now accepts the English special sections `## Ideas` and `## Decisions and things tried`, with tests. Audit of instructions, README and ROADMAP of all repos; new rule: projects in English or bilingual EN/IT, list of repos to fix. 🤖 Site UI translated to English (routes and data values unchanged). 🤖 Evening sprint: ROADMAPs of 25 repos and the eating-amsterdam README translated to English; site UI in English.
 - 2026-11-14: site notes sorted; grocery-list is no longer paused (used often); idea for a sauna map in `data/inbox/`
 - 2026-11-07: 🤖 ticked "Replace the example projects": `data/projects/` now holds only real cards, no examples.
 - 2026-11-06: added the Feedback button (`public/js/notes-widget.js`, POST to the site-notes Worker with a local queue) to all pages; needs the site-notes deploy. Canonical note widget v2 (site-notes/widget) replaces the old feedback. Note widget aligned to the final version (key#field migration, dedupe), ?v=3.

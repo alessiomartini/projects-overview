@@ -28,7 +28,7 @@ const { project: p } = Astro.props;
   {
     p.doing.length > 0 && (
       <div class="list small">
-        <span class="lbl">In corso</span>
+        <span class="lbl">In progress</span>
         <ul>
           {p.doing.map((t) => <li set:html={inlineMarkdown(t)} />)}
         </ul>
@@ -38,7 +38,7 @@ const { project: p } = Astro.props;
   {
     p.todo.length > 0 && (
       <div class="list small">
-        <span class="lbl">Da fare</span>
+        <span class="lbl">To do</span>
         <ul>
           {p.todo.map((t) => <li set:html={inlineMarkdown(t)} />)}
         </ul>

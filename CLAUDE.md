@@ -10,7 +10,7 @@ Run test, check and build after changing `src/lib/` or the parser. A wrong front
 - A new project is a card in `data/projects/<slug>.md` with `status: idea`.
 - `data/inbox/<date>.md` holds loose ideas (frontmatter `date`, one line). `data/order.json` is written by the site's drag and drop; don't hand-edit it.
 - `templates/` is copied into project repos. The roadmap parser accepts English and Italian special sections (`## Ideas`/`## Idee`, `## Decisions and things tried`/`## Decisioni e cose provate`, `## Log`); keep `src/lib/roadmap.ts` and `scripts/build-home.py` in sync.
-- Language: docs, roadmap and commits in English. The site UI is still Italian (see ROADMAP.md).
+- Language: docs, roadmap and commits in English. The site UI is in English (routes such as `calendario/` and data values such as `in-corso` stay Italian).
 
 ## Privacy
 The repo and the site are public. Put only ideas in neutral words here: no names of people, feelings, health or personal context. If an idea cannot be separated from the private part, leave it out and tell Alessio.

@@ -17,7 +17,7 @@ interface Props {
 }
 
 const fmt = (iso: string) =>
-  new Date(iso).toLocaleString('it-IT', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+  new Date(iso).toLocaleString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
 const sortIdeas = (ideas: Idea[]) => [...ideas].sort((a, b) => b.date.localeCompare(a.date));
 
@@ -79,21 +79,21 @@ export default function InboxList({ initial }: Props) {
   }
 
   const toProject = (idea: Idea) => {
-    const title = window.prompt('Nome del nuovo progetto:', idea.text.split('\n')[0].slice(0, 60));
+    const title = window.prompt('Name of the new project:', idea.text.split('\n')[0].slice(0, 60));
     if (!title?.trim()) return;
     const slug = slugify(title);
     withIdea(idea, async () => {
-      await writeFile(`data/projects/${slug}.md`, projectFile(title.trim(), idea.text), `Nuovo progetto: ${title.trim()}`);
-      await deleteFile(idea.path, idea.sha!, `Inbox → progetto ${slug}`);
-      return `Creato il progetto "${title.trim()}" (stato: idea). Comparirà nel sito tra un paio di minuti, al termine del deploy.`;
+      await writeFile(`data/projects/${slug}.md`, projectFile(title.trim(), idea.text), `New project: ${title.trim()}`);
+      await deleteFile(idea.path, idea.sha!, `Inbox → project ${slug}`);
+      return `Created the project "${title.trim()}" (status: idea). It will appear on the site in a couple of minutes, after the deploy.`;
     });
   };
 
   const remove = (idea: Idea) => {
-    if (!window.confirm('Eliminare questa idea? (resta comunque nella cronologia git)')) return;
+    if (!window.confirm('Delete this idea? (it stays in the git history)')) return;
     withIdea(idea, async () => {
-      await deleteFile(idea.path, idea.sha!, 'Inbox: idea eliminata');
-      return 'Idea eliminata.';
+      await deleteFile(idea.path, idea.sha!, 'Inbox: idea deleted');
+      return 'Idea deleted.';
     });
   };
 
@@ -106,7 +106,7 @@ export default function InboxList({ initial }: Props) {
       )}
       {msg && <p class={`msg ${msg.kind}`}>{msg.text}</p>}
       {ideas.length === 0 ? (
-        <p class="muted">Nessuna idea in attesa. 🎉</p>
+        <p class="muted">No ideas waiting. 🎉</p>
       ) : (
         <ul class="ideas">
           {ideas.map((idea) => (
@@ -118,10 +118,10 @@ export default function InboxList({ initial }: Props) {
                 {token && live && (
                   <>
                     <button type="button" disabled={busy === idea.path} onClick={() => toProject(idea)}>
-                      → Progetto
+                      → Project
                     </button>
                     <button type="button" class="danger" disabled={busy === idea.path} onClick={() => remove(idea)}>
-                      Elimina
+                      Delete
                     </button>
                   </>
                 )}

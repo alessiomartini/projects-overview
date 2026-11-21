@@ -9,9 +9,9 @@ const ideas = await getIdeas();
 
 <Base title="Inbox" active="inbox">
   <h1>Inbox</h1>
-  <p class="muted">Idee buttate giù al volo. Quando una ti convince, trasformala in progetto.</p>
+  <p class="muted">Ideas jotted down on the fly. When one convinces you, turn it into a project.</p>
   <p class="view-only card small">
-    Per scrivere idee da qui attiva la <a href={url('impostazioni/')}>modalità modifica</a>.
+    To write ideas from here, turn on <a href={url('impostazioni/')}>edit mode</a>.
   </p>
   <InboxList client:load initial={ideas.map((i) => ({ path: i.path, date: i.date.toISOString(), text: i.text }))} />
 </Base>

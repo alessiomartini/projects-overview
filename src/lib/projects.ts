@@ -4,25 +4,25 @@ export const STATUSES = ['in-corso', 'idea', 'in-pausa', 'finito', 'abbandonato'
 export type Status = (typeof STATUSES)[number];
 
 export const STATUS_LABEL: Record<Status, string> = {
-  'in-corso': 'In corso',
+  'in-corso': 'In progress',
   idea: 'Idea',
-  'in-pausa': 'In pausa',
-  finito: 'Finito',
-  abbandonato: 'Abbandonato',
+  'in-pausa': 'Paused',
+  finito: 'Done',
+  abbandonato: 'Abandoned',
 };
 
 export const KINDS = ['web', 'ricerca', 'self-study', 'android', 'school', 'automazione', 'dati', 'strumento'] as const;
 export type Kind = (typeof KINDS)[number];
 
 export const KIND_LABEL: Record<Kind, string> = {
-  web: 'Sito web',
-  ricerca: 'Ricerca',
+  web: 'Website',
+  ricerca: 'Research',
   'self-study': 'Self-study',
-  android: 'App Android',
+  android: 'Android app',
   school: 'School',
-  automazione: 'Automazione',
-  dati: 'Dati personali',
-  strumento: 'Strumento / CLI',
+  automazione: 'Automation',
+  dati: 'Personal data',
+  strumento: 'Tool / CLI',
 };
 
 /** Sezioni della home */
@@ -30,10 +30,10 @@ export const SECTIONS = ['attivi', 'idee', 'niente', 'archiviati'] as const;
 export type Section = (typeof SECTIONS)[number];
 
 export const SECTION_LABEL: Record<Section, string> = {
-  attivi: 'In corso / da fare',
-  idee: 'Idee (non ancora iniziati)',
-  niente: 'Niente da fare',
-  archiviati: 'Archiviati / chiusi',
+  attivi: 'In progress / to do',
+  idee: 'Ideas (not started yet)',
+  niente: 'Nothing to do',
+  archiviati: 'Archived / closed',
 };
 
 /** Dati di un repo raccolti da scripts/fetch-repos.mjs */
@@ -134,7 +134,7 @@ export function buildProjectView(
   const todo: string[] = [];
   if (!detailsHidden) {
     for (const phase of roadmap.phases) {
-      const target = /in corso|doing|wip/i.test(phase.title) ? doing : todo;
+      const target = /in corso|in progress|doing|wip/i.test(phase.title) ? doing : todo;
       for (const item of phase.items) if (!item.done && item.depth === 0) target.push(item.text);
     }
   }
@@ -179,7 +179,7 @@ export function sortByPriority<T extends { slug: string; title: string; status: 
     const ia = index.get(a.slug) ?? Infinity;
     const ib = index.get(b.slug) ?? Infinity;
     if (ia !== ib) return ia - ib;
-    return a.title.localeCompare(b.title, 'it');
+    return a.title.localeCompare(b.title, 'en');
   });
   let rank = 0;
   for (const p of sorted) {

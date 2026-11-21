@@ -1,6 +1,6 @@
 # Projects Overview
 
-Overview of all my projects (ideas, in progress, paused, finished) with progress that updates itself. The site UI is currently in Italian.
+Overview of all my projects (ideas, in progress, paused, finished) with progress that updates itself. The site UI is in English (route names and frontmatter values such as `in-corso` stay Italian).
 
 🌐 **https://alessiomartini.github.io/projects-overview/**
 
@@ -19,7 +19,7 @@ Overview of all my projects (ideas, in progress, paused, finished) with progress
    to the project repos and *Contents: Read-only* (and *Metadata: Read-only*) permission, then save it
    as the `REPOS_TOKEN` secret in *Settings → Secrets and variables → Actions*.
 3. **Edit mode on the site**: create a second fine-grained token with access **only** to
-   `projects-overview` and *Contents: Read and write* permission. Open the site's ⚙︎ *Impostazioni* (Settings) page
+   `projects-overview` and *Contents: Read and write* permission. Open the site's ⚙︎ *Settings* (`/impostazioni/`) page
    and paste it. It stays stored on that device only; repeat on the phone.
    On the phone use "Add to Home screen": it opens directly on the Inbox.
 4. Replace the example projects in `data/projects/` with your own.

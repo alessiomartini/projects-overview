@@ -31,9 +31,9 @@ export default function StatusEditor({ slug, status, statusLabels }: Props) {
       const fm = content.slice(0, fmEnd);
       if (value === 'in-corso' && !/^started:/m.test(fm)) content = content.slice(0, fmEnd) + `\nstarted: ${today}` + content.slice(fmEnd);
       if (value === 'finito' && !/^finished:/m.test(fm)) content = content.slice(0, fmEnd) + `\nfinished: ${today}` + content.slice(fmEnd);
-      await writeFile(path, content, `${slug}: stato → ${value}`, file.sha);
+      await writeFile(path, content, `${slug}: status → ${value}`, file.sha);
       setSaved(value);
-      setMsg({ kind: 'ok', text: 'Salvato ✓ Visibile nel sito dopo il deploy (~2 min).' });
+      setMsg({ kind: 'ok', text: 'Saved ✓ Visible on the site after the deploy (~2 min).' });
     } catch (e) {
       setMsg({ kind: 'error', text: errorMessage(e) });
     } finally {
@@ -44,7 +44,7 @@ export default function StatusEditor({ slug, status, statusLabels }: Props) {
   return (
     <div class="status-editor">
       <div class="row">
-        <select value={value} onChange={(e) => setValue((e.target as HTMLSelectElement).value)} style={{ width: 'auto' }} aria-label="Stato del progetto">
+        <select value={value} onChange={(e) => setValue((e.target as HTMLSelectElement).value)} style={{ width: 'auto' }} aria-label="Project status">
           {Object.entries(statusLabels).map(([k, v]) => (
             <option value={k} key={k}>
               {v}
@@ -52,7 +52,7 @@ export default function StatusEditor({ slug, status, statusLabels }: Props) {
           ))}
         </select>
         <button type="button" class="primary" onClick={save} disabled={busy || value === saved}>
-          {busy ? 'Salvo…' : 'Cambia stato'}
+          {busy ? 'Saving…' : 'Change status'}
         </button>
       </div>
       {msg && <p class={`msg ${msg.kind}`}>{msg.text}</p>}

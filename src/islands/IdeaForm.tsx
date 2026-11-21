@@ -32,7 +32,7 @@ export default function IdeaForm({ autoFocus, onSaved }: Props) {
       const firstLine = value.split('\n')[0].slice(0, 60);
       const sha = await writeFile(path, stringifyFrontmatter({ date }, value), `Inbox: ${firstLine}`);
       setText('');
-      setMsg({ kind: 'ok', text: 'Idea salvata ✓' });
+      setMsg({ kind: 'ok', text: 'Idea saved ✓' });
       onSaved?.({ path, sha, date, text: value });
       window.dispatchEvent(new CustomEvent('po-idea-added', { detail: { path, sha, date, text: value } }));
     } catch (err) {
@@ -50,14 +50,14 @@ export default function IdeaForm({ autoFocus, onSaved }: Props) {
         onKeyDown={(e) => {
           if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) save(e);
         }}
-        placeholder="Un'idea nuova, qualcosa da cambiare, un progetto da iniziare…"
-        aria-label="Testo dell'idea"
+        placeholder="A new idea, something to change, a project to start…"
+        aria-label="Idea text"
         autoFocus={autoFocus}
         rows={4}
       />
       <div class="row" style={{ marginTop: '8px' }}>
         <button class="primary" type="submit" disabled={saving || !text.trim()}>
-          {saving ? 'Salvo…' : 'Salva idea'}
+          {saving ? 'Saving…' : 'Save idea'}
         </button>
         {msg && <span class={`msg ${msg.kind}`} style={{ margin: 0 }}>{msg.text}</span>}
       </div>

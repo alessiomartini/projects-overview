@@ -2,19 +2,19 @@ const DAY = 24 * 60 * 60 * 1000;
 
 export function formatDate(value: string | Date): string {
   const d = typeof value === 'string' ? new Date(value) : value;
-  return d.toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 }
 
 export function relativeDate(value: string | Date, now = new Date()): string {
   const d = typeof value === 'string' ? new Date(value) : value;
   const days = Math.floor((now.getTime() - d.getTime()) / DAY);
-  if (days <= 0) return 'oggi';
-  if (days === 1) return 'ieri';
-  if (days < 30) return `${days} giorni fa`;
+  if (days <= 0) return 'today';
+  if (days === 1) return 'yesterday';
+  if (days < 30) return `${days} days ago`;
   const months = Math.floor(days / 30);
-  if (months < 12) return months === 1 ? '1 mese fa' : `${months} mesi fa`;
+  if (months < 12) return months === 1 ? '1 month ago' : `${months} months ago`;
   const years = Math.floor(days / 365);
-  return years <= 1 ? '1 anno fa' : `${years} anni fa`;
+  return years <= 1 ? '1 year ago' : `${years} years ago`;
 }
 
 const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');

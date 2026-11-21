@@ -30,23 +30,23 @@ const showRepoRoadmap = project.roadmapSource === 'repo';
 ---
 
 <Base title={project.title}>
-  <p class="small"><a href={url()}>← Tutti i progetti</a></p>
+  <p class="small"><a href={url()}>← All projects</a></p>
 
   <header class="project-head">
     <div class="row">
       <h1>{project.title}</h1>
       <StatusBadge status={project.status} />
-      {project.rank > 0 && <span class="badge" title="Priorità tra i progetti attivi">priorità #{project.rank}</span>}
+      {project.rank > 0 && <span class="badge" title="Priority among active projects">priority #{project.rank}</span>}
       <Badges badges={project.badges} />
     </div>
     <div class="row small links">
       {project.tags.map((t) => <span class="tag">{t}</span>)}
       {r?.url && <a href={r.url}>Repo ↗</a>}
-      {project.link && <a href={project.link}>Sito / demo ↗</a>}
-      {project.started && <span class="muted">Iniziato {formatDate(project.started)}</span>}
-      {project.finished && <span class="muted">· Finito {formatDate(project.finished)}</span>}
+      {project.link && <a href={project.link}>Site / demo ↗</a>}
+      {project.started && <span class="muted">Started {formatDate(project.started)}</span>}
+      {project.finished && <span class="muted">· Finished {formatDate(project.finished)}</span>}
       <span class="spacer"></span>
-      <a class="edit-only" href={editUrl}>Modifica file ↗</a>
+      <a class="edit-only" href={editUrl}>Edit file ↗</a>
     </div>
     {project.progress && <div class="head-progress"><span data-kind={project.kind}><ProgressRing progress={project.progress} size={64} /></span></div>}
   </header>
@@ -68,7 +68,7 @@ const showRepoRoadmap = project.roadmapSource === 'repo';
               <RoadmapView roadmap={project.roadmap} />
             )}
             <p class="muted small source">
-              Letta da <code>ROADMAP.md</code> in <a href={r?.url}>{project.repo}</a>, aggiornata automaticamente.
+              Read from <code>ROADMAP.md</code> in <a href={r?.url}>{project.repo}</a>, updated automatically.
             </p>
           </section>
         )
@@ -77,7 +77,7 @@ const showRepoRoadmap = project.roadmapSource === 'repo';
       {
         entry.body?.trim() && (
           <section class="card prose">
-            <h2>{showRepoRoadmap ? 'Descrizione' : 'Dettagli'}</h2>
+            <h2>{showRepoRoadmap ? 'Description' : 'Details'}</h2>
             <Content />
           </section>
         )
@@ -87,8 +87,8 @@ const showRepoRoadmap = project.roadmapSource === 'repo';
         project.repo && r && !r.ok && (
           <section class="card">
             <p class="muted small">
-              Non sono riuscito a leggere il repo <code>{project.repo}</code> ({r.error}). Se è privato, controlla che il secret
-              <code>REPOS_TOKEN</code> abbia accesso.
+              Could not read the repo <code>{project.repo}</code> ({r.error}). If it is private, check that the secret
+              <code>REPOS_TOKEN</code> has access.
             </p>
           </section>
         )
@@ -97,8 +97,8 @@ const showRepoRoadmap = project.roadmapSource === 'repo';
         project.repo && r?.ok && !r.roadmap && (
           <section class="card">
             <p class="muted small">
-              Il repo non ha ancora un <code>ROADMAP.md</code>: aggiungilo (vedi <code>templates/</code>) per avere avanzamento e diario
-              automatici.
+              The repo does not have a <code>ROADMAP.md</code> yet: add one (see <code>templates/</code>) to get progress and log
+              automatically.
             </p>
           </section>
         )
@@ -107,7 +107,7 @@ const showRepoRoadmap = project.roadmapSource === 'repo';
       {
         showRepoRoadmap && project.roadmap.log.length > 0 && !project.detailsHidden && (
           <section class="card">
-            <h2>Diario</h2>
+            <h2>Log</h2>
             <LogTimeline log={project.roadmap.log} />
           </section>
         )
@@ -116,12 +116,12 @@ const showRepoRoadmap = project.roadmapSource === 'repo';
 
     <aside class="side-col">
       <section class="card edit-only">
-        <h2>Stato</h2>
+        <h2>Status</h2>
         <StatusEditor client:idle slug={project.slug} status={project.status} statusLabels={STATUS_LABEL} />
       </section>
 
       <section class="card">
-        <h2>Note</h2>
+        <h2>Notes</h2>
         <ProjectNotes
           client:load
           slug={project.slug}
@@ -138,11 +138,11 @@ const showRepoRoadmap = project.roadmapSource === 'repo';
       {
         r?.ok && (
           <section class="card">
-            <h2>Attività</h2>
+            <h2>Activity</h2>
             <dl class="activity small">
               {r.lastCommit && (
                 <>
-                  <dt>Ultimo commit</dt>
+                  <dt>Last commit</dt>
                   <dd>
                     {project.detailsHidden ? (
                       relativeDate(r.lastCommit.date)
@@ -156,11 +156,11 @@ const showRepoRoadmap = project.roadmapSource === 'repo';
               )}
               <dt>Commit</dt>
               <dd>
-                {r.commits7} negli ultimi 7 giorni · {r.commits30} in 30 giorni
+                {r.commits7} in the last 7 days · {r.commits30} in 30 days
               </dd>
               {r.latestRelease && (
                 <>
-                  <dt>Ultima release</dt>
+                  <dt>Latest release</dt>
                   <dd>
                     <a href={r.latestRelease.url}>{r.latestRelease.tag}</a> ({formatDate(r.latestRelease.date)})
                   </dd>

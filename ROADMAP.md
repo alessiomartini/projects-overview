@@ -17,7 +17,7 @@
 - [x] Home redesigned: colours by kind, progress ring, in-progress/to-do lists, 3 sections, light/dark theme
 - [ ] Decide by hand which projects are finished
 - [x] Calendar: filter by project/kind and count commits too (not only Log entries)
-- [ ] Translate the site UI (Italian today) to English or bilingual
+- [x] Translate the site UI (Italian today) to English or bilingual
 
 - [ ] Language rule (2026-11-21): every project in English or bilingual EN/IT. Italian-only today, to fix:
   - [x] projects-overview: README.md, CLAUDE.md, ROADMAP.md, templates and automation prompts (translated 2026-11-21)
@@ -39,7 +39,7 @@ Calendar with commits (2026-10-19): `scripts/fetch-repos.mjs` collects the commi
 Special section names (2026-11-21): the parser accepts `## Ideas`/`## Idee` and `## Decisions and things tried`/`## Decisions`/`## Decisioni e cose provate` (checkboxes in the decisions section are ignored), plus `## Log`.
 
 ## Log
-- 2026-11-21: 🤖 Docs cleanup: translated README, CLAUDE.md, ROADMAP, templates and automation prompts to English (improved the prompts: duplicate check, stop rules, clearer lock rule); parser now accepts the English special sections `## Ideas` and `## Decisions and things tried`, with tests. Audit of instructions, README and ROADMAP of all repos; new rule: projects in English or bilingual EN/IT, list of repos to fix.
+- 2026-11-21: 🤖 Docs cleanup: translated README, CLAUDE.md, ROADMAP, templates and automation prompts to English (improved the prompts: duplicate check, stop rules, clearer lock rule); parser now accepts the English special sections `## Ideas` and `## Decisions and things tried`, with tests. Audit of instructions, README and ROADMAP of all repos; new rule: projects in English or bilingual EN/IT, list of repos to fix. 🤖 Site UI translated to English (routes and data values unchanged).
 - 2026-11-14: site notes sorted; grocery-list is no longer paused (used often); idea for a sauna map in `data/inbox/`
 - 2026-11-07: 🤖 ticked "Replace the example projects": `data/projects/` now holds only real cards, no examples.
 - 2026-11-06: added the Feedback button (`public/js/notes-widget.js`, POST to the site-notes Worker with a local queue) to all pages; needs the site-notes deploy. Canonical note widget v2 (site-notes/widget) replaces the old feedback. Note widget aligned to the final version (key#field migration, dedupe), ?v=3.

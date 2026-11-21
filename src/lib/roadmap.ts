@@ -18,7 +18,7 @@ export interface LogEntry {
 
 export interface Roadmap {
   phases: Phase[];
-  /** Voci della sezione "## Idee": mostrate a parte, non contano nell'avanzamento. */
+  /** Items of "## Idee" / "## Ideas": shown separately, not counted in progress. */
   ideas: RoadmapItem[];
   log: LogEntry[];
   done: number;
@@ -29,6 +29,8 @@ const HEADING = /^(#{1,6})\s+(.*?)\s*#*\s*$/;
 const CHECKBOX = /^(\s*)[-*+]\s+\[([ xX])\]\s+(.*)$/;
 const LOG_TITLE = /^(log|diario|changelog|registro|progressi)\b/i;
 const IDEAS_TITLE = /^(idee|ideas)\b/i;
+/** "Decisioni e cose provate" / "Decisions and things tried" / "Decisions": prose, never counted. */
+const DECISIONS_TITLE = /^(decisioni|decisions)\b/i;
 const DATE = /(\d{4}-\d{2}-\d{2})/;
 const LOG_BULLET = /^\s*[-*+]\s+(?:\*\*|__)?(\d{4}-\d{2}-\d{2})(?:\*\*|__)?\s*[:\-–—]?\s*(.*)$/;
 const PLAIN_BULLET = /^\s*[-*+]\s+(.*)$/;
@@ -37,12 +39,14 @@ const PLAIN_BULLET = /^\s*[-*+]\s+(.*)$/;
  * Legge un ROADMAP.md (o il corpo di un progetto) e ne estrae:
  * - le fasi (una per titolo) con le checklist `- [ ]` / `- [x]`
  * - il diario, dalla sezione "## Log" (righe `- AAAA-MM-GG: testo` o sottotitoli con data)
- * - le idee, dalla sezione "## Idee" (fuori dalla percentuale)
+ * - le idee, dalla sezione "## Idee" o "## Ideas" (fuori dalla percentuale)
+ * - "## Decisioni e cose provate" / "## Decisions and things tried": ignorata
  */
 export function parseRoadmap(markdown: string): Roadmap {
   const phases: Phase[] = [];
   const log: LogEntry[] = [];
   const ideas: Phase = { title: 'Idee', items: [], done: 0, total: 0 };
+  const decisions: Phase = { title: 'Decisions', items: [], done: 0, total: 0 }; // discarded
   let current: Phase = { title: '', items: [], done: 0, total: 0 };
   phases.push(current);
 
@@ -80,6 +84,11 @@ export function parseRoadmap(markdown: string): Roadmap {
         continue;
       }
       if (level === 1) continue; // titolo del documento
+      if (DECISIONS_TITLE.test(title)) {
+        current = decisions;
+        ideasLevel = level;
+        continue;
+      }
       if (IDEAS_TITLE.test(title)) {
         current = ideas;
         ideasLevel = level;

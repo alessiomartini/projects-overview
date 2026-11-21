@@ -10,7 +10,7 @@ DA DOVE VENGONO I DATI
   - cartelle di Projects_Git (una = un progetto); GitHub dal `git remote origin` (URL letto da .git/config)
   - scheda `projects-overview/data/projects/<slug>.md` (titolo, summary, status, kind, tags), collegata alla
     cartella tramite il campo `repo:`; senza scheda: titolo dal nome cartella, descrizione dal README
-  - percentuale: checkbox del ROADMAP.md fuori da "## Idee" e "## Log" (stessa regola di projects-overview)
+  - percentuale: checkbox del ROADMAP.md fuori da "## Idee"/"## Ideas", "## Decisioni.../## Decisions..." e "## Log" (stessa regola di projects-overview)
   - sito live / pagine locali / PDF: tabelle LIVE, LOCAL, PDFS qui sotto (a mano)
 DOVE STA OGNI PROGETTO: tabella SECTIONS qui sotto (a mano; gerarchia = alessio-projects-map.md).
   Un progetto non elencato finisce in "Da collocare" e lo script lo segnala: aggiungilo a SECTIONS.
@@ -132,7 +132,7 @@ def percent(folder):
             lvl = len(h.group(1))
             if skip and lvl > skip:
                 continue
-            skip = lvl if re.match(r'(log|diario|changelog|registro|progressi|idee|ideas)\b', h.group(2), re.I) else 0
+            skip = lvl if re.match(r'(log|diario|changelog|registro|progressi|idee|ideas|decisioni|decisions)\b', h.group(2), re.I) else 0
             continue
         b = re.match(r'\s*[-*+]\s+\[([ xX])\]', line)
         if b and not skip:

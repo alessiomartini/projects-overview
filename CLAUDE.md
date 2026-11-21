@@ -1,22 +1,19 @@
-# Istruzioni per Claude
+# Instructions for Claude
 
-Projects Overview: sito **pubblico** (Astro + Preact, statico, GitHub Pages) che traccia tutti i progetti di Alessio:
-avanzamento letto dal `ROADMAP.md` di ogni repo, inbox di idee, note, priorità, calendario. Setup e formato in `README.md`.
+Projects Overview: a public static site (Astro + Preact, GitHub Pages) tracking Alessio's projects. Setup and data formats are in `README.md`; read it first.
 
-## Dati
-- `data/projects/<slug>.md`: una scheda per progetto (frontmatter: title, status, kind, summary, tags, repo...). Progetto nuovo = `status: idea`.
-- `data/inbox/<data>.md`: idee sciolte (frontmatter `date`, una riga). `data/notes/<slug>/`: note sui progetti. `data/order.json`: priorità (scritto dal drag & drop).
-- `templates/`: `ROADMAP.md`, `CLAUDE.md.snippet` e `notify-tracker.yml` da copiare nei repo dei progetti.
-- Un frontmatter sbagliato (es. `status` inesistente) fa fallire la build indicando file e campo.
+## Commands
+`npm test`, `npm run check`, `npm run build` (use `OFFLINE=1` without network: repo data then comes from `fixtures/repos.json`), `npm run dev` (serves http://localhost:4321/projects-overview/).
+Run test, check and build after changing `src/lib/` or the parser. A wrong frontmatter (e.g. unknown `status`) fails the build and names file and field.
 
-## Comandi
-`npm run dev` (fetch dei repo + sito su http://localhost:4321/projects-overview/), `npm test`, `npm run check`, `npm run build`.
-Con `OFFLINE=1` o repo non raggiungibile si usano i dati di `fixtures/repos.json`.
+## Data conventions
+- A new project is a card in `data/projects/<slug>.md` with `status: idea`.
+- `data/inbox/<date>.md` holds loose ideas (frontmatter `date`, one line). `data/order.json` is written by the site's drag and drop; don't hand-edit it.
+- `templates/` is copied into project repos. The roadmap parser accepts English and Italian special sections (`## Ideas`/`## Idee`, `## Decisions and things tried`/`## Decisioni e cose provate`, `## Log`); keep `src/lib/roadmap.ts` and `scripts/build-home.py` in sync.
+- Language: docs, roadmap and commits in English. The site UI is still Italian (see ROADMAP.md).
 
 ## Privacy
-Il repo e il sito sono pubblici: qui vanno solo idee in parole neutre, niente nomi di persone, sentimenti, salute o contesto personale.
-Se un'idea non si separa dal privato, non inserirla e segnalala ad Alessio.
+The repo and the site are public. Put only ideas in neutral words here: no names of people, feelings, health or personal context. If an idea cannot be separated from the private part, leave it out and tell Alessio.
 
-## Da tenere allineato
-Quando un progetto nasce, si unisce o si sposta, aggiorna insieme: la scheda in `data/projects/`, `E:\Alessio\Projects_Git\home.html`
-e la mappa `~/.claude/rules/alessio-projects-map.md`.
+## Keep in sync
+When a project is created, merged or moved, update together the card in `data/projects/`, the local home page `E:\Alessio\Projects_Git\home.html` and the map `~/.claude/rules/alessio-projects-map.md`. These two files exist only on Alessio's machine; in a cloud session skip them and say so.

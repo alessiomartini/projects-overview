@@ -210,3 +210,4 @@
 - 2026-11-21T19:53:00Z | 5 | geopolitics-atlas, lecture-notes-mit-18642-math-finance | ROADMAP translation check: already English, nothing to do | skipped | -
 - 2026-11-21T19:53:00Z | 5 | job-news | README/ROADMAP translation: repo is archived (push 403), not unarchived | failed | -
 - 2026-11-21T20:00:00Z | 0 | (sprint) | Stop: the other open items are in repos another session pushed to in the last 3 hours (grocery-list, markets-first-principles, realtime-earth, job-research-website, music-library) or need Alessio/real data | skipped | -
+- 2026-11-21T20:52:00Z | 10 | music-library | Key check of «E cerca 'e me capi»: score is in D major, originalKey Bb/capo 1 is inconsistent; needs the original recording, analysis in ROADMAP, item left open | merged | https://github.com/alessiomartini/music-library/pull/62

@@ -212,3 +212,4 @@
 - 2026-11-21T20:00:00Z | 0 | (sprint) | Stop: the other open items are in repos another session pushed to in the last 3 hours (grocery-list, markets-first-principles, realtime-earth, job-research-website, music-library) or need Alessio/real data | skipped | -
 - 2026-11-21T20:52:00Z | 10 | music-library | Key check of «E cerca 'e me capi»: score is in D major, originalKey Bb/capo 1 is inconsistent; needs the original recording, analysis in ROADMAP, item left open | merged | https://github.com/alessiomartini/music-library/pull/62
 - 2026-11-21T20:52:00Z | 6 | realtime-earth, job-research-website | ROADMAP translated to English (language rule), ROADMAP-only diffs | merged | https://github.com/alessiomartini/realtime-earth/pull/26
+- 2026-11-21T20:52:00Z | 14 | grocery-list | Catalog matching for Italian/English plurals (pomodori→pomodoro, funghi, uova; exact match still wins), 5 new tests, CI green | merged | https://github.com/alessiomartini/grocery-list/pull/21

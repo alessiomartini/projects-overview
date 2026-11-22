@@ -37,7 +37,7 @@ SECTIONS = [
     ('Finanza e quant', [('markets-first-principles', [
         'mit-18642-lecture-notes', 'lecture-notes-economics-of-money-and-banking-Perry-Mehrling',
         'notebooks-econophysics-benzaquen', 'wikipedia-attention-etf-volatility']), ('mental-math', [])]),
-    ('Capire il mondo', [('capire-il-mondo', ['geopolitics-atlas', 'world-economies-map', 'realtime-earth'])]),
+    ('Capire il mondo', [('capire-il-mondo', ['geopolitics-atlas', 'world-economies-map', 'realtime-earth', 'analisi-figure-politiche'])]),
     ('Musica', [('music-library', ['music-library-offline']), ('ear-training', [])]),
     ('Amsterdam', [('eating-amsterdam', []), ('amsterdam-events', [])]),
     ('Studio e corsi', [
